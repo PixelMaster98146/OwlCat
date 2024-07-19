@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://cup2stodill18"]
+
+[ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="1_ju3e7"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_hsxq6")
+
+[node name="Bar" type="Node3D" parent="."]
+
+[node name="Title Screen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Title Screen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -160.0
+offset_right = 80.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartGame" type="Button" parent="Title Screen/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.666667, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_font_sizes/font_size = 32
+text = "Start game"
+
+[node name="Options" type="Button" parent="Title Screen/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WeekDay" type="Label" parent="HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_font_sizes/font_size = 48
+text = "Week x: Day x"
+
+[node name="Pause Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Title Screen/HBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Title Screen/HBoxContainer/Options" to="." method="_on_options_pressed"]

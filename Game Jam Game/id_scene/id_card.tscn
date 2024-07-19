@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy0f30o4rdedu"]
+
+[ext_resource type="Script" path="res://id_scene/id_card.gd" id="1_8wg6h"]
+
+[node name="IDCard" type="Node3D"]
+script = ExtResource("1_8wg6h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="DOB" type="Label3D" parent="."]
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "D.O.B: xxx"
+outline_size = 1
+
+[node name="Photo" type="Sprite3D" parent="."]
+
+[node name="Occupation" type="Label3D" parent="."]
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Occupation: xxx"
+outline_size = 1
+
+[node name="Name" type="Label3D" parent="."]
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "[Last, First]"
+outline_size = 1
+
+[node name="StateSuburb" type="Label3D" parent="."]
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "[State Suburb]"
+outline_size = 1
