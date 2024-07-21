@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3yv1f31b7ory"]
+
+[ext_resource type="Script" path="res://test_drag_mechanics/PlayerCam.gd" id="1_on4s0"]
+[ext_resource type="Script" path="res://test_drag_mechanics/RayCast3D.gd" id="2_jchfj"]
+[ext_resource type="PackedScene" uid="uid://dn65bu4be5mhc" path="res://potion_scene/3d_potions.tscn" id="3_50plf"]
+[ext_resource type="PackedScene" uid="uid://bit2k8cxo3rjl" path="res://test_drag_mechanics/mix_area.tscn" id="4_byvr8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lcss7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_huco4"]
+sky_material = SubResource("ProceduralSkyMaterial_lcss7")
+
+[sub_resource type="Environment" id="Environment_y1rh8"]
+background_mode = 2
+sky = SubResource("Sky_huco4")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_75aid"]
+
+[node name="PlayerCam" type="Node3D"]
+script = ExtResource("1_on4s0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y1rh8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878683, 0)
+mesh = SubResource("CapsuleMesh_75aid")
+
+[node name="Head" type="Node3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122679, 0.736819, -0.00525028)
+
+[node name="Camera3D" type="Camera3D" parent="MeshInstance3D/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.313402, -0.00106788, 0.0334892)
+
+[node name="RayCast3D" type="RayCast3D" parent="MeshInstance3D/Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190723, -0.215555, -0.0282389)
+target_position = Vector3(0, 0, -30)
+hit_from_inside = true
+script = ExtResource("2_jchfj")
+
+[node name="Grabby" type="Node3D" parent="MeshInstance3D/Head/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190723, -0.134136, -3.44275)
+
+[node name="3Dpotion" parent="." groups=["grab"] instance=ExtResource("3_50plf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0662723, 3.02902, -4.32979)
+
+[node name="MixArea" parent="." instance=ExtResource("4_byvr8")]
+transform = Transform3D(-2.18557e-07, 5, 0, -5, -2.18557e-07, 0, 0, 0, 5, -2.15128, 1.11576, -4.24723)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn65bu4be5mhc"]
+
+[ext_resource type="Script" path="res://potion_scene/3d_potions.gd" id="1_r4vk7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_52i4p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eisu5"]
+
+[node name="Potion" type="RigidBody3D" groups=["grab"]]
+script = ExtResource("1_r4vk7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_52i4p")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_eisu5")
+
+[node name="Area3D" type="Area3D" parent="." groups=["grab"]]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_eisu5")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

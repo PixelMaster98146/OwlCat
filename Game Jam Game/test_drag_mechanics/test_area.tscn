@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c31efeumitpig"]
+
+[ext_resource type="PackedScene" uid="uid://b3yv1f31b7ory" path="res://test_drag_mechanics/PlayerCam.tscn" id="1_ejlj6"]
+[ext_resource type="Script" path="res://test_drag_mechanics/potion_spawn.gd" id="1_gyb0i"]
+[ext_resource type="PackedScene" uid="uid://bit2k8cxo3rjl" path="res://test_drag_mechanics/mix_area.tscn" id="2_kvn72"]
+[ext_resource type="PackedScene" uid="uid://dn65bu4be5mhc" path="res://potion_scene/3d_potions.tscn" id="3_snpi5"]
+[ext_resource type="PackedScene" uid="uid://c3nbbojwkgjwq" path="res://test_drag_mechanics/potion_spawn.tscn" id="4_2uyrq"]
+
+[node name="TestArea" type="Node3D"]
+script = ExtResource("1_gyb0i")
+
+[node name="PlayerCam" parent="." instance=ExtResource("1_ejlj6")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.649994, 0, -3.18846)
+use_collision = true
+size = Vector3(8.21002, 1, 4.74731)
+
+[node name="Node3D" parent="." instance=ExtResource("2_kvn72")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.91338, 1.65108, -3.04524)
+
+[node name="RigidBody3D" parent="." instance=ExtResource("3_snpi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1048, 2.41413, -3.35845)
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("3_snpi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.334344, 2.41413, -3.35845)
+
+[node name="PotionSpawn" parent="." instance=ExtResource("4_2uyrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.30603, -3)
