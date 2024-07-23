@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Of fish yall Piratesoftgame"
-run/main_scene="res://main_scene/main.tscn"
+run/main_scene="res://test_drag_mechanics/bar_gaming.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PotIDs="*res://potion_scene/PotionIDs.gd"
 
 [filesystem]
 
@@ -23,8 +27,3 @@ import/fbx/enabled=false
 
 2d_physics/layer_4="potions"
 2d_physics/layer_5="droparea"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

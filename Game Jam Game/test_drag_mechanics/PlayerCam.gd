@@ -36,6 +36,11 @@ func updatelabelR(results):
 	
 	results_label.text = results
 	
+func resetlabel():
+	itema_label.text = ""
+	itemb_label.text = ""
+	results_label.text = ""
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sens)

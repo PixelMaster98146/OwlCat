@@ -32,8 +32,9 @@ func _process(delta):
 			patrons.grat()
 		else:
 			player_cam.updatelabelR("Fail")
-		#if(results == order[0] + order[1]):
-			#x = 9
+		x = 9
+		resetorders()
+		player_cam.resetlabel()
 		
 
 
@@ -43,6 +44,10 @@ func updateorder(order1,order2):
 	order[1] = order2
 
 
+func resetorders():
+	itemA = null
+	itemB = null
+	x = 0
 
 func _on_area_3d_area_entered(area):
 	if area.is_in_group("grab"):
@@ -54,12 +59,6 @@ func _on_area_3d_area_entered(area):
 		print("Notpot")
 
 
-
-
-
-func _on_child_entered_tree(node):
-	if node.name == "Potion":
-		potion = node
 
 
 func _on_tree_entered():
