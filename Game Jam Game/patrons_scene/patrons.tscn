@@ -1,25 +1,204 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmbd54u5g3ob8"]
+[gd_scene load_steps=11 format=3 uid="uid://dmbd54u5g3ob8"]
 
-[ext_resource type="Script" path="res://patrons_scene/patrons.gd" id="1_2bbt3"]
+[ext_resource type="Script" path="res://patrons_scene/patrons.gd" id="1_3erb7"]
+[ext_resource type="PackedScene" uid="uid://bddl4kpjleksp" path="res://patrons_scene/Patron1.glb" id="1_7tvn0"]
+[ext_resource type="PackedScene" uid="uid://y463rn3dquoq" path="res://patrons_scene/Patron2.glb" id="2_ehgrm"]
+[ext_resource type="PackedScene" uid="uid://dok4ac1k8gna2" path="res://patrons_scene/Patron3.glb" id="3_28xse"]
+[ext_resource type="PackedScene" uid="uid://b450obi3qhl5b" path="res://patrons_scene/Patron4.glb" id="4_wcc27"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_3usf0"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0iu38"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fs558"]
+
+[sub_resource type="Curve3D" id="Curve3D_01lor"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.34793, 0, -17.6884, 0.192398, 0, -1.0247, -0.192398, 0, 1.0247, 9.17937, 0, -10.4877, 2.38064, 0, -2.314, -2.38064, 0, 2.314, 2.91754, 0, -2.618, 0, 0, 0, 0, 0, 0, -7.21419, 0, 4.86764, 0, 0, 0, 0, 0, 0, 7.27553, 0, -10.1242, 0, 0, 0, 0, 0, 0, 7.33589, 0, -13.9269, 0, 0, 0, 0, 0, 0, 4.48349, -0.00012207, -18.1542),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_icrct"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.3738, 0, -17.5849, 0, 0, 0, 0, 0, 0, 9.19002, 0, -10.2702, 0.299431, 0, -0.165139, -0.299431, 0, 0.165139, 10.1539, 0, 10.4607, 0.656861, 0, 0.331804, -0.656861, 0, -0.331804, -6.40947, 0, 10.5249, 0, 0, 0, 0, 0, 0, -7.13897, 0, 4.86278, 0, 0, 0, 0, 0, 0, 7.32228, 0, -10.189, 0, 0, 0, 0, 0, 0, 7.36785, 0, -13.8523, 0, 0, 0, 0, 0, 0, 4.48349, -0.00012207, -18.1542),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_7meuo"]
 
 [node name="Patrons" type="Node3D"]
-script = ExtResource("1_2bbt3")
+script = ExtResource("1_3erb7")
+
+[node name="PatronTimer" type="Timer" parent="."]
+wait_time = 4096.0
 
 [node name="Models" type="Node3D" parent="."]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49248, 0, 4.60452)
+metadata/_edit_group_ = true
+
+[node name="Patron1" parent="Models" instance=ExtResource("1_7tvn0")]
+transform = Transform3D(0.999999, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 0.999999, 0, 0, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron1/CharacterBody3D"]
+shape = SubResource("BoxShape3D_0iu38")
+
+[node name="Patron2" parent="Models" instance=ExtResource("2_ehgrm")]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron2/CharacterBody3D"]
+shape = SubResource("BoxShape3D_0iu38")
+
+[node name="Patron3" parent="Models" instance=ExtResource("3_28xse")]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron3/CharacterBody3D"]
+shape = SubResource("BoxShape3D_0iu38")
+
+[node name="Patron4" parent="Models" instance=ExtResource("4_wcc27")]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron4/CharacterBody3D"]
+shape = SubResource("BoxShape3D_0iu38")
+
+[node name="PatronLeave" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PatronLeave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43841, 0, -18.1359)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="Line" type="Node3D" parent="."]
+
+[node name="Counter" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14516, 0, 4.06099)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp1" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14516, 0, 8.57359)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp2" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86568, 0, 10.241)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp3" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89109, 0, 10.241)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp4" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.878005, 0, 10.241)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp5" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.69041, 0, 10.241)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp6" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59082, 0, 10.241)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp7" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24364, 0, 10.241)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp8" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2192, 0, 7.85566)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="LineUp9" type="Area3D" parent="Line"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line/LineUp9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1827, 0, 4.89286)
+shape = SubResource("BoxShape3D_fs558")
+
+[node name="PatrolPath1" type="Path3D" parent="."]
+curve = SubResource("Curve3D_01lor")
+
+[node name="PathFollow3D1" type="PathFollow3D" parent="PatrolPath1"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999547, 0, 0.0300595, 0, 1, 0, -0.0300595, 0, -0.999547, 9.28173, 0, -13.8914)
+
+[node name="PatrolPath2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_icrct")
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="PathFollow3D8" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="PathFollow3D9" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="PathFollow3D10" type="PathFollow3D" parent="PatrolPath2"]
+unique_name_in_owner = true
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17523, 0)
+light_energy = 16.0
+light_indirect_energy = 0.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.823206, 0.567743, 0, -0.567743, 0.823206, 0, 5.43138, 15.497)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.756158, 0)
-mesh = SubResource("CapsuleMesh_3usf0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44855, 0, -18.1501)
+mesh = SubResource("BoxMesh_7meuo")
 
-[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48189, 0)
-text = "Sample Text
-"
-
-[node name="Label3D2" type="Label3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22198, 0)
-text = "Sample Text
-"
+[connection signal="body_entered" from="PatronLeave" to="." method="_on_patron_leave_body_entered"]
+[connection signal="body_entered" from="Line/Counter" to="." method="_on_counter_body_entered"]
+[connection signal="body_entered" from="Line/LineUp1" to="." method="_on_line_up_1_body_entered"]
+[connection signal="body_entered" from="Line/LineUp2" to="." method="_on_line_up_2_body_entered"]
+[connection signal="body_entered" from="Line/LineUp3" to="." method="_on_line_up_3_body_entered"]
+[connection signal="body_entered" from="Line/LineUp4" to="." method="_on_line_up_4_body_entered"]
+[connection signal="body_entered" from="Line/LineUp5" to="." method="_on_line_up_5_body_entered"]
+[connection signal="body_entered" from="Line/LineUp6" to="." method="_on_line_up_6_body_entered"]
+[connection signal="body_entered" from="Line/LineUp7" to="." method="_on_line_up_7_body_entered"]
+[connection signal="body_entered" from="Line/LineUp8" to="." method="_on_line_up_8_body_entered"]
+[connection signal="body_entered" from="Line/LineUp9" to="." method="_on_line_up_9_body_entered"]

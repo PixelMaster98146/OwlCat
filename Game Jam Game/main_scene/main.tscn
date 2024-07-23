@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=9 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="1_ju3e7"]
@@ -20,6 +20,20 @@ fog_enabled = true
 fog_density = 0.0015
 fog_sky_affect = 0.0
 
+[sub_resource type="Curve3D" id="Curve3D_rmw3c"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.28173, 0, -13.8914, 0.192398, 0, -1.0247, -0.192398, 0, 1.0247, 9.17937, 0, -10.4877, 2.38064, 0, -2.314, -2.38064, 0, 2.314, 2.91754, 0, -2.618, 0, 0, 0, 0, 0, 0, -7.21419, 0, 4.86764),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_dcix8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.32928, 0, -13.8912, 0, 0, 0, 0, 0, 0, 9.19002, 0, -10.2702, 0, 0, 0, 0, 0, 0, 10.1539, 0, 10.4607, 0, 0, 0, 0, 0, 0, -6.40947, 0, 10.5249, 0, 0, 0, 0, 0, 0, -7.13897, 0, 4.86278),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_hsxq6")
 
@@ -28,69 +42,8 @@ script = ExtResource("1_hsxq6")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="bar"]
 environment = SubResource("Environment_u4q4l")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="bar"]
 transform = Transform3D(0.712994, 0.181476, -0.677279, 2.29857e-08, 0.965926, 0.258819, 0.701171, -0.184536, 0.688699, -10.7453, 3.13716, 11.1739)
-
-[node name="Title Screen" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="HBoxContainer" type="VBoxContainer" parent="Title Screen"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -178.0
-offset_right = 80.0
-offset_bottom = -38.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="StartGame" type="Button" parent="Title Screen/HBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Options")
-theme_override_colors/font_color = Color(0, 0.666667, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ju3e7")
-theme_override_font_sizes/font_size = 32
-text = "Start"
-
-[node name="Options" type="Button" parent="Title Screen/HBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../StartGame")
-focus_neighbor_bottom = NodePath("../Credits")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ju3e7")
-theme_override_font_sizes/font_size = 32
-text = "Options"
-
-[node name="Credits" type="Button" parent="Title Screen/HBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Options")
-focus_neighbor_bottom = NodePath("../Quit")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ju3e7")
-theme_override_font_sizes/font_size = 32
-text = "Credits"
-
-[node name="Quit" type="Button" parent="Title Screen/HBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Credits")
-focus_neighbor_bottom = NodePath("../StartGame")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ju3e7")
-theme_override_font_sizes/font_size = 32
-text = "Quit"
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -106,7 +59,68 @@ theme_override_fonts/font = ExtResource("1_ju3e7")
 theme_override_font_sizes/font_size = 48
 text = "Week x: Day x"
 
-[node name="Pause Menu" type="Control" parent="."]
+[node name="TitleScreen" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/TitleScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -178.0
+offset_right = 80.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartGame" type="Button" parent="HUD/TitleScreen/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Options")
+theme_override_colors/font_color = Color(0, 0.666667, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="Options" type="Button" parent="HUD/TitleScreen/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../StartGame")
+focus_neighbor_bottom = NodePath("../Credits")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Credits" type="Button" parent="HUD/TitleScreen/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Quit")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="Quit" type="Button" parent="HUD/TitleScreen/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Credits")
+focus_neighbor_bottom = NodePath("../StartGame")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Pause Menu" type="Control" parent="HUD"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -162,7 +176,7 @@ light_specular = 16.0
 distance_fade_enabled = true
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.52581, 2.50438, 8.20033)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.52581, -0.619888, 8.20033)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
@@ -170,5 +184,98 @@ light_size = 1.0
 light_specular = 16.0
 distance_fade_enabled = true
 
-[connection signal="pressed" from="Title Screen/HBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="Title Screen/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[node name="OmniLight3D6" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88609, -2.13053, 8.22803)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.52581, -0.619888, 0.779973)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.52581, -0.619888, -5.70781)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.58929, -0.619888, 8.20033)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30591, -0.619888, 2.59671)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23722, -0.619888, -8.93014)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08267, -0.619888, 8.20033)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24347, -0.619888, -5.94454)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="DirectionalLight3D/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.84332, -0.619888, 3.05275)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+distance_fade_enabled = true
+
+[node name="PatrolPath1" type="Path3D" parent="."]
+curve = SubResource("Curve3D_rmw3c")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="PatrolPath1"]
+transform = Transform3D(-0.999548, 0, 0.0300595, 0, 1, 0, -0.0300595, 0, -0.999548, 9.28173, 0, -13.8914)
+
+[node name="PatrolPath2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_dcix8")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="PatrolPath2"]
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[connection signal="pressed" from="HUD/TitleScreen/HBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="HUD/TitleScreen/HBoxContainer/Options" to="." method="_on_options_pressed"]
