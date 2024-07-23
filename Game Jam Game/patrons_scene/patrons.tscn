@@ -42,6 +42,7 @@ transform = Transform3D(0.999999, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 0.99
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron1/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="Patron2" parent="Models" instance=ExtResource("2_ehgrm")]
@@ -138,46 +139,46 @@ curve = SubResource("Curve3D_01lor")
 
 [node name="PathFollow3D1" type="PathFollow3D" parent="PatrolPath1"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999547, 0, 0.0300595, 0, 1, 0, -0.0300595, 0, -0.999547, 9.28173, 0, -13.8914)
+transform = Transform3D(-0.999725, 0, 0.0234023, 0, 1, 0, -0.0234023, 0, -0.999725, 9.34793, 0, -17.6884)
 
 [node name="PatrolPath2" type="Path3D" parent="."]
 curve = SubResource("Curve3D_icrct")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D3" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D4" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D5" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D6" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D7" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D8" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D9" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D10" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17523, 0)
