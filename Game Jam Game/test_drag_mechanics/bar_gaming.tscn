@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djbqmk7yk0rsi"]
+[gd_scene load_steps=10 format=3 uid="uid://djbqmk7yk0rsi"]
 
 [ext_resource type="PackedScene" uid="uid://bcepiaoyho8f5" path="res://potion_scene/ID Card.glb" id="1_drd4s"]
 [ext_resource type="Script" path="res://test_drag_mechanics/potion_spawn.gd" id="1_hpuam"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dn65bu4be5mhc" path="res://potion_scene/3d_potions.tscn" id="3_vvmnt"]
 [ext_resource type="PackedScene" uid="uid://bit2k8cxo3rjl" path="res://test_drag_mechanics/mix_area.tscn" id="4_pwdht"]
 [ext_resource type="PackedScene" uid="uid://c3nbbojwkgjwq" path="res://test_drag_mechanics/potion_spawn.tscn" id="6_kqyc8"]
+[ext_resource type="PackedScene" uid="uid://dvlwy2nkhgtxr" path="res://potion_scene/potion_id.tscn" id="7_qpxyj"]
+[ext_resource type="PackedScene" uid="uid://dmbd54u5g3ob8" path="res://patrons_scene/patrons.tscn" id="7_u3myx"]
+[ext_resource type="PackedScene" uid="uid://dnsoe38mgehna" path="res://potion_scene/3d_potionsB.tscn" id="9_pvkmc"]
 
 [node name="bar_gaming" type="Node3D"]
 script = ExtResource("1_hpuam")
@@ -15,12 +18,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
 
 [node name="PlayerCam" parent="." instance=ExtResource("2_wbs58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9397, 0, 3.18722)
-
-[node name="RigidBody3D" parent="." instance=ExtResource("3_vvmnt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6481, 1.97915, 3.40534)
-
-[node name="RigidBody3D2" parent="." instance=ExtResource("3_vvmnt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6481, 1.97915, 2)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0638, 0.826852, 1.01822)
@@ -32,3 +29,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.6, -9.08152, 1.03829, 1)
 
 [node name="PotionSpawn" parent="." instance=ExtResource("6_kqyc8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 2.82648, 3.49438)
+
+[node name="PotionIDs" parent="." instance=ExtResource("7_qpxyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 8)
+
+[node name="Patrons" parent="." instance=ExtResource("7_u3myx")]
+transform = Transform3D(0.0956546, 0, -0.995415, 0, 1, 0, 0.995415, 0, 0.0956546, -7.21869, 0, 1.33564)
+
+[node name="Potion" parent="." instance=ExtResource("3_vvmnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7208, 2.13202, 3.5259)
+
+[node name="Potion2" parent="." instance=ExtResource("9_pvkmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 2.09247, 2)
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="Node3D" to="Node3D" method="_on_child_entered_tree"]
+[connection signal="tree_entered" from="Node3D" to="." method="_on_node_3d_tree_entered"]
+[connection signal="tree_entered" from="Node3D" to="Node3D" method="_on_tree_entered"]
+[connection signal="child_entered_tree" from="Potion" to="." method="_on_potion_child_entered_tree"]

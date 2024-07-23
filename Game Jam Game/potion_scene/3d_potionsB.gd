@@ -1,13 +1,12 @@
 extends RigidBody3D
-var spawnID = 1
+var spawnID = 2
 var IDs = PotIDs.orders
 var real_ID
-var lol = 1
-
+var lol = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	real_ID = IDs[0]
+	real_ID = IDs[1]
 	#real_ID = IDs.pick_random()
 	#print(real_ID)
 
