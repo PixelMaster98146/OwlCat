@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmbd54u5g3ob8"]
+[gd_scene load_steps=12 format=3 uid="uid://dmbd54u5g3ob8"]
 
 [ext_resource type="Script" path="res://patrons_scene/patrons.gd" id="1_3erb7"]
 [ext_resource type="PackedScene" uid="uid://bddl4kpjleksp" path="res://patrons_scene/Patron1.glb" id="1_7tvn0"]
 [ext_resource type="PackedScene" uid="uid://y463rn3dquoq" path="res://patrons_scene/Patron2.glb" id="2_ehgrm"]
 [ext_resource type="PackedScene" uid="uid://dok4ac1k8gna2" path="res://patrons_scene/Patron3.glb" id="3_28xse"]
 [ext_resource type="PackedScene" uid="uid://b450obi3qhl5b" path="res://patrons_scene/Patron4.glb" id="4_wcc27"]
+[ext_resource type="PackedScene" uid="uid://cy0f30o4rdedu" path="res://id_scene/id_card.tscn" id="6_aipr1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0iu38"]
 
@@ -34,6 +35,7 @@ wait_time = 4096.0
 
 [node name="Models" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49248, 0, 4.60452)
+visible = false
 metadata/_edit_group_ = true
 
 [node name="Patron1" parent="Models" instance=ExtResource("1_7tvn0")]
@@ -42,7 +44,6 @@ transform = Transform3D(0.999999, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 0.99
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron1/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="Patron2" parent="Models" instance=ExtResource("2_ehgrm")]
@@ -139,7 +140,7 @@ curve = SubResource("Curve3D_01lor")
 
 [node name="PathFollow3D1" type="PathFollow3D" parent="PatrolPath1"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999725, 0, 0.0234023, 0, 1, 0, -0.0234023, 0, -0.999725, 9.34793, 0, -17.6884)
+transform = Transform3D(-0.999723, 0, 0.0234023, 0, 1, 0, -0.0234023, 0, -0.999723, 9.34793, 0, -17.6884)
 
 [node name="PatrolPath2" type="Path3D" parent="."]
 curve = SubResource("Curve3D_icrct")
@@ -185,12 +186,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17523, 0)
 light_energy = 16.0
 light_indirect_energy = 0.0
 
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0881119, 0.996111, 0, -0.996111, -0.0881119, -8.80551, 4.17523, 3.95974)
+light_energy = 16.0
+light_indirect_energy = 0.0
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(-0.0132641, 0.0172586, -0.999763, 0, 0.999851, 0.0172602, 0.999912, 0.00022894, -0.0132621, -9.80887, 0.760144, 8.6831)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.823206, 0.567743, 0, -0.567743, 0.823206, 0, 5.43138, 15.497)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44855, 0, -18.1501)
 mesh = SubResource("BoxMesh_7meuo")
+
+[node name="IDCard" parent="." instance=ExtResource("6_aipr1")]
+transform = Transform3D(-0.770168, 0, 0.637841, 0, 1, 0, -0.637841, 0, -0.770168, -0.400117, 0, -1.73329)
 
 [connection signal="body_entered" from="PatronLeave" to="." method="_on_patron_leave_body_entered"]
 [connection signal="body_entered" from="Line/Counter" to="." method="_on_counter_body_entered"]
@@ -203,3 +216,5 @@ mesh = SubResource("BoxMesh_7meuo")
 [connection signal="body_entered" from="Line/LineUp7" to="." method="_on_line_up_7_body_entered"]
 [connection signal="body_entered" from="Line/LineUp8" to="." method="_on_line_up_8_body_entered"]
 [connection signal="body_entered" from="Line/LineUp9" to="." method="_on_line_up_9_body_entered"]
+[connection signal="fake" from="IDCard" to="." method="_on_id_card_fake"]
+[connection signal="real" from="IDCard" to="." method="_on_id_card_real"]
