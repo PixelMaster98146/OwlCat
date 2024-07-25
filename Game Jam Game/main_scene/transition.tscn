@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvsedfkr6enqo"]
+
+[ext_resource type="Script" path="res://main_scene/transition.gd" id="1_ixp0c"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fyme7"]
+
+[node name="Transition" type="Node3D"]
+script = ExtResource("1_ixp0c")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(575.75, 326.25)
+scale = Vector2(1152.5, 653.5)
+mesh = SubResource("QuadMesh_fyme7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(575.75, 326.25)
+scale = Vector2(1152.5, 653.5)
+mesh = SubResource("QuadMesh_fyme7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 308.0
+offset_top = 152.0
+offset_right = 781.0
+offset_bottom = 448.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Press L to go back"
