@@ -1,5 +1,12 @@
 extends Node3D
+
+signal id_check
+
+var real_id = true
+
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
+@onready var real_fake = []
+var real_fake_recieve = true
 
 @onready var path1 = %PathFollow3D1
 @onready var path2 = %PathFollow3D2
@@ -86,7 +93,7 @@ func _physics_process(delta):
 		path10.progress += move_speed * delta
 	
 func path(): #change to _on_patron_timer_timeout
-	var line_wait = false #if person is waiting = true
+	#var line_wait = false #if person is waiting = true
 	var customer = patron.pick_random()
 	var _customer1 = customer.duplicate()
 	var _customer2 = customer.duplicate()
@@ -98,13 +105,17 @@ func path(): #change to _on_patron_timer_timeout
 	var _customer8 = customer.duplicate()
 	var _customer9 = customer.duplicate()
 	var _customer10 = customer.duplicate()
-	if path1.get_child_count() == 0 and line_wait == false:
+	$IDCard.get_random_info()
+	var _idcard = $IDCard.duplicate()
+	if path1.get_child_count() == 0: #and line_wait == false:
 		print("1")
 		path1.add_child(_customer1)
+		_customer1.add_child(_idcard)
 		path1.progress = 0
 	elif path1.get_child_count() == 1 and path2.get_child_count() == 0:
 		print("2")
 		path2.add_child(_customer2)
+		_customer2.add_child(_idcard)
 		path2.progress = 0
 	elif path2.get_child_count() == 1 and path3.get_child_count() == 0:
 		print("3")
@@ -145,7 +156,7 @@ func path(): #change to _on_patron_timer_timeout
 func _on_patron_leave_body_entered(body):
 	body.get_parent().queue_free()
 
-func _on_counter_body_entered(body): #put ordering script here
+func _on_counter_body_entered(body):
 	var counter_stop = body.get_parent().get_parent()
 	var model = body.get_parent()
 	if counter_stop == path1:
@@ -168,8 +179,10 @@ func _on_counter_body_entered(body): #put ordering script here
 		moving9 = false
 	if counter_stop == path10:
 		moving10 = false
-	#model.rotate
+	##model.rotate
 	counter_full = true
+	##hand over id animation
+	id_check.emit()
 
 func _on_line_up_1_body_entered(body):
 	var line1_stop = body.get_parent().get_parent()
@@ -195,7 +208,7 @@ func _on_line_up_1_body_entered(body):
 			moving9 = false
 		if line1_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate_y(1.5)
 		line1_full = true
 
 func _on_line_up_2_body_entered(body):
@@ -222,7 +235,7 @@ func _on_line_up_2_body_entered(body):
 			moving9 = false
 		if line2_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate
 		line2_full = true
 
 func _on_line_up_3_body_entered(body):
@@ -249,7 +262,7 @@ func _on_line_up_3_body_entered(body):
 			moving9 = false
 		if line3_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate
 		line3_full = true
 
 func _on_line_up_4_body_entered(body):
@@ -276,7 +289,7 @@ func _on_line_up_4_body_entered(body):
 			moving9 = false
 		if line4_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate
 		line4_full = true
 
 func _on_line_up_5_body_entered(body):
@@ -303,7 +316,7 @@ func _on_line_up_5_body_entered(body):
 			moving9 = false
 		if line5_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate
 		line5_full = true
 
 func _on_line_up_6_body_entered(body):
@@ -330,7 +343,7 @@ func _on_line_up_6_body_entered(body):
 			moving9 = false
 		if line6_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate
 		line6_full = true
 		
 func _on_line_up_7_body_entered(body):
@@ -357,9 +370,8 @@ func _on_line_up_7_body_entered(body):
 			moving9 = false
 		if line7_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate
 		line7_full = true
-
 
 func _on_line_up_8_body_entered(body):
 	var line8_stop = body.get_parent().get_parent()
@@ -385,7 +397,7 @@ func _on_line_up_8_body_entered(body):
 			moving9 = false
 		if line8_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate
 		line8_full = true
 
 func _on_line_up_9_body_entered(body):
@@ -412,5 +424,62 @@ func _on_line_up_9_body_entered(body):
 			moving9 = false
 		if line9_stop == path10:
 			moving10 = false
-		#model.rotate
+		##model.rotate
 		line9_full = true #used to stop customers from spawning
+
+func _on_id_card_fake():
+	print("fake_id")
+	real_fake.insert(0, "fake")
+
+func _on_id_card_real():
+	print("real_id")
+	real_fake.insert(0, "real")
+	
+	##check
+		##if array back == real
+			##...
+			##pop back
+		##elif array back == fake
+			##...
+			##pop back
+
+func _on_main_guess_id_fake():
+	if real_fake.back() == "real":
+		print("denied, is real")
+		##say mean things
+		real_fake.pop_back()
+		moving1 = true
+		moving2 = true
+		moving3 = true
+		moving4 = true
+		moving5 = true
+		moving6 = true
+		moving7 = true
+		moving8 = true
+		moving9 = true
+		moving10 = true
+	elif real_fake.back() == "fake":
+		print("denied, is fake")
+		##say mean things
+		real_fake.pop_back()
+		moving1 = true
+		moving2 = true
+		moving3 = true
+		moving4 = true
+		moving5 = true
+		moving6 = true
+		moving7 = true
+		moving8 = true
+		moving9 = true
+		moving10 = true
+
+func _on_main_guess_id_real():
+	if real_fake.back() == "real":
+		print("accept, is real")
+		real_fake.pop_back()
+		##Make drink signal
+	elif real_fake.back() == "fake":
+		print("accept, is fake")
+		##Make drink signal
+		real_fake.pop_back()
+		##After making drink: No payment, 3 hours later shop is forced to close from adventurer raid
