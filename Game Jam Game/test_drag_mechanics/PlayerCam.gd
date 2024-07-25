@@ -6,30 +6,23 @@ extends Node3D
 @onready var itema_label = $MeshInstance3D/Head/Camera3D/itemA_label
 @onready var itemb_label = $MeshInstance3D/Head/Camera3D/itemB_label
 @onready var results_label = $MeshInstance3D/Head/Camera3D/Results_label
-@onready var timer = $MeshInstance3D/Head/Camera3D/Timer
-@onready var label = $MeshInstance3D/Head/Camera3D/Label
-@onready var dateandtime = $Dateandtime
-var basemaxtime = 5
-var maxtime
-var onemin = 60
-var secs = 20
+
+
+
 
 var sens = 0.03
 
 var key = KEY_SPACE
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	maxtime = basemaxtime
-	onemin = 5.0 #change to 60 for 1 minute
-	secs = onemin
+	pass
 	#optional codes below disables cursor ingame
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	label.text = str(maxtime) + ": " + str('%.2f' % secs) + "Day: " + str(dateandtime.currday)
-	timerstuff(delta)
+	pass
 	
 func updatelabelA(itemA):
 	itema_label.text = itemA
@@ -53,16 +46,3 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * sens)
 		cam.rotate_x(-event.relative.y * sens)
 		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-40), deg_to_rad(40))
-		
-		
-
-func timerstuff(framesecs):
-	secs -= framesecs
-	if secs <= 0:
-		maxtime -= 1
-		secs = onemin
-	if maxtime <= 0:
-		secs = 0
-		dateandtime.moveday()
-		maxtime = basemaxtime
-	
