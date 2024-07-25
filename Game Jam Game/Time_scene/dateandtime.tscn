@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxp66ln4tbyng"]
+
+[ext_resource type="Script" path="res://Time_scene/dateandtime.gd" id="1_yvtr3"]
+
+[node name="Dateandtime" type="Node3D"]
+script = ExtResource("1_yvtr3")

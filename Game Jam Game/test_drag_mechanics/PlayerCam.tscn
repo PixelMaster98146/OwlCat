@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3yv1f31b7ory"]
+[gd_scene load_steps=9 format=3 uid="uid://b3yv1f31b7ory"]
 
 [ext_resource type="Script" path="res://test_drag_mechanics/PlayerCam.gd" id="1_on4s0"]
 [ext_resource type="Script" path="res://test_drag_mechanics/RayCast3D.gd" id="2_jchfj"]
+[ext_resource type="Script" path="res://test_drag_mechanics/Label.gd" id="2_o2gxa"]
+[ext_resource type="PackedScene" uid="uid://bxp66ln4tbyng" path="res://Time_scene/dateandtime.tscn" id="4_fen5u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lcss7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,6 +40,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122679, 0.736819, -0.005250
 [node name="Camera3D" type="Camera3D" parent="MeshInstance3D/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.313402, -0.00106788, 0.0334892)
 
+[node name="Label" type="Label" parent="MeshInstance3D/Head/Camera3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -552.0
+offset_top = -312.5
+offset_right = 552.0
+offset_bottom = 312.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 44
+text = "Timer: "
+script = ExtResource("2_o2gxa")
+
+[node name="Timer" type="Timer" parent="MeshInstance3D/Head/Camera3D"]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
 [node name="RayCast3D" type="RayCast3D" parent="MeshInstance3D/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190723, -0.215555, -0.0282389)
 target_position = Vector3(0, 0, -30)
@@ -62,3 +85,6 @@ font_size = 12
 transform = Transform3D(1, 0, 0, 0, 0.999649, 0.026491, 0, -0.026491, 0.999649, -1.06875, 0.107962, -1.18987)
 text = "SAMPLE TEXT"
 font_size = 12
+
+[node name="Dateandtime" parent="." instance=ExtResource("4_fen5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70846, 0.427596, 2.04227)

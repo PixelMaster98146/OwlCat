@@ -3,8 +3,6 @@
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="1_ju3e7"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
-[ext_resource type="PackedScene" uid="uid://dmbd54u5g3ob8" path="res://patrons_scene/patrons.tscn" id="4_pocl0"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="4_ufnxc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dr5gb"]
 
@@ -17,9 +15,24 @@ sky = SubResource("Sky_8queu")
 ambient_light_source = 2
 ambient_light_color = Color(0.528006, 0.688206, 0.710022, 1)
 tonemap_mode = 2
+tonemap_white = 6.0
 fog_enabled = true
 fog_density = 0.0015
 fog_sky_affect = 0.0
+
+[sub_resource type="Curve3D" id="Curve3D_rmw3c"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.28173, 0, -13.8914, 0.192398, 0, -1.0247, -0.192398, 0, 1.0247, 9.17937, 0, -10.4877, 2.38064, 0, -2.314, -2.38064, 0, 2.314, 2.91754, 0, -2.618, 0, 0, 0, 0, 0, 0, -7.21419, 0, 4.86764),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_dcix8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.32928, 0, -13.8912, 0, 0, 0, 0, 0, 0, 9.19002, 0, -10.2702, 0, 0, 0, 0, 0, 0, 10.1539, 0, 10.4607, 0, 0, 0, 0, 0, 0, -6.40947, 0, 10.5249, 0, 0, 0, 0, 0, 0, -7.13897, 0, 4.86278),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_hsxq6")
@@ -52,7 +65,7 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TitleScreen"]
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/TitleScreen"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -66,7 +79,7 @@ offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="StartGame" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
+[node name="StartGame" type="Button" parent="HUD/TitleScreen/HBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Options")
@@ -77,7 +90,7 @@ theme_override_fonts/font = ExtResource("1_ju3e7")
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
-[node name="Options" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
+[node name="Options" type="Button" parent="HUD/TitleScreen/HBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../StartGame")
 focus_neighbor_bottom = NodePath("../Credits")
@@ -87,7 +100,7 @@ theme_override_fonts/font = ExtResource("1_ju3e7")
 theme_override_font_sizes/font_size = 32
 text = "Options"
 
-[node name="Credits" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
+[node name="Credits" type="Button" parent="HUD/TitleScreen/HBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Options")
 focus_neighbor_bottom = NodePath("../Quit")
@@ -97,7 +110,7 @@ theme_override_fonts/font = ExtResource("1_ju3e7")
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
-[node name="Quit" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
+[node name="Quit" type="Button" parent="HUD/TitleScreen/HBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Credits")
 focus_neighbor_bottom = NodePath("../StartGame")
@@ -112,55 +125,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="AcceptDeny" type="Control" parent="HUD"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/AcceptDeny"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -142.0
-offset_right = 187.0
-offset_bottom = -50.0
-grow_vertical = 0
-
-[node name="Accept" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Database")
-focus_neighbor_bottom = NodePath("../Deny")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
-theme_override_font_sizes/font_size = 32
-text = "Accept ID"
-
-[node name="Deny" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Accept")
-focus_neighbor_bottom = NodePath("../Database")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
-theme_override_font_sizes/font_size = 32
-text = "Deny ID"
-
-[node name="Database" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Deny")
-focus_neighbor_bottom = NodePath("../Accept")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
-theme_override_font_sizes/font_size = 32
-text = "Check database"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.67239, 0)
@@ -301,13 +265,17 @@ light_size = 1.0
 light_specular = 16.0
 distance_fade_enabled = true
 
-[node name="Patrons" parent="." instance=ExtResource("4_pocl0")]
+[node name="PatrolPath1" type="Path3D" parent="."]
+curve = SubResource("Curve3D_rmw3c")
 
-[connection signal="guess_id_fake" from="." to="Patrons" method="_on_main_guess_id_fake"]
-[connection signal="guess_id_real" from="." to="Patrons" method="_on_main_guess_id_real"]
-[connection signal="pressed" from="HUD/TitleScreen/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="HUD/TitleScreen/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Accept" to="." method="_on_accept_pressed"]
-[connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Deny" to="." method="_on_deny_pressed"]
-[connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Database" to="." method="_on_database_pressed"]
-[connection signal="id_check" from="Patrons" to="." method="_on_patrons_id_check"]
+[node name="PathFollow3D" type="PathFollow3D" parent="PatrolPath1"]
+transform = Transform3D(-0.999548, 0, 0.0300595, 0, 1, 0, -0.0300595, 0, -0.999548, 9.28173, 0, -13.8914)
+
+[node name="PatrolPath2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_dcix8")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="PatrolPath2"]
+transform = Transform3D(-0.999261, 0, 0.0384307, 0, 1, 0, -0.0384307, 0, -0.999261, 9.32928, 0, -13.8912)
+
+[connection signal="pressed" from="HUD/TitleScreen/HBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="HUD/TitleScreen/HBoxContainer/Options" to="." method="_on_options_pressed"]
