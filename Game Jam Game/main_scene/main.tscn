@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=8 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="1_ju3e7"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
 [ext_resource type="PackedScene" uid="uid://dmbd54u5g3ob8" path="res://patrons_scene/patrons.tscn" id="4_pocl0"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="4_ufnxc"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="4_ufnxc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dr5gb"]
 
@@ -14,10 +13,7 @@ sky_material = SubResource("PanoramaSkyMaterial_dr5gb")
 [sub_resource type="Environment" id="Environment_u4q4l"]
 background_mode = 2
 sky = SubResource("Sky_8queu")
-ambient_light_source = 2
-ambient_light_color = Color(0.528006, 0.688206, 0.710022, 1)
 tonemap_mode = 2
-fog_enabled = true
 fog_density = 0.0015
 fog_sky_affect = 0.0
 
@@ -42,7 +38,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_fonts/font = ExtResource("4_ufnxc")
 theme_override_font_sizes/font_size = 48
 text = "Week x: Day x"
 
@@ -73,7 +69,7 @@ focus_neighbor_bottom = NodePath("../Options")
 theme_override_colors/font_color = Color(0, 0.666667, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_fonts/font = ExtResource("4_ufnxc")
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
@@ -83,7 +79,7 @@ focus_neighbor_top = NodePath("../StartGame")
 focus_neighbor_bottom = NodePath("../Credits")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_fonts/font = ExtResource("4_ufnxc")
 theme_override_font_sizes/font_size = 32
 text = "Options"
 
@@ -93,7 +89,7 @@ focus_neighbor_top = NodePath("../Options")
 focus_neighbor_bottom = NodePath("../Quit")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_fonts/font = ExtResource("4_ufnxc")
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
@@ -103,7 +99,7 @@ focus_neighbor_top = NodePath("../Credits")
 focus_neighbor_bottom = NodePath("../StartGame")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ju3e7")
+theme_override_fonts/font = ExtResource("4_ufnxc")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
