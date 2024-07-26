@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxp66ln4tbyng"]
+[gd_scene load_steps=3 format=3 uid="uid://bxp66ln4tbyng"]
 
 [ext_resource type="Script" path="res://Time_scene/dateandtime.gd" id="1_yvtr3"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_ndb1i"]
+
 [node name="Dateandtime" type="Node3D"]
 script = ExtResource("1_yvtr3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(576.75, 324.75)
+scale = Vector2(1154.5, 650.5)
+mesh = SubResource("QuadMesh_ndb1i")
