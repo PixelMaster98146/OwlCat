@@ -2,6 +2,12 @@ extends Node3D
 
 signal id_check
 
+var itemA 
+var itemB 
+var fullorder
+var redroluff
+
+
 var real_id = true
 
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
@@ -18,6 +24,8 @@ var real_fake_recieve = true
 @onready var path8 = %PathFollow3D8
 @onready var path9 = %PathFollow3D9
 @onready var path10 = %PathFollow3D10
+@onready var player = $"../PlayerCam"
+
 
 var moving1 = true
 var moving2 = true
@@ -157,6 +165,7 @@ func _on_patron_leave_body_entered(body):
 	body.get_parent().queue_free()
 
 func _on_counter_body_entered(body):
+	ordering()
 	var counter_stop = body.get_parent().get_parent()
 	var model = body.get_parent()
 	if counter_stop == path1:
@@ -483,3 +492,11 @@ func _on_main_guess_id_real():
 		##Make drink signal
 		real_fake.pop_back()
 		##After making drink: No payment, 3 hours later shop is forced to close from adventurer raid
+
+func ordering():
+	itemA = PotIDs.orders.pick_random()
+	
+	itemB = PotIDs.orders.pick_random()
+	#add some sort of UI label here, make the text contain itemA and itemB
+	fullorder = itemA + itemB
+	redroluff = itemB + itemA

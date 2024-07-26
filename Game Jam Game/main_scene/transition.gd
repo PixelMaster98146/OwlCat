@@ -7,6 +7,7 @@ var maxtime = 3
 var countdown = false
 const playcam = preload("res://test_drag_mechanics/PlayerCam.tscn")
 const gamescene = preload("res://test_drag_mechanics/bar_gaming.tscn")
+const bargaming = preload("res://test_drag_mechanics/bar_gaming.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -25,7 +26,7 @@ func _process(delta):
 		whitemesh.modulate = Color("white", timer/maxtime)
 	if timer <= 0:
 		await get_tree().create_timer(0.4).timeout
-		get_tree().change_scene_to_packed(playcam)
+		get_tree().change_scene_to_packed(bargaming)
 
 func _input(event):
 	pass

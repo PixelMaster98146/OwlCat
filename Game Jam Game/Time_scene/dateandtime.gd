@@ -1,6 +1,6 @@
 extends Node3D
 
-var save_path = "user://currentdate.save"
+var save_path = "res://save_folder//currentdate.save"
 
 var day = []
 var currday
@@ -48,18 +48,28 @@ func moveday():
 	currday = day[progress + 1]
 	progress += 1
 	dying = true
+	save()
 	await get_tree().create_timer(maxdeathtime - 0.3).timeout
 	get_tree().change_scene_to_file("res://main_scene/transition.tscn")
 	
 func save():
 	var file = FileAccess.open(save_path,FileAccess.WRITE)
 	file.store_var(currday)
+	file.store_var(progress)
 	
 func loading():
 	if FileAccess.file_exists(save_path) == true:
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		currday = file.get_var(currday)
+		progress = file.get_var(progress)
 	else:
 		print("no saveo")
 		currday = day[0]
+
+func resetsave():
+	var file = FileAccess.open(save_path,FileAccess.WRITE_READ)
+	currday = day[0]
+	progress = currday
+	file.store_var(currday)
+	file.store_var(progress)
 	
