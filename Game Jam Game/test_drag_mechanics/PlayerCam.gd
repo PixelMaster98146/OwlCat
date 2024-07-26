@@ -64,6 +64,6 @@ func timerstuff(framesecs):
 		if maxtime >= 0:
 			secs = onemin
 	if maxtime <= 0 && secs <= 0:
-		dateandtime.moveday()
+		#dateandtime.moveday()
 		maxtime = basemaxtime
 		timestop = true
