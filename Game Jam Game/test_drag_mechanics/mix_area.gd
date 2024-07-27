@@ -8,13 +8,13 @@ var results
 var order = ["pholder1","pholder2"]
 @onready var player_cam = $"../PlayerCam"
 @onready var potion_spawn = $"../PotionSpawn"
-@onready var potion = $"../Potion"
+@onready var potion
 @onready var patrons = $"../Patrons"
 
 var x = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,9 +51,13 @@ func resetorders():
 
 func _on_area_3d_area_entered(area):
 	if area.is_in_group("grab"):
+		print(get_parent_node_3d())
 		var parental = area.get_parent_node_3d()
 		#parental.makeittrue()
-		get_parent_node_3d().spawnpot(parental.spawnID)
+		if get_parent_node_3d().get_node("bar") != null:
+			get_parent_node_3d().get_node("bar").spawnpot(parental.spawnID)
+		else:
+			get_parent_node_3d().spawnpot(parental.spawnID)
 		parental.queue_free()
 	else:
 		print("Notpot")

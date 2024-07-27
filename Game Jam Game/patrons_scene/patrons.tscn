@@ -27,7 +27,7 @@ point_count = 8
 
 [sub_resource type="BoxMesh" id="BoxMesh_7meuo"]
 
-[node name="Patrons" type="Node3D"]
+[node name="Patrons" type="Node3D" groups=["patron"]]
 script = ExtResource("1_3erb7")
 
 [node name="PatronTimer" type="Timer" parent="."]
@@ -35,7 +35,6 @@ wait_time = 4096.0
 
 [node name="Models" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49248, 0, 4.60452)
-visible = false
 metadata/_edit_group_ = true
 
 [node name="Patron1" parent="Models" instance=ExtResource("1_7tvn0")]
@@ -46,26 +45,42 @@ transform = Transform3D(0.999999, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 0.99
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron1/CharacterBody3D"]
 shape = SubResource("BoxShape3D_0iu38")
 
-[node name="Patron2" parent="Models" instance=ExtResource("2_ehgrm")]
+[node name="patorder" type="Label3D" parent="Models/Patron1"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
+text = "Sample text"
+
+[node name="Patron2" parent="Models" groups=["patron"] instance=ExtResource("2_ehgrm")]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron2/CharacterBody3D"]
 shape = SubResource("BoxShape3D_0iu38")
 
-[node name="Patron3" parent="Models" instance=ExtResource("3_28xse")]
+[node name="patorder" type="Label3D" parent="Models/Patron2"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
+text = "Sample text"
+
+[node name="Patron3" parent="Models" groups=["patron"] instance=ExtResource("3_28xse")]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron3"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron3/CharacterBody3D"]
 shape = SubResource("BoxShape3D_0iu38")
 
-[node name="Patron4" parent="Models" instance=ExtResource("4_wcc27")]
+[node name="patorder" type="Label3D" parent="Models/Patron3"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
+text = "Sample text"
+
+[node name="Patron4" parent="Models" groups=["patron"] instance=ExtResource("4_wcc27")]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron4/CharacterBody3D"]
 shape = SubResource("BoxShape3D_0iu38")
+
+[node name="patorder" type="Label3D" parent="Models/Patron4"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
+text = "Sample text"
 
 [node name="PatronLeave" type="Area3D" parent="."]
 
@@ -140,7 +155,7 @@ curve = SubResource("Curve3D_01lor")
 
 [node name="PathFollow3D1" type="PathFollow3D" parent="PatrolPath1"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999723, 0, 0.0234023, 0, 1, 0, -0.0234023, 0, -0.999723, 9.34793, 0, -17.6884)
+transform = Transform3D(-0.999719, 0, 0.0234022, 0, 1, 0, -0.0234022, 0, -0.999719, 9.34793, 0, -17.6884)
 
 [node name="PatrolPath2" type="Path3D" parent="."]
 curve = SubResource("Curve3D_icrct")

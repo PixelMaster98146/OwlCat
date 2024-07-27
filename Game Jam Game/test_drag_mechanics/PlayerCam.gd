@@ -23,7 +23,7 @@ func _ready():
 	maxtime = basemaxtime
 	onemin = 3 #change to 60 for 1 minute
 	secs = onemin
-	timestop = false
+	timestop = true
 	#optional codes below disables cursor ingame
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 

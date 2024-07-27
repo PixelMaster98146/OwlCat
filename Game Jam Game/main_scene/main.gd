@@ -15,6 +15,7 @@ func _process(delta):
 func _on_start_game_pressed():
 	pass 
 	$HUD/TitleScreen.hide()
+	$PlayerCam/MeshInstance3D/Head/Camera3D.set_current(true)
 	#Transition to game
 	#Move camera into first person POV
 	#Rent man walks in, breifly explains 7 week cycle, leaves
@@ -31,6 +32,8 @@ func _on_patrons_id_check():
 
 func _on_accept_pressed():
 	guess_id_real.emit()
+	%AcceptDeny.hide()
+	
 
 func _on_deny_pressed():
 	guess_id_fake.emit()
