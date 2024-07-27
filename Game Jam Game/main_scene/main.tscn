@@ -1,21 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=9 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
 [ext_resource type="PackedScene" uid="uid://dmbd54u5g3ob8" path="res://patrons_scene/patrons.tscn" id="4_pocl0"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="4_ufnxc"]
+[ext_resource type="PackedScene" uid="uid://3exyqohi74rx" path="res://database_scene/database.tscn" id="5_jyvkb"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="7_f83fa"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dr5gb"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vmfh"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_8queu"]
-sky_material = SubResource("PanoramaSkyMaterial_dr5gb")
+[sub_resource type="Sky" id="Sky_huco4"]
+sky_material = SubResource("ProceduralSkyMaterial_6vmfh")
 
-[sub_resource type="Environment" id="Environment_u4q4l"]
+[sub_resource type="Environment" id="Environment_31pmd"]
 background_mode = 2
-sky = SubResource("Sky_8queu")
+sky = SubResource("Sky_huco4")
 tonemap_mode = 2
-fog_density = 0.0015
-fog_sky_affect = 0.0
+glow_enabled = true
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_hsxq6")
@@ -23,7 +25,10 @@ script = ExtResource("1_hsxq6")
 [node name="bar" parent="." instance=ExtResource("2_quyvt")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="bar"]
-environment = SubResource("Environment_u4q4l")
+environment = SubResource("Environment_31pmd")
+
+[node name="Camera3D2" type="Camera3D" parent="bar"]
+transform = Transform3D(0.712994, 0.181476, -0.677279, 2.29857e-08, 0.965926, 0.258819, 0.701171, -0.184536, 0.688699, -8.91052, 2.57166, 11.1065)
 
 [node name="Camera3D" type="Camera3D" parent="bar"]
 transform = Transform3D(0.712994, 0.181476, -0.677279, 2.29857e-08, 0.965926, 0.258819, 0.701171, -0.184536, 0.688699, -10.7453, 3.13716, 11.1739)
@@ -38,7 +43,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("4_ufnxc")
+theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 48
 text = "Week x: Day x"
 
@@ -69,7 +74,7 @@ focus_neighbor_bottom = NodePath("../Options")
 theme_override_colors/font_color = Color(0, 0.666667, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
+theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
@@ -79,7 +84,7 @@ focus_neighbor_top = NodePath("../StartGame")
 focus_neighbor_bottom = NodePath("../Credits")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
+theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 32
 text = "Options"
 
@@ -89,7 +94,7 @@ focus_neighbor_top = NodePath("../Options")
 focus_neighbor_bottom = NodePath("../Quit")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
+theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
@@ -99,11 +104,12 @@ focus_neighbor_top = NodePath("../Credits")
 focus_neighbor_bottom = NodePath("../StartGame")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
+theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="Pause Menu" type="Control" parent="HUD"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -134,7 +140,7 @@ focus_neighbor_top = NodePath("../Database")
 focus_neighbor_bottom = NodePath("../Deny")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
+theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 32
 text = "Accept ID"
 
@@ -144,7 +150,7 @@ focus_neighbor_top = NodePath("../Accept")
 focus_neighbor_bottom = NodePath("../Database")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
+theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 32
 text = "Deny ID"
 
@@ -154,12 +160,13 @@ focus_neighbor_top = NodePath("../Deny")
 focus_neighbor_bottom = NodePath("../Accept")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ufnxc")
+theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 32
-text = "Check database"
+text = "Official registry"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.67239, 0)
+visible = false
 sky_mode = 1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="DirectionalLight3D"]
@@ -299,6 +306,9 @@ distance_fade_enabled = true
 
 [node name="Patrons" parent="." instance=ExtResource("4_pocl0")]
 
+[node name="Database" parent="." instance=ExtResource("5_jyvkb")]
+
+[connection signal="db_start" from="." to="Database" method="_on_main_db_start"]
 [connection signal="guess_id_fake" from="." to="Patrons" method="_on_main_guess_id_fake"]
 [connection signal="guess_id_real" from="." to="Patrons" method="_on_main_guess_id_real"]
 [connection signal="pressed" from="HUD/TitleScreen/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
@@ -307,3 +317,4 @@ distance_fade_enabled = true
 [connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Deny" to="." method="_on_deny_pressed"]
 [connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Database" to="." method="_on_database_pressed"]
 [connection signal="id_check" from="Patrons" to="." method="_on_patrons_id_check"]
+[connection signal="db_backout" from="Database" to="." method="_on_database_db_backout"]

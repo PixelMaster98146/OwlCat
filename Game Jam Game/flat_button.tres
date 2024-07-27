@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://w3esexrcl0t4"]
+
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="1_6d1oy"]
+
+[resource]
+default_font = ExtResource("1_6d1oy")
+default_font_size = 0
