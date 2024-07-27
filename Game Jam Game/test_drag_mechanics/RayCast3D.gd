@@ -2,13 +2,13 @@ extends RayCast3D
 
 var obj = null
 var key = KEY_E
+var mouse = MOUSE_BUTTON_LEFT
 @onready var point = %Grabby
 
 
 
 func _process(delta):
 	if Input.is_key_pressed(key):
-		
 		if obj == null:
 			
 			var collider = get_collider()

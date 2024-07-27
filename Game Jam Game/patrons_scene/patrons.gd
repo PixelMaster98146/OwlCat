@@ -6,9 +6,10 @@ var itemA
 var itemB 
 var fullorder
 var redroluff
-
+var patronorders
 
 var real_id = true
+var selected = false
 
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
 @onready var real_fake = []
@@ -25,8 +26,12 @@ var real_fake_recieve = true
 @onready var path9 = %PathFollow3D9
 @onready var path10 = %PathFollow3D10
 @onready var player = $"../PlayerCam"
+@onready var id_card = $IDCard
+@onready var idcheck = $"../IDcheck"
 
 
+
+var default_id_pos
 var moving1 = true
 var moving2 = true
 var moving3 = true
@@ -50,8 +55,14 @@ var line8_full = false
 var line9_full = false
 var line10_full = false
 
+
+
+var facethecamera
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	default_id_pos = id_card.position
+	selected = false
+	set_process_input(true)
 	await get_tree().create_timer(1).timeout
 	path()
 	$PatronTimer.start() #not connected
@@ -72,9 +83,17 @@ func _ready():
 	#await get_tree().create_timer(3).timeout
 	#path()
 
+func _input(event):
+	if event.is_action_pressed("checkID"):
+		if selected == true:
+			#id_card.position = idcheck.global_position
+			#id_card.look_at(player.global_transform.origin, Vector3(0,0,0),true)
+			id_card.look_at_from_position(idcheck.global_position, -player.get_node("MeshInstance3D").get_node("Head").get_node("Camera3D").global_position)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if selected == true:
+		pass
+		
 
 func _physics_process(delta):
 	#print("working")
@@ -165,7 +184,9 @@ func _on_patron_leave_body_entered(body):
 	body.get_parent().queue_free()
 
 func _on_counter_body_entered(body):
+	patronorders = body.get_parent()
 	ordering()
+	selected = true
 	var counter_stop = body.get_parent().get_parent()
 	var model = body.get_parent()
 	if counter_stop == path1:
@@ -483,6 +504,8 @@ func _on_main_guess_id_fake():
 		moving10 = true
 
 func _on_main_guess_id_real():
+	ordering()
+	updatelabel(patronorders, itemA,itemB)
 	if real_fake.back() == "real":
 		print("accept, is real")
 		real_fake.pop_back()
@@ -500,3 +523,8 @@ func ordering():
 	#add some sort of UI label here, make the text contain itemA and itemB
 	fullorder = itemA + itemB
 	redroluff = itemB + itemA
+
+func updatelabel(currpatron, itemA, itemB):
+	var cpat
+	currpatron.get_node("patorder").text = itemA
+	
