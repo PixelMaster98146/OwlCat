@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgfhkc8a7x8m6"]
+
+[ext_resource type="PackedScene" uid="uid://3exyqohi74rx" path="res://database_scene/database.tscn" id="1_0nni3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Database" parent="." instance=ExtResource("1_0nni3")]
+transform = Transform3D(0.557876, 0, -0.829925, 0, 1, 0, 0.829925, 0, 0.557876, -0.17185, 0, 0.0728598)
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "dfgh"
