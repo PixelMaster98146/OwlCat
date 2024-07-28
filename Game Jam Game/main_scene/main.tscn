@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=15 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dn65bu4be5mhc" path="res://potion_scene/3d_potions.tscn" id="8_46f6h"]
 [ext_resource type="PackedScene" uid="uid://dnsoe38mgehna" path="res://potion_scene/3d_potionsB.tscn" id="9_h0lot"]
 [ext_resource type="PackedScene" uid="uid://c3nbbojwkgjwq" path="res://test_drag_mechanics/potion_spawn.tscn" id="10_ygg8h"]
+
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vmfh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
