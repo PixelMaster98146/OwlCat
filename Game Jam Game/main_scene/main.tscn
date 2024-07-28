@@ -194,6 +194,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="WeekDay" type="Label" parent="HUD"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

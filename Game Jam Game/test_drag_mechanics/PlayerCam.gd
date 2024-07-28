@@ -30,7 +30,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	label.text = str(maxtime) + ": " + str('%.2f' % secs) + "Day: " + str(dateandtime.currday)
+	label.text = str(maxtime) + ": " + str('%.2f' % secs) + "Day: " + str(dateandtime.date[0]) + "/" + str(dateandtime.date[1]) + "/" + str(dateandtime.date[2])
 	timerstuff(delta)
 	
 func updatelabelA(itemA):
