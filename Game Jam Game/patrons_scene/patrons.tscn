@@ -46,6 +46,10 @@ transform = Transform3D(0.999999, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 0.99
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Patron1"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.38583, 0)
+text = "Sample text"
+
+[node name="patorder2" type="Label3D" parent="Models/Patron1"]
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 
@@ -57,6 +61,10 @@ text = "Sample text"
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Patron2"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.39527, 0)
+text = "Sample text"
+
+[node name="patorder2" type="Label3D" parent="Models/Patron2"]
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 
@@ -68,6 +76,10 @@ text = "Sample text"
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Patron3"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.39782, 0)
+text = "Sample text"
+
+[node name="patorder2" type="Label3D" parent="Models/Patron3"]
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 
@@ -79,6 +91,10 @@ text = "Sample text"
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Patron4"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.39989, 0)
+text = "Sample text"
+
+[node name="patorder2" type="Label3D" parent="Models/Patron4"]
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 
@@ -155,7 +171,7 @@ curve = SubResource("Curve3D_01lor")
 
 [node name="PathFollow3D1" type="PathFollow3D" parent="PatrolPath1"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999719, 0, 0.0234022, 0, 1, 0, -0.0234022, 0, -0.999719, 9.34793, 0, -17.6884)
+transform = Transform3D(-0.999718, 0, 0.0234022, 0, 1, 0, -0.0234022, 0, -0.999718, 9.34793, 0, -17.6884)
 
 [node name="PatrolPath2" type="Path3D" parent="."]
 curve = SubResource("Curve3D_icrct")

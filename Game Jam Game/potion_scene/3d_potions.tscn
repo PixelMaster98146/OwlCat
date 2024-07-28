@@ -8,7 +8,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eisu5"]
 
-[node name="Potion" type="RigidBody3D"]
+[node name="Potion" type="RigidBody3D" groups=["grab"]]
 script = ExtResource("1_r4vk7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
