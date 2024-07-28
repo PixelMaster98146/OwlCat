@@ -37,7 +37,6 @@ func _on_accept_pressed():
 
 func _on_deny_pressed():
 	guess_id_fake.emit()
-	%AcceptDeny.hide()
 
 func _on_database_pressed():
 	##move camera
