@@ -15,7 +15,6 @@ var progress = 0
 var dying
 var deathtimer #transition duration
 var maxdeathtime 
-var date
 @onready var fadetoblack = $MeshInstance2D
 
 # Called when the node enters the scene tree for the first time.
@@ -33,9 +32,7 @@ func _ready():
 	currday = day[0]
 	currweek = week[0]
 	currmonth = month[0]
-	
 	loading()
-	date = [10 + currday,currmonth,year]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,8 +40,6 @@ func _process(delta):
 		save()
 	if Input.is_key_pressed(KEY_O):
 		loading()
-	if Input.is_key_pressed(KEY_R):
-		resetsave()
 	if dying == true:
 		deathtimer -= delta
 		fadetoblack.modulate = Color("black", maxdeathtime - deathtimer)
