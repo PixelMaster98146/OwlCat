@@ -3,27 +3,40 @@ extends Node3D
 signal guess_id_real
 signal guess_id_fake
 signal db_start
+signal day_start
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$HUD/TitleScreen/VBoxContainer/StartGame.grab_focus()
+	$HUD/MainMenuBase/Start.grab_focus()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("Pause"):
+		if $HUD/Credits.is_visible_in_tree() == true: ## or options == true:
+			$HUD/Credits.hide()
+			##options.hide()
 
 func _on_start_game_pressed():
 	pass 
-	$HUD/TitleScreen.hide()
+	$HUD/MainMenuBase.hide()
 	$PlayerCam/MeshInstance3D/Head/Camera3D.set_current(true)
 	#Transition to game
 	#Move camera into first person POV
 	#Rent man walks in, breifly explains 7 week cycle, leaves
-	#Customers start coming in and day 1 starts
+	day_start.emit() #Customers start coming in and day 1 starts
+	print("sent")
 	
 
 func _on_options_pressed():
 	pass #Do as extension
+	
+func _on_credits_pressed():
+	$HUD/Credits.show()
+
+func _on_credits_backout_pressed():
+	$HUD/Credits.hide()
+
+func _on_quit_pressed():
+	get_tree().quit()
 
 func _on_patrons_id_check():
 	##move camera
@@ -34,10 +47,8 @@ func _on_accept_pressed():
 	guess_id_real.emit()
 	%AcceptDeny.hide()
 	
-
 func _on_deny_pressed():
 	guess_id_fake.emit()
-	%AcceptDeny.hide()
 
 func _on_database_pressed():
 	##move camera

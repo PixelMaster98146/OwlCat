@@ -68,7 +68,6 @@ hit_from_inside = true
 script = ExtResource("2_jchfj")
 
 [node name="Grabby" type="Node3D" parent="MeshInstance3D/Head/Camera3D"]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190723, -0.134136, -2.19934)
 
 [node name="itemA_label" type="Label3D" parent="MeshInstance3D/Head/Camera3D"]
