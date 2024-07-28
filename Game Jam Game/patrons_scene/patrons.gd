@@ -10,7 +10,7 @@ var patronorders
 
 var real_id = true
 var selected = false
-var checking = false
+
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
 @onready var real_fake = []
 var real_fake_recieve = true
@@ -26,10 +26,8 @@ var real_fake_recieve = true
 @onready var path9 = %PathFollow3D9
 @onready var path10 = %PathFollow3D10
 @onready var player = $"../PlayerCam"
-var id_card
+@onready var id_card = $IDCard
 @onready var idcheck = $"../IDcheck"
-
-
 
 var default_id_pos
 var moving1 = true
@@ -60,56 +58,31 @@ var line10_full = false
 var facethecamera
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	default_id_pos = id_card.position
 	selected = false
 	set_process_input(true)
-	await get_tree().create_timer(1).timeout
+	
+
+func _on_day_start(): #does not exist yet
+	print("recieved")
 	path()
-	$PatronTimer.start() #not connected
-	await get_tree().create_timer(1).timeout
+	$PatronTimer.start()
+
+func _on_patron_timer_timeout():
 	path()
-	await get_tree().create_timer(1).timeout
-	path()
-	await get_tree().create_timer(1).timeout
-	path()
-	await get_tree().create_timer(1).timeout
-	path()
-	await get_tree().create_timer(1).timeout
-	path()
-	await get_tree().create_timer(1).timeout
-	path()
-	await get_tree().create_timer(1).timeout
-	path()
-	#await get_tree().create_timer(3).timeout
-	#path()
 
 func _input(event):
-	
 	if event.is_action_pressed("checkID"):
-		if checking == false:
-			IDcheckingprocess()
-		if checking == true:
-			checking = false
-		
+		if selected == true:
+			#id_card.position = idcheck.global_position
+			#id_card.look_at(player.global_transform.origin, Vector3(0,0,0),true)
+			id_card.look_at_from_position(idcheck.global_position, -player.get_node("MeshInstance3D").get_node("Head").get_node("Camera3D").global_position)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if selected == true:
+		pass
 		
 
-func IDcheckingprocess():
-	if selected == true:
-		checking = true
-		if id_card != null:
-			if id_card.position == default_id_pos:
-				id_check.emit()
-				id_card.look_at_from_position(idcheck.global_position, -player.get_node("MeshInstance3D").get_node("Head").get_node("Camera3D").global_position)
-			else:
-				id_card.position = default_id_pos
-		elif id_card == null:
-			id_check.emit()
-			#make patron say "i dont have ID" or something, or show a "fake"/forged ID
-	
-	
 func _physics_process(delta):
 	#print("working")
 	const move_speed := 10.0#4.0
@@ -193,20 +166,16 @@ func path(): #change to _on_patron_timer_timeout
 		path10.progress = 0
 	else:
 		print("pass")
-		pass
+		$PatronTimer.stop()
 
 func _on_patron_leave_body_entered(body):
 	body.get_parent().queue_free()
+	if $PatronTimer.is_stopped():
+		$PatronTimer.start()
 
 func _on_counter_body_entered(body):
 	patronorders = body.get_parent()
-	body.get_parent_node_3d().look_at(player.position)
 	ordering()
-	id_card = body.get_parent().get_node("IDCard")
-	if id_card != null:
-		default_id_pos = id_card.position
-	else:
-		default_id_pos = Vector3(0,-20,0)
 	selected = true
 	var counter_stop = body.get_parent().get_parent()
 	var model = body.get_parent()
@@ -233,7 +202,7 @@ func _on_counter_body_entered(body):
 	##model.rotate
 	counter_full = true
 	##hand over id animation
-	
+	id_check.emit()
 
 func _on_line_up_1_body_entered(body):
 	var line1_stop = body.get_parent().get_parent()
@@ -546,37 +515,5 @@ func ordering():
 	redroluff = itemB + itemA
 
 func updatelabel(currpatron, itemA, itemB):
-	
+	var cpat
 	currpatron.get_node("patorder").text = itemA
-	currpatron.get_node("patorder2").text = itemB
-	
-
-func grat():
-	patronorders.get_node("patorder").text = "Thanks"
-	patronorders.get_node("patorder2").text = ":)"
-	real_fake.pop_back()
-	moving1 = true
-	moving2 = true
-	moving3 = true
-	moving4 = true
-	moving5 = true
-	moving6 = true
-	moving7 = true
-	moving8 = true
-	moving9 = true
-	moving10 = true
-
-func cuss():
-	patronorders.get_node("patorder").text = "!@#$"
-	patronorders.get_node("patorder2").text = ""
-	real_fake.pop_back()
-	moving1 = true
-	moving2 = true
-	moving3 = true
-	moving4 = true
-	moving5 = true
-	moving6 = true
-	moving7 = true
-	moving8 = true
-	moving9 = true
-	moving10 = true

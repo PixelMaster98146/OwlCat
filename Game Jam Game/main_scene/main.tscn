@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=15 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=22 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
@@ -12,7 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://dn65bu4be5mhc" path="res://potion_scene/3d_potions.tscn" id="8_46f6h"]
 [ext_resource type="PackedScene" uid="uid://dnsoe38mgehna" path="res://potion_scene/3d_potionsB.tscn" id="9_h0lot"]
 [ext_resource type="PackedScene" uid="uid://c3nbbojwkgjwq" path="res://test_drag_mechanics/potion_spawn.tscn" id="10_ygg8h"]
-
+[ext_resource type="Texture2D" uid="uid://bloxgjdxdq6ss" path="res://Assets/UI/dialogue_box_dark.png" id="11_sh3qn"]
+[ext_resource type="Texture2D" uid="uid://cdbf8r4mwead5" path="res://main_scene/Arrow (BW).png" id="12_b6rju"]
+[ext_resource type="Texture2D" uid="uid://ctwrvt5fko1n0" path="res://Assets/UI/Main menu base.png" id="12_kef3e"]
+[ext_resource type="Script" path="res://main_scene/PauseMenu.gd" id="13_o4irf"]
+[ext_resource type="Texture2D" uid="uid://rxhtjwr3hnfp" path="res://Assets/UI/light button3.png" id="14_672su"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="15_f3p7i"]
+[ext_resource type="Texture2D" uid="uid://b7ly0kw61dxjt" path="res://Assets/UI/dark button3.png" id="15_iy8fc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vmfh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -35,9 +40,6 @@ script = ExtResource("3_75ocv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="bar"]
 environment = SubResource("Environment_31pmd")
-
-[node name="Camera3D2" type="Camera3D" parent="bar"]
-transform = Transform3D(0.712994, 0.181476, -0.677279, 2.29857e-08, 0.965926, 0.258819, 0.701171, -0.184536, 0.688699, -8.91052, 2.57166, 11.1065)
 
 [node name="Camera3D" type="Camera3D" parent="bar"]
 transform = Transform3D(0.712994, 0.181476, -0.677279, 2.29857e-08, 0.965926, 0.258819, 0.701171, -0.184536, 0.688699, -10.7453, 3.13716, 11.1739)
@@ -185,6 +187,8 @@ distance_fade_enabled = true
 [node name="Patrons" parent="." instance=ExtResource("4_pocl0")]
 
 [node name="Database" parent="." instance=ExtResource("5_jyvkb")]
+transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923, -8.1534, 2.26496, 7.41871)
+visible = false
 
 [node name="PlayerCam" parent="." instance=ExtResource("6_5dmee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.037, 0, 6.40434)
@@ -195,6 +199,244 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="MainMenuBase" type="Sprite2D" parent="HUD"]
+position = Vector2(576, 512)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("12_kef3e")
+
+[node name="Start" type="TextureButton" parent="HUD/MainMenuBase"]
+offset_left = -646.667
+offset_top = -586.667
+offset_right = 118.333
+offset_bottom = -425.667
+scale = Vector2(1.7, 1.7)
+texture_normal = ExtResource("14_672su")
+texture_hover = ExtResource("15_iy8fc")
+texture_focused = ExtResource("15_iy8fc")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="StartLabel" type="Label" parent="HUD/MainMenuBase/Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -80.5
+offset_right = 98.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 112
+text = "Start"
+
+[node name="Options" type="TextureButton" parent="HUD/MainMenuBase"]
+offset_left = -646.667
+offset_top = -280.0
+offset_right = 118.333
+offset_bottom = -119.0
+scale = Vector2(1.7, 1.7)
+texture_normal = ExtResource("14_672su")
+texture_hover = ExtResource("15_iy8fc")
+texture_focused = ExtResource("15_iy8fc")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="OptionsLabel" type="Label" parent="HUD/MainMenuBase/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -80.5
+offset_right = 98.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 112
+text = "Options"
+
+[node name="Credits" type="TextureButton" parent="HUD/MainMenuBase"]
+offset_left = -646.667
+offset_top = 40.0005
+offset_right = 118.333
+offset_bottom = 201.0
+scale = Vector2(1.7, 1.7)
+texture_normal = ExtResource("14_672su")
+texture_hover = ExtResource("15_iy8fc")
+texture_focused = ExtResource("15_iy8fc")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="CreditsLabel" type="Label" parent="HUD/MainMenuBase/Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -80.5
+offset_right = 98.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 112
+text = "Credits"
+
+[node name="Quit" type="TextureButton" parent="HUD/MainMenuBase"]
+offset_left = -646.667
+offset_top = 366.667
+offset_right = 118.333
+offset_bottom = 527.667
+scale = Vector2(1.7, 1.7)
+texture_normal = ExtResource("14_672su")
+texture_hover = ExtResource("15_iy8fc")
+texture_focused = ExtResource("15_iy8fc")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="QuitLabel" type="Label" parent="HUD/MainMenuBase/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -80.5
+offset_right = 98.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 112
+text = "Quit"
+
+[node name="Credits" type="Sprite2D" parent="HUD"]
+visible = false
+position = Vector2(576, 313)
+scale = Vector2(0.78, 0.5)
+texture = ExtResource("12_kef3e")
+
+[node name="Code" type="Sprite2D" parent="HUD/Credits"]
+position = Vector2(0, -834)
+scale = Vector2(0.769, 0.8)
+texture = ExtResource("11_sh3qn")
+
+[node name="Label" type="Label" parent="HUD/Credits/Code"]
+offset_left = -720.216
+offset_top = 300.0
+offset_right = -369.216
+offset_bottom = 466.0
+scale = Vector2(1, 1.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 150
+text = "Code:"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HUD/Credits/Code"]
+offset_left = -733.553
+offset_top = 535.0
+offset_right = 732.447
+offset_bottom = 701.0
+scale = Vector2(1, 1.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 150
+text = "Nubbe and PixelMaster"
+vertical_alignment = 1
+
+[node name="Art" type="Sprite2D" parent="HUD/Credits"]
+position = Vector2(0, -402)
+scale = Vector2(0.769, 0.8)
+texture = ExtResource("11_sh3qn")
+
+[node name="Label" type="Label" parent="HUD/Credits/Art"]
+offset_left = -720.216
+offset_top = 300.0
+offset_right = -369.216
+offset_bottom = 466.0
+scale = Vector2(1, 1.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 150
+text = "Art:"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HUD/Credits/Art"]
+offset_left = -613.517
+offset_top = 520.0
+offset_right = 738.483
+offset_bottom = 686.0
+scale = Vector2(1, 1.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 150
+text = "Maroon and Tiny Owl"
+vertical_alignment = 1
+
+[node name="Music" type="Sprite2D" parent="HUD/Credits"]
+position = Vector2(0, 30)
+scale = Vector2(0.769, 0.8)
+texture = ExtResource("11_sh3qn")
+
+[node name="Label" type="Label" parent="HUD/Credits/Music"]
+offset_left = -720.216
+offset_top = 300.0
+offset_right = -369.216
+offset_bottom = 466.0
+scale = Vector2(1, 1.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 150
+text = "Music:"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HUD/Credits/Music"]
+offset_left = -333.433
+offset_top = 507.5
+offset_right = 17.5666
+offset_bottom = 673.5
+scale = Vector2(1, 1.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 150
+text = "nbnd"
+vertical_alignment = 1
+
+[node name="CreditBackout" type="TextureButton" parent="HUD/Credits"]
+offset_left = -947.436
+offset_top = -674.0
+offset_right = -395.436
+offset_bottom = -404.0
+rotation = 3.14159
+scale = Vector2(0.24, 0.4)
+pivot_offset = Vector2(287.18, 126)
+texture_normal = ExtResource("12_b6rju")
+
 [node name="WeekDay" type="Label" parent="HUD"]
 visible = false
 layout_mode = 0
@@ -203,67 +445,6 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("7_f83fa")
 theme_override_font_sizes/font_size = 48
 text = "Week x: Day x"
-
-[node name="TitleScreen" type="Control" parent="HUD"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TitleScreen"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -178.0
-offset_right = 80.0
-offset_bottom = -38.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="StartGame" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Options")
-theme_override_colors/font_color = Color(0, 0.666667, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("7_f83fa")
-theme_override_font_sizes/font_size = 32
-text = "Start"
-
-[node name="Options" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../StartGame")
-focus_neighbor_bottom = NodePath("../Credits")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("7_f83fa")
-theme_override_font_sizes/font_size = 32
-text = "Options"
-
-[node name="Credits" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Options")
-focus_neighbor_bottom = NodePath("../Quit")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("7_f83fa")
-theme_override_font_sizes/font_size = 32
-text = "Credits"
-
-[node name="Quit" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Credits")
-focus_neighbor_bottom = NodePath("../StartGame")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("7_f83fa")
-theme_override_font_sizes/font_size = 32
-text = "Quit"
 
 [node name="Pause Menu" type="Control" parent="HUD"]
 visible = false
@@ -348,13 +529,87 @@ visible = false
 [node name="IDcheck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14867, 1.32011, 5.74162)
 
+[node name="PauseMenu" type="Sprite2D" parent="."]
+process_mode = 3
+visible = false
+position = Vector2(576, 320)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_kef3e")
+script = ExtResource("13_o4irf")
+
+[node name="Continue" type="TextureButton" parent="PauseMenu"]
+offset_left = -385.0
+offset_top = -370.0
+offset_right = 380.0
+offset_bottom = -209.0
+texture_normal = ExtResource("14_672su")
+texture_hover = ExtResource("15_iy8fc")
+texture_focused = ExtResource("15_iy8fc")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="ContinueLabel" type="Label" parent="PauseMenu/Continue"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -80.5
+offset_right = 98.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 112
+text = "Continue"
+
+[node name="Quit" type="TextureButton" parent="PauseMenu"]
+offset_left = -385.0
+offset_top = 240.0
+offset_right = 380.0
+offset_bottom = 401.0
+texture_normal = ExtResource("14_672su")
+texture_hover = ExtResource("15_iy8fc")
+texture_focused = ExtResource("15_iy8fc")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="QuitLabel" type="Label" parent="PauseMenu/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -80.5
+offset_right = 98.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 112
+text = "Quit"
+
+[connection signal="day_start" from="." to="Patrons" method="_on_day_start"]
 [connection signal="db_start" from="." to="Database" method="_on_main_db_start"]
 [connection signal="guess_id_fake" from="." to="Patrons" method="_on_main_guess_id_fake"]
 [connection signal="guess_id_real" from="." to="Patrons" method="_on_main_guess_id_real"]
 [connection signal="id_check" from="Patrons" to="." method="_on_patrons_id_check"]
 [connection signal="db_backout" from="Database" to="." method="_on_database_db_backout"]
-[connection signal="pressed" from="HUD/TitleScreen/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="HUD/TitleScreen/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="HUD/MainMenuBase/Start" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="HUD/MainMenuBase/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="HUD/MainMenuBase/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="HUD/MainMenuBase/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HUD/Credits/CreditBackout" to="." method="_on_credits_backout_pressed"]
 [connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Accept" to="." method="_on_accept_pressed"]
 [connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Deny" to="." method="_on_deny_pressed"]
 [connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Database" to="." method="_on_database_pressed"]
+[connection signal="pressed" from="PauseMenu/Continue" to="PauseMenu" method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/Quit" to="PauseMenu" method="_on_quit_pressed"]
