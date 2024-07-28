@@ -31,7 +31,7 @@ func _process(delta):
 			player_cam.updatelabelR("Succ")
 			patrons.grat()
 		else:
-			player_cam.updatelabelR("Fail")
+			patrons.cuss()
 		x = 9
 		resetorders()
 		player_cam.resetlabel()
