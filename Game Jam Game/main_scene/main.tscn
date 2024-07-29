@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=23 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
+[ext_resource type="PackedScene" uid="uid://bo3y85nmdyl54" path="res://main_scene/Bar/Environment.glb" id="2_hwx3h"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
 [ext_resource type="Script" path="res://test_drag_mechanics/potion_spawn.gd" id="3_75ocv"]
+[ext_resource type="PackedScene" uid="uid://3gy7hu28yfwv" path="res://main_scene/Bar/Furniture.glb" id="3_gkwnv"]
 [ext_resource type="PackedScene" uid="uid://dmbd54u5g3ob8" path="res://patrons_scene/patrons.tscn" id="4_pocl0"]
 [ext_resource type="PackedScene" uid="uid://3exyqohi74rx" path="res://database_scene/database.tscn" id="5_jyvkb"]
 [ext_resource type="PackedScene" uid="uid://b3yv1f31b7ory" path="res://test_drag_mechanics/PlayerCam.tscn" id="6_5dmee"]
@@ -13,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bloxgjdxdq6ss" path="res://Assets/UI/dialogue_box_dark.png" id="11_sh3qn"]
 [ext_resource type="Texture2D" uid="uid://cdbf8r4mwead5" path="res://main_scene/Arrow (BW).png" id="12_b6rju"]
 [ext_resource type="Texture2D" uid="uid://ctwrvt5fko1n0" path="res://Assets/UI/Main menu base.png" id="12_kef3e"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="13_jl8p5"]
 [ext_resource type="Script" path="res://main_scene/PauseMenu.gd" id="13_o4irf"]
 [ext_resource type="Texture2D" uid="uid://rxhtjwr3hnfp" path="res://Assets/UI/light button3.png" id="14_672su"]
 [ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="15_f3p7i"]
@@ -35,7 +36,12 @@ glow_enabled = true
 [node name="Main" type="Node3D"]
 script = ExtResource("1_hsxq6")
 
+[node name="Environment" parent="." instance=ExtResource("2_hwx3h")]
+
+[node name="Furniture" parent="." instance=ExtResource("3_gkwnv")]
+
 [node name="bar" parent="." instance=ExtResource("2_quyvt")]
+visible = false
 script = ExtResource("3_75ocv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="bar"]
@@ -187,7 +193,7 @@ distance_fade_enabled = true
 [node name="Patrons" parent="." instance=ExtResource("4_pocl0")]
 
 [node name="Database" parent="." instance=ExtResource("5_jyvkb")]
-transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923, -8.27822, 1.6, 6.77886)
+transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923, -9.073, 1.57, 6.269)
 
 [node name="PlayerCam" parent="." instance=ExtResource("6_5dmee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.037, 0, 6.40434)
@@ -509,12 +515,13 @@ offset_right = 147.0
 offset_bottom = 189.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("13_jl8p5")
+theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 44
 text = "Money: $0"
 
 [node name="Node3D" parent="." instance=ExtResource("7_4ohhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 1.03376, 5.14591)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8125, 0.473739, 3.99119)
@@ -614,6 +621,7 @@ text = "Quit"
 [connection signal="guess_id_real" from="." to="Patrons" method="_on_main_guess_id_real"]
 [connection signal="id_check" from="Patrons" to="." method="_on_patrons_id_check"]
 [connection signal="payment" from="Patrons" to="." method="_on_patrons_payment"]
+[connection signal="raid" from="Patrons" to="." method="_on_patrons_raid"]
 [connection signal="db_backout" from="Database" to="." method="_on_database_db_backout"]
 [connection signal="pressed" from="HUD/MainMenuBase/Start" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="HUD/MainMenuBase/Options" to="." method="_on_options_pressed"]
