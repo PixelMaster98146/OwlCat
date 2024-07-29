@@ -2,7 +2,6 @@ extends Node3D
 
 signal id_check
 signal payment
-signal raid
 
 var itemA 
 var itemB 
@@ -13,14 +12,9 @@ var checking = false
 var real_id = true
 var selected = false
 var noID = false
-var real_patron = true
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
 @onready var real_fake = []
-
-@onready var mean_text = ["@#$%", "Why can't you just do your job", "My day is ruined", "I'm going to die"]
-@onready var nice_text = ["Thanks", ":)", "Woohoo"]
-@onready var raidP1_text = ["You're a fool. ", "You've been decieved. ", "Idiot. "]
-@onready var raidP2_text = ["I'll be back later with friends!", "You're busted now!", "Adventurers rule!"]
+var real_patron = true
 
 @onready var path1 = %PathFollow3D1
 @onready var path2 = %PathFollow3D2
@@ -488,8 +482,7 @@ func _on_id_card_real():
 func _on_main_guess_id_fake():
 	if real_fake.back() == "real":
 		print("denied, is real")
-		###Label#.text = mean_text.pick_random()
-		await get_tree().create_timer(1).timeout
+		##say mean things
 		real_fake.pop_back()
 		moving1 = true
 		moving2 = true
@@ -503,8 +496,7 @@ func _on_main_guess_id_fake():
 		moving10 = true
 	elif real_fake.back() == "fake":
 		print("denied, is fake")
-		###Label#.text = mean_text.pick_random()
-		await get_tree().create_timer(1).timeout
+		##say mean things
 		real_fake.pop_back()
 		moving1 = true
 		moving2 = true
@@ -532,13 +524,11 @@ func _on_main_guess_id_real():
 		##Make drink signal
 
 func _on_order_complete():
-	#print("complete")
-	return
 	if real_patron == true:
-		###Label#.text = nice_text.pick_random()
-		#patronorders.get_node("patorder").text
-		#patronorders.get_node("patorder2").text
-		await get_tree().create_timer(1).timeout
+		##Say nice things
+		patronorders.get_node("patorder").text = "thanks"
+		patronorders.get_node("patorder2").text = ":)"
+		await get_tree().create_timer(0.5).timeout
 		payment.emit()
 		await get_tree().create_timer(0.5).timeout
 		moving1 = true
@@ -552,8 +542,9 @@ func _on_order_complete():
 		moving9 = true
 		moving10 = true
 	elif real_patron == false:
-		###Label#.text = str(raidP1_text.pick_random()) + str(raidP2_text.pick_random())
-		##emit raid signal ##2 minutes later shop is forced to close from adventurer raid
+		##say you're a fool/you've been decieved/idiot, etc
+		##say I'll be back later with friends, etc
+		##emit raid signal ##3 hours later shop is forced to close from adventurer raid
 		move_speed = 10.0
 		moving1 = true
 		await get_tree().create_timer(3).timeout
@@ -567,7 +558,6 @@ func _on_order_complete():
 		moving8 = true
 		moving9 = true
 		moving10 = true
-		raid.emit()
 
 func ordering():
 	mixarea.resetorders()
