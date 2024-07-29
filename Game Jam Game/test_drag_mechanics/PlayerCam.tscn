@@ -89,19 +89,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190723, -0.134136, -2.19934
 
 [node name="itemA_label" type="Label3D" parent="MeshInstance3D/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999649, 0.026491, 0, -0.026491, 0.999649, -1.06875, 0.391421, -1.18987)
-visible = false
 text = "SAMPLE TEXT"
 font_size = 12
 
 [node name="itemB_label" type="Label3D" parent="MeshInstance3D/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999649, 0.026491, 0, -0.026491, 0.999649, -1.06875, 0.284729, -1.18987)
-visible = false
 text = "SAMPLE TEXT"
 font_size = 12
 
 [node name="Results_label" type="Label3D" parent="MeshInstance3D/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999649, 0.026491, 0, -0.026491, 0.999649, -1.06875, 0.107962, -1.18987)
-visible = false
 text = "SAMPLE TEXT"
 font_size = 12
 
