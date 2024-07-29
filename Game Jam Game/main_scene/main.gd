@@ -72,6 +72,7 @@ func _on_database_db_backout():
 	$HUD/AcceptDeny.show()
 
 func _on_patrons_payment():
+	#print("payed")
 	money += 50
 	$HUD/Money.text = "Money: $" + str(money)
 	##Needs to be saved
@@ -87,3 +88,9 @@ func _on_patrons_payment():
 		##text
 		##game over
 		##reset game and save
+
+func _on_patrons_raid():
+	await get_tree().create_timer(120).timeout
+	print("raid")
+	##cutscene
+	##end day
