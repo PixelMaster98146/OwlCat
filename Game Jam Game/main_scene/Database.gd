@@ -117,6 +117,11 @@ func _on_states_pressed():
 	%AllStatesBox.show()
 	Menu = "States"
 
+func _on_rules_pressed():
+	%DBcategories.hide()
+	%RulesLabel.show()
+	Menu = "Rules"
+
 func _on_first_names_pressed():
 	%FNameLName.hide()
 	%AllFNamesBox.show()
@@ -178,7 +183,7 @@ func _on_toolibin_pressed():
 	Menu = "Toolibin"
 
 func _on_back_arrow_pressed():
-	print("working")
+	#print("working")
 	if Menu == "DBcategories":
 		db_backout.emit()
 	if Menu == "FnameLname":
@@ -191,6 +196,10 @@ func _on_back_arrow_pressed():
 		Menu = "DBcategories"
 	if Menu == "States":
 		%AllStatesBox.hide()
+		%DBcategories.show()
+		Menu = "DBcategories"
+	if Menu == "Rules":
+		%RulesLabel.hide()
 		%DBcategories.show()
 		Menu = "DBcategories"
 	if Menu == "FirstNames":

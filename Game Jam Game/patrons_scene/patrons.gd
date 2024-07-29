@@ -478,14 +478,6 @@ func _on_id_card_fake():
 func _on_id_card_real():
 	print("real_id")
 	real_fake.insert(0, "real")
-	
-	##check
-		##if array back == real
-			##...
-			##pop back
-		##elif array back == fake
-			##...
-			##pop back
 
 func _on_main_guess_id_fake():
 	if real_fake.back() == "real":
@@ -524,6 +516,7 @@ func _on_main_guess_id_real():
 		print("accept, is real")
 		real_fake.pop_back()
 		##Make drink signal
+		##grat()
 	elif real_fake.back() == "fake":
 		print("accept, is fake")
 		##Make drink signal
