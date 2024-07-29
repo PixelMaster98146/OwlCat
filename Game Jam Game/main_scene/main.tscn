@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=21 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://3exyqohi74rx" path="res://database_scene/database.tscn" id="5_jyvkb"]
 [ext_resource type="PackedScene" uid="uid://b3yv1f31b7ory" path="res://test_drag_mechanics/PlayerCam.tscn" id="6_5dmee"]
 [ext_resource type="PackedScene" uid="uid://bit2k8cxo3rjl" path="res://test_drag_mechanics/mix_area.tscn" id="7_4ohhq"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="7_f83fa"]
 [ext_resource type="PackedScene" uid="uid://dn65bu4be5mhc" path="res://potion_scene/3d_potions.tscn" id="8_46f6h"]
 [ext_resource type="PackedScene" uid="uid://dnsoe38mgehna" path="res://potion_scene/3d_potionsB.tscn" id="9_h0lot"]
 [ext_resource type="PackedScene" uid="uid://c3nbbojwkgjwq" path="res://test_drag_mechanics/potion_spawn.tscn" id="10_ygg8h"]
@@ -16,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ctwrvt5fko1n0" path="res://Assets/UI/Main menu base.png" id="12_kef3e"]
 [ext_resource type="Script" path="res://main_scene/PauseMenu.gd" id="13_o4irf"]
 [ext_resource type="Texture2D" uid="uid://rxhtjwr3hnfp" path="res://Assets/UI/light button3.png" id="14_672su"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="15_f3p7i"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="15_f3p7i"]
 [ext_resource type="Texture2D" uid="uid://b7ly0kw61dxjt" path="res://Assets/UI/dark button3.png" id="15_iy8fc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vmfh"]
@@ -442,7 +441,7 @@ visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("7_f83fa")
+theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 48
 text = "Week x: Day x"
 
@@ -478,7 +477,7 @@ focus_neighbor_top = NodePath("../Database")
 focus_neighbor_bottom = NodePath("../Deny")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("7_f83fa")
+theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 32
 text = "Accept ID"
 
@@ -488,7 +487,7 @@ focus_neighbor_top = NodePath("../Accept")
 focus_neighbor_bottom = NodePath("../Database")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("7_f83fa")
+theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 32
 text = "Deny ID"
 
@@ -498,7 +497,7 @@ focus_neighbor_top = NodePath("../Deny")
 focus_neighbor_bottom = NodePath("../Accept")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("7_f83fa")
+theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 32
 text = "Official registry"
 
