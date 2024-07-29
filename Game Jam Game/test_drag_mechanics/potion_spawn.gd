@@ -17,6 +17,9 @@ func spawnpot(potsID):
 	if get_parent_node_3d() == null:
 		spawnloc = get_node("PotionSpawn").global_position
 		spawnloc2 = get_node("PotionSpawn2").global_position
+	elif get_parent_node_3d().get_node("potion_spawnnode") != null:
+		spawnloc = get_node("PotionSpawn").global_position
+		spawnloc2 = get_node("PotionSpawn2").global_position
 	else:
 		spawnloc = get_parent_node_3d().get_node("PotionSpawn").global_position
 		spawnloc2 = get_parent_node_3d().get_node("PotionSpawn2").global_position
@@ -24,9 +27,11 @@ func spawnpot(potsID):
 	if potsID == 1:
 		potfab = potionprefab.instantiate()
 		potfab.position =  spawnloc
+		potfab.visible = true
 	if potsID == 2:
 		potfab = potionprefab2.instantiate()
 		potfab.position =  spawnloc2
+		potfab.visible = true
 	add_child(potfab)
 	renode(potfab)
 

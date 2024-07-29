@@ -23,7 +23,7 @@ var timestop
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	maxtime = basemaxtime
-	onemin = 3 #change to 60 for 1 minute
+	onemin = 60 #change to 60 for 1 minute
 	secs = onemin
 	timestop = false #toggle this to true when pressing start base value == false
 	#optional codes below disables cursor ingame

@@ -1,6 +1,8 @@
 extends Node3D
 
 signal id_check
+signal payment
+signal raid
 
 var itemA 
 var itemB 
@@ -11,9 +13,14 @@ var checking = false
 var real_id = true
 var selected = false
 var noID = false
+var real_patron = true
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
 @onready var real_fake = []
-var real_fake_recieve = true
+
+@onready var mean_text = ["@#$%", "Why can't you just do your job", "My day is ruined", "I'm going to die"]
+@onready var nice_text = ["Thanks", ":)", "Woohoo"]
+@onready var raidP1_text = ["You're a fool. ", "You've been decieved. ", "Idiot. "]
+@onready var raidP2_text = ["I'll be back later with friends!", "You're busted now!", "Adventurers rule!"]
 
 @onready var path1 = %PathFollow3D1
 @onready var path2 = %PathFollow3D2
@@ -32,6 +39,7 @@ var mainscene
 
 @onready var mixarea = $"../Node3D"
 
+var move_speed = 4.0
 var default_id_pos
 var moving1 = true
 var moving2 = true
@@ -101,7 +109,6 @@ func IDcheckingprocess():
 
 func _physics_process(delta):
 	#print("working")
-	const move_speed := 10.0#4.0
 	if moving1 == true:
 		path1.progress += move_speed * delta
 	if moving2 == true:
@@ -123,8 +130,7 @@ func _physics_process(delta):
 	if moving10 == true:
 		path10.progress += move_speed * delta
 	
-func path(): #change to _on_patron_timer_timeout
-	#var line_wait = false #if person is waiting = true
+func path():
 	var customer = patron.pick_random()
 	var _customer1 = customer.duplicate()
 	var _customer2 = customer.duplicate()
@@ -191,9 +197,9 @@ func _on_patron_leave_body_entered(body):
 
 func _on_counter_body_entered(body):
 	mixarea.resetorders()
+	print(body)
 	patronorders = body.get_parent()
 	body.get_parent_node_3d().look_at(player.position)
-	ordering()
 	id_card = body.get_parent().get_node("IDCard")
 	if id_card != null:
 		default_id_pos = id_card.position
@@ -478,19 +484,12 @@ func _on_id_card_fake():
 func _on_id_card_real():
 	print("real_id")
 	real_fake.insert(0, "real")
-	
-	##check
-		##if array back == real
-			##...
-			##pop back
-		##elif array back == fake
-			##...
-			##pop back
 
 func _on_main_guess_id_fake():
 	if real_fake.back() == "real":
 		print("denied, is real")
-		##say mean things
+		###Label#.text = mean_text.pick_random()
+		await get_tree().create_timer(1).timeout
 		real_fake.pop_back()
 		moving1 = true
 		moving2 = true
@@ -504,7 +503,8 @@ func _on_main_guess_id_fake():
 		moving10 = true
 	elif real_fake.back() == "fake":
 		print("denied, is fake")
-		##say mean things
+		###Label#.text = mean_text.pick_random()
+		await get_tree().create_timer(1).timeout
 		real_fake.pop_back()
 		moving1 = true
 		moving2 = true
@@ -523,15 +523,53 @@ func _on_main_guess_id_real():
 	if real_fake.back() == "real":
 		print("accept, is real")
 		real_fake.pop_back()
+		real_patron = true
 		##Make drink signal
 	elif real_fake.back() == "fake":
 		print("accept, is fake")
-		##Make drink signal
 		real_fake.pop_back()
-		##After making drink: No payment, 3 hours later shop is forced to close from adventurer raid
+		real_patron = false
+		##Make drink signal
+
+func _on_order_complete():
+	#print("complete")
+	return
+	if real_patron == true:
+		###Label#.text = nice_text.pick_random()
+		#patronorders.get_node("patorder").text
+		#patronorders.get_node("patorder2").text
+		await get_tree().create_timer(1).timeout
+		payment.emit()
+		await get_tree().create_timer(0.5).timeout
+		moving1 = true
+		moving2 = true
+		moving3 = true
+		moving4 = true
+		moving5 = true
+		moving6 = true
+		moving7 = true
+		moving8 = true
+		moving9 = true
+		moving10 = true
+	elif real_patron == false:
+		###Label#.text = str(raidP1_text.pick_random()) + str(raidP2_text.pick_random())
+		##emit raid signal ##2 minutes later shop is forced to close from adventurer raid
+		move_speed = 10.0
+		moving1 = true
+		await get_tree().create_timer(3).timeout
+		move_speed = 4.0
+		moving2 = true
+		moving3 = true
+		moving4 = true
+		moving5 = true
+		moving6 = true
+		moving7 = true
+		moving8 = true
+		moving9 = true
+		moving10 = true
+		raid.emit()
 
 func ordering():
-	mixarea.resetorders()
 	itemA = PotIDs.orders.pick_random()
 	itemB = PotIDs.orders.pick_random()
 	#add some sort of UI label here, make the text contain itemA and itemB
@@ -542,11 +580,24 @@ func updatelabel(currpatron, itemA, itemB):
 	var cpat
 	currpatron.get_node("patorder").text = itemA
 	currpatron.get_node("patorder2").text = itemB
-
+	
 func grat():
-	patronorders.get_node("patorder").text = "thanks"
-	patronorders.get_node("patorder2").text = ":)"
-	real_fake.pop_back()
+	patronorders.get_node("patorder").text = "lol"
+	patronorders.get_node("patorder2").text = "lmao"
+	moving1 = true
+	moving2 = true
+	moving3 = true
+	moving4 = true
+	moving5 = true
+	moving6 = true
+	moving7 = true
+	moving8 = true
+	moving9 = true
+	moving10 = true
+	
+func cuss():
+	patronorders.get_node("patorder").text = "!@#$"
+	patronorders.get_node("patorder2").text = "!@#$"
 	moving1 = true
 	moving2 = true
 	moving3 = true

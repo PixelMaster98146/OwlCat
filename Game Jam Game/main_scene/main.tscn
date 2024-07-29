@@ -35,7 +35,7 @@ glow_enabled = true
 script = ExtResource("1_hsxq6")
 
 [node name="bar" parent="." instance=ExtResource("2_quyvt")]
-script = ExtResource("3_75ocv")
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="bar"]
 environment = SubResource("Environment_31pmd")
@@ -186,8 +186,7 @@ distance_fade_enabled = true
 [node name="Patrons" parent="." instance=ExtResource("4_pocl0")]
 
 [node name="Database" parent="." instance=ExtResource("5_jyvkb")]
-transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923, -8.1534, 2.26496, 7.41871)
-visible = false
+transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923, -9.073, 1.57, 6.269)
 
 [node name="PlayerCam" parent="." instance=ExtResource("6_5dmee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.037, 0, 6.40434)
@@ -501,29 +500,44 @@ theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 32
 text = "Official registry"
 
+[node name="Money" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 140.0
+offset_right = 147.0
+offset_bottom = 189.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 44
+text = "Money: $0"
+
 [node name="Node3D" parent="." instance=ExtResource("7_4ohhq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 1.03376, 5.14591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 1.12238, 5.14591)
+visible = false
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8125, 0.473739, 3.99119)
-use_collision = true
-size = Vector3(1.39063, 1, 9.87036)
+[node name="potion_spawnnode" type="Node3D" parent="."]
+script = ExtResource("3_75ocv")
 
-[node name="Potion" parent="." instance=ExtResource("8_46f6h")]
+[node name="Potion" parent="potion_spawnnode" instance=ExtResource("8_46f6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6172, 2.55949, 7.22348)
 
-[node name="Potion2" parent="." instance=ExtResource("9_h0lot")]
+[node name="Potion2" parent="potion_spawnnode" instance=ExtResource("9_h0lot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5149, 2.62779, 5.68068)
 
-[node name="PotionSpawn" parent="." instance=ExtResource("10_ygg8h")]
+[node name="PotionSpawn" parent="potion_spawnnode" instance=ExtResource("10_ygg8h")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4707, 3.36266, 7.25384)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4707, 4.94386, 7.25384)
 
-[node name="PotionSpawn2" parent="." instance=ExtResource("10_ygg8h")]
+[node name="PotionSpawn2" parent="potion_spawnnode" instance=ExtResource("10_ygg8h")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4707, 3.36266, 5.73783)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, -11.8125, 0.473739, 3.99119)
 visible = false
+use_collision = true
+size = Vector3(1.39063, 1, 9.87036)
 
 [node name="IDcheck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14867, 1.32011, 5.74162)
@@ -601,6 +615,8 @@ text = "Quit"
 [connection signal="guess_id_fake" from="." to="Patrons" method="_on_main_guess_id_fake"]
 [connection signal="guess_id_real" from="." to="Patrons" method="_on_main_guess_id_real"]
 [connection signal="id_check" from="Patrons" to="." method="_on_patrons_id_check"]
+[connection signal="payment" from="Patrons" to="." method="_on_patrons_payment"]
+[connection signal="raid" from="Patrons" to="." method="_on_patrons_raid"]
 [connection signal="db_backout" from="Database" to="." method="_on_database_db_backout"]
 [connection signal="pressed" from="HUD/MainMenuBase/Start" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="HUD/MainMenuBase/Options" to="." method="_on_options_pressed"]
