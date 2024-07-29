@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://3exyqohi74rx"]
+[gd_scene load_steps=11 format=3 uid="uid://3exyqohi74rx"]
 
 [ext_resource type="Script" path="res://main_scene/Database.gd" id="1_a1q1q"]
 [ext_resource type="Texture2D" uid="uid://cdbf8r4mwead5" path="res://main_scene/Arrow (BW).png" id="2_w1vok"]
 [ext_resource type="Theme" uid="uid://w3esexrcl0t4" path="res://flat_button.tres" id="3_wok2d"]
 [ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="4_mwa2r"]
+[ext_resource type="PackedScene" uid="uid://casgy2v4in05d" path="res://Assets/computer_keyboard_01.glb" id="5_tsu7b"]
+[ext_resource type="PackedScene" uid="uid://bl7ac0n2ddepm" path="res://Assets/crt_monitor.glb" id="6_ch8w6"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ltrn5"]
 size = Vector2(0.5, 0.5)
@@ -19,7 +21,7 @@ albedo_texture = SubResource("ViewportTexture_wbgs6")
 points = PackedVector3Array(-0.253968, -0.253968, -0.00396825, 0.253968, 0.253968, 0.00396825, 0.253968, 0.253968, -0.00396825, -0.253968, 0.253968, 0.00396825, 0.253968, -0.253968, 0.00396825, 0.253968, -0.253968, -0.00396825, -0.253968, 0.253968, -0.00396825, -0.253968, -0.253968, 0.00396825)
 
 [node name="Database" type="Node3D"]
-transform = Transform3D(0.557876, 0, -0.829925, 0, 1, 0, 0.829925, 0, 0.557876, -8.51235, 2.26496, 9.29383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35875, 2.26496, 9.34369)
 script = ExtResource("1_a1q1q")
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -63,6 +65,15 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 18
 text = "States"
+
+[node name="Rules" type="Button" parent="SubViewport/DBcategories"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Rules"
 
 [node name="FNameLName" type="VBoxContainer" parent="SubViewport"]
 unique_name_in_owner = true
@@ -542,6 +553,24 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_w1vok")
 
+[node name="RulesLabel" type="Label" parent="SubViewport"]
+unique_name_in_owner = true
+visible = false
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 305.0
+offset_bottom = 128.0
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "Rules:
+1. ID holder must 
+   be older than 18
+2. Expiry must be
+    later than current
+    year"
+
 [node name="Quad" type="MeshInstance3D" parent="."]
 mesh = SubResource("QuadMesh_ltrn5")
 surface_material_override/0 = SubResource("StandardMaterial3D_x5uv3")
@@ -558,9 +587,16 @@ visible = false
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 visible = false
 
+[node name="computer_keyboard_012" parent="." instance=ExtResource("5_tsu7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171266, -0.556, 0.112641)
+
+[node name="crt_monitor2" parent="." instance=ExtResource("6_ch8w6")]
+transform = Transform3D(1.5, 0, 0, 0, 1.8, 0, 0, 0, 2, 0.00541401, -0.555745, -0.447375)
+
 [connection signal="pressed" from="SubViewport/DBcategories/Names" to="." method="_on_names_pressed"]
 [connection signal="pressed" from="SubViewport/DBcategories/Occupations" to="." method="_on_occupations_pressed"]
 [connection signal="pressed" from="SubViewport/DBcategories/States" to="." method="_on_states_pressed"]
+[connection signal="pressed" from="SubViewport/DBcategories/Rules" to="." method="_on_rules_pressed"]
 [connection signal="pressed" from="SubViewport/FNameLName/FirstNames" to="." method="_on_first_names_pressed"]
 [connection signal="pressed" from="SubViewport/FNameLName/LastNames" to="." method="_on_last_names_pressed"]
 [connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Blighttown" to="." method="_on_blighttown_pressed"]

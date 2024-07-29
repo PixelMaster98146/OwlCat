@@ -186,8 +186,7 @@ distance_fade_enabled = true
 [node name="Patrons" parent="." instance=ExtResource("4_pocl0")]
 
 [node name="Database" parent="." instance=ExtResource("5_jyvkb")]
-transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923, -8.1534, 2.26496, 7.41871)
-visible = false
+transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923, -8.27822, 1.6, 6.77886)
 
 [node name="PlayerCam" parent="." instance=ExtResource("6_5dmee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.037, 0, 6.40434)
