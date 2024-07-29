@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=22 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bloxgjdxdq6ss" path="res://Assets/UI/dialogue_box_dark.png" id="11_sh3qn"]
 [ext_resource type="Texture2D" uid="uid://cdbf8r4mwead5" path="res://main_scene/Arrow (BW).png" id="12_b6rju"]
 [ext_resource type="Texture2D" uid="uid://ctwrvt5fko1n0" path="res://Assets/UI/Main menu base.png" id="12_kef3e"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="13_jl8p5"]
 [ext_resource type="Script" path="res://main_scene/PauseMenu.gd" id="13_o4irf"]
 [ext_resource type="Texture2D" uid="uid://rxhtjwr3hnfp" path="res://Assets/UI/light button3.png" id="14_672su"]
 [ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="15_f3p7i"]
@@ -500,6 +501,18 @@ theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 32
 text = "Official registry"
 
+[node name="Money" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 140.0
+offset_right = 147.0
+offset_bottom = 189.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("13_jl8p5")
+theme_override_font_sizes/font_size = 44
+text = "Money: $0"
+
 [node name="Node3D" parent="." instance=ExtResource("7_4ohhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 1.03376, 5.14591)
 
@@ -600,6 +613,7 @@ text = "Quit"
 [connection signal="guess_id_fake" from="." to="Patrons" method="_on_main_guess_id_fake"]
 [connection signal="guess_id_real" from="." to="Patrons" method="_on_main_guess_id_real"]
 [connection signal="id_check" from="Patrons" to="." method="_on_patrons_id_check"]
+[connection signal="payment" from="Patrons" to="." method="_on_patrons_payment"]
 [connection signal="db_backout" from="Database" to="." method="_on_database_db_backout"]
 [connection signal="pressed" from="HUD/MainMenuBase/Start" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="HUD/MainMenuBase/Options" to="." method="_on_options_pressed"]
