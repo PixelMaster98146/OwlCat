@@ -13,17 +13,17 @@
 
 [sub_resource type="Curve3D" id="Curve3D_01lor"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.38646, 0, -16.9925, 0.192398, 0, -1.0247, -0.192398, 0, 1.0247, 5.33025, 0, -11.1184, 0.577016, 0, -0.334062, -0.577016, 0, 0.334062, -6.7183, 0, -10.6055, 0, 0, 0, 0, 0, 0, -7.13184, 0, 4.13599, -1.20855, 0, 0.899382, 1.20855, 0, -0.899382, -3.10655, 0, -2.9905, 0, 0, 0, 0, 0, 0, 4.17282, 0, -4.76116, 0, 0, 0, 0, 0, 0, 8.16893, 0, -8.84181, 0, 0, 0, 0, 0, 0, 8.25324, 0, -14.7159, 0, 0, 0, 0, 0, 0, 10.6696, -0.00012207, -16.9129),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.34793, 0, -17.6884, 0.192398, 0, -1.0247, -0.192398, 0, 1.0247, 9.17937, 0, -10.4877, 2.38064, 0, -2.314, -2.38064, 0, 2.314, 2.91754, 0, -2.618, 0, 0, 0, 0, 0, 0, -7.21419, 0, 4.86764, 0, 0, 0, 0, 0, 0, 7.27553, 0, -10.1242, 0, 0, 0, 0, 0, 0, 7.33589, 0, -13.9269, 0, 0, 0, 0, 0, 0, 4.48349, -0.00012207, -18.1542),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 9
+point_count = 7
 
 [sub_resource type="Curve3D" id="Curve3D_icrct"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.5375, 0, -16.9157, 0.5556, 0, -0.432633, -0.5556, 0, 0.432633, 6.49829, 0, -10.7535, 0.450753, 0, -0.263153, -0.450753, 0, 0.263153, -6.88547, 0, -10.6061, 0.0355787, 0, -0.845507, -0.0355787, 0, 0.845507, -7.15995, 0, 4.05167, -0.8089, 0, 0.644892, 0.8089, 0, -0.644892, -3.16894, 0, -3.08717, 0, 0, 0, 0, 0, 0, 4.08033, 0, -4.72273, 0, 0, 0, 0, 0, 0, 8.91144, 0, -8.23691, 0, 0, 0, 0, 0, 0, 8.90158, 0, -13.91, 0, 0, 0, 0, 0, 0, 10.8971, -0.00012207, -16.9735),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.3738, 0, -17.5849, 0, 0, 0, 0, 0, 0, 9.19002, 0, -10.2702, 0.299431, 0, -0.165139, -0.299431, 0, 0.165139, 10.1539, 0, 10.4607, 0.656861, 0, 0.331804, -0.656861, 0, -0.331804, -6.40947, 0, 10.5249, 0, 0, 0, 0, 0, 0, -7.13897, 0, 4.86278, 0, 0, 0, 0, 0, 0, 7.32228, 0, -10.189, 0, 0, 0, 0, 0, 0, 7.36785, 0, -13.8523, 0, 0, 0, 0, 0, 0, 4.48349, -0.00012207, -18.1542),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 9
+point_count = 8
 
 [sub_resource type="BoxMesh" id="BoxMesh_7meuo"]
 
@@ -101,7 +101,7 @@ text = "Sample text"
 [node name="PatronLeave" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PatronLeave"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7622, 0, -16.8149)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43841, 0, -18.1359)
 shape = SubResource("BoxShape3D_fs558")
 
 [node name="Line" type="Node3D" parent="."]
@@ -171,47 +171,46 @@ curve = SubResource("Curve3D_01lor")
 
 [node name="PathFollow3D1" type="PathFollow3D" parent="PatrolPath1"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999944, 0, 0.0095686, 0, 1, 0, -0.0095686, 0, -0.999944, 5.38646, 0, -16.9925)
+transform = Transform3D(-0.999717, 0, 0.0234022, 0, 1, 0, -0.0234022, 0, -0.999717, 9.34793, 0, -17.6884)
 
 [node name="PatrolPath2" type="Path3D" parent="."]
-visible = false
 curve = SubResource("Curve3D_icrct")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D3" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D4" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D5" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D6" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D7" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D8" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D9" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="PathFollow3D10" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999978, 0, 0.00636277, 0, 1, 0, -0.00636277, 0, -0.999978, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999684, 0, 0.0251168, 0, 1, 0, -0.0251168, 0, -0.999684, 9.3738, 0, -17.5849)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17523, 0)
@@ -234,7 +233,7 @@ transform = Transform3D(1, 0, 0, 0, 0.823206, 0.567743, 0, -0.567743, 0.823206, 
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7442, 0, -16.801)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44855, 0, -18.1501)
 mesh = SubResource("BoxMesh_7meuo")
 
 [node name="IDCard" parent="." instance=ExtResource("6_aipr1")]
