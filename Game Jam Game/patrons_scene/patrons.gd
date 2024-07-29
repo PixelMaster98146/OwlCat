@@ -7,10 +7,10 @@ var itemB
 var fullorder
 var redroluff
 var patronorders
-
+var checking = false
 var real_id = true
 var selected = false
-
+var noID = false
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
 @onready var real_fake = []
 var real_fake_recieve = true
@@ -26,8 +26,11 @@ var real_fake_recieve = true
 @onready var path9 = %PathFollow3D9
 @onready var path10 = %PathFollow3D10
 @onready var player = $"../PlayerCam"
-@onready var id_card = $IDCard
+var id_card
 @onready var idcheck = $"../IDcheck"
+var mainscene
+
+@onready var mixarea = $"../Node3D"
 
 var default_id_pos
 var moving1 = true
@@ -58,7 +61,7 @@ var line10_full = false
 var facethecamera
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	default_id_pos = id_card.position
+	mainscene = get_parent_node_3d()
 	selected = false
 	set_process_input(true)
 	
@@ -73,15 +76,28 @@ func _on_patron_timer_timeout():
 
 func _input(event):
 	if event.is_action_pressed("checkID"):
-		if selected == true:
-			#id_card.position = idcheck.global_position
-			#id_card.look_at(player.global_transform.origin, Vector3(0,0,0),true)
-			id_card.look_at_from_position(idcheck.global_position, -player.get_node("MeshInstance3D").get_node("Head").get_node("Camera3D").global_position)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+		if checking == false:
+			IDcheckingprocess()
+		elif checking == true:
+			checking = false
+			mainscene.get_node("HUD").get_node("AcceptDeny").hide()
+			if id_card != null:
+				id_card.position = default_id_pos
+
 func _process(delta):
+	pass
+
+
+func IDcheckingprocess():
 	if selected == true:
-		pass
-		
+		checking = true
+		if id_card != null:
+			if id_card.position == default_id_pos:
+				id_check.emit()
+				id_card.look_at_from_position(idcheck.global_position, -player.get_node("MeshInstance3D").get_node("Head").get_node("Camera3D").global_position)
+		elif id_card == null:
+			id_check.emit()
+			#make patron say "i dont have ID" or something, or show a "fake"/forged ID
 
 func _physics_process(delta):
 	#print("working")
@@ -174,8 +190,17 @@ func _on_patron_leave_body_entered(body):
 		$PatronTimer.start()
 
 func _on_counter_body_entered(body):
+	mixarea.resetorders()
 	patronorders = body.get_parent()
+	body.get_parent_node_3d().look_at(player.position)
 	ordering()
+	id_card = body.get_parent().get_node("IDCard")
+	if id_card != null:
+		default_id_pos = id_card.position
+		noID = false
+	else:
+		noID = true
+		default_id_pos = Vector3(0,-20,0)
 	selected = true
 	var counter_stop = body.get_parent().get_parent()
 	var model = body.get_parent()
@@ -202,7 +227,6 @@ func _on_counter_body_entered(body):
 	##model.rotate
 	counter_full = true
 	##hand over id animation
-	id_check.emit()
 
 func _on_line_up_1_body_entered(body):
 	var line1_stop = body.get_parent().get_parent()
@@ -507,8 +531,8 @@ func _on_main_guess_id_real():
 		##After making drink: No payment, 3 hours later shop is forced to close from adventurer raid
 
 func ordering():
+	mixarea.resetorders()
 	itemA = PotIDs.orders.pick_random()
-	
 	itemB = PotIDs.orders.pick_random()
 	#add some sort of UI label here, make the text contain itemA and itemB
 	fullorder = itemA + itemB
@@ -517,3 +541,19 @@ func ordering():
 func updatelabel(currpatron, itemA, itemB):
 	var cpat
 	currpatron.get_node("patorder").text = itemA
+	currpatron.get_node("patorder2").text = itemB
+
+func grat():
+	patronorders.get_node("patorder").text = "thanks"
+	patronorders.get_node("patorder2").text = ":)"
+	real_fake.pop_back()
+	moving1 = true
+	moving2 = true
+	moving3 = true
+	moving4 = true
+	moving5 = true
+	moving6 = true
+	moving7 = true
+	moving8 = true
+	moving9 = true
+	moving10 = true

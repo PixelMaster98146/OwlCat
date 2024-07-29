@@ -31,7 +31,7 @@ point_count = 8
 script = ExtResource("1_3erb7")
 
 [node name="PatronTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 3.0
 
 [node name="Models" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5705, 0, 4.60452)
@@ -46,6 +46,10 @@ transform = Transform3D(0.999999, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 0.99
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Patron1"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.65577, 0)
+text = "Sample text"
+
+[node name="patorder2" type="Label3D" parent="Models/Patron1"]
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 
@@ -57,6 +61,10 @@ text = "Sample text"
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Patron2"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.60692, 0)
+text = "Sample text"
+
+[node name="patorder2" type="Label3D" parent="Models/Patron2"]
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 
@@ -68,6 +76,10 @@ text = "Sample text"
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Patron3"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.63292, 0)
+text = "Sample text"
+
+[node name="patorder2" type="Label3D" parent="Models/Patron3"]
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 
@@ -79,6 +91,10 @@ text = "Sample text"
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Patron4"]
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.69513, 0)
+text = "Sample text"
+
+[node name="patorder2" type="Label3D" parent="Models/Patron4"]
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 

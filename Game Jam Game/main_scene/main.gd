@@ -4,6 +4,7 @@ signal guess_id_real
 signal guess_id_fake
 signal db_start
 signal day_start
+@onready var patrons = $Patrons
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,9 +47,14 @@ func _on_patrons_id_check():
 func _on_accept_pressed():
 	guess_id_real.emit()
 	%AcceptDeny.hide()
+	if patrons.noID == false:
+		patrons.id_card.position = patrons.default_id_pos
 	
 func _on_deny_pressed():
 	guess_id_fake.emit()
+	%AcceptDeny.hide()
+	if patrons.noID == false:
+		patrons.id_card.position = patrons.default_id_pos
 
 func _on_database_pressed():
 	##move camera
