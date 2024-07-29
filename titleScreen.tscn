@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4vkalqlphdpv"]
+
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="1_t8etj"]
+
+[node name="TitleScreen" type="Node3D"]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WeekDay" type="Label" parent="HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_t8etj")
+theme_override_font_sizes/font_size = 48
+text = "Week x: Day x"
+
+[node name="TitleScreen" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TitleScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -178.0
+offset_right = 80.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartGame" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Options")
+theme_override_colors/font_color = Color(0, 0.666667, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_t8etj")
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="Options" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../StartGame")
+focus_neighbor_bottom = NodePath("../Credits")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_t8etj")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Credits" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Quit")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_t8etj")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="Quit" type="Button" parent="HUD/TitleScreen/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Credits")
+focus_neighbor_bottom = NodePath("../StartGame")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_t8etj")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Pause Menu" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AcceptDeny" type="Control" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/AcceptDeny"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -142.0
+offset_right = 187.0
+offset_bottom = -50.0
+grow_vertical = 0
+
+[node name="Accept" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Database")
+focus_neighbor_bottom = NodePath("../Deny")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_t8etj")
+theme_override_font_sizes/font_size = 32
+text = "Accept ID"
+
+[node name="Deny" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Accept")
+focus_neighbor_bottom = NodePath("../Database")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_t8etj")
+theme_override_font_sizes/font_size = 32
+text = "Deny ID"
+
+[node name="Database" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Deny")
+focus_neighbor_bottom = NodePath("../Accept")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_t8etj")
+theme_override_font_sizes/font_size = 32
+text = "Official registry"

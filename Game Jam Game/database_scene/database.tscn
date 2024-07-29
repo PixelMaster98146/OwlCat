@@ -588,7 +588,7 @@ visible = false
 visible = false
 
 [node name="computer_keyboard_012" parent="." instance=ExtResource("5_tsu7b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171266, -0.556, 0.112641)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017, -0.55, 0.113)
 
 [node name="crt_monitor2" parent="." instance=ExtResource("6_ch8w6")]
 transform = Transform3D(1.5, 0, 0, 0, 1.8, 0, 0, 0, 2, 0.00541401, -0.555745, -0.447375)
