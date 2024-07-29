@@ -56,22 +56,6 @@ theme_override_font_sizes/font_size = 44
 text = "Timer:"
 script = ExtResource("2_4a4vs")
 
-[node name="Label2" type="Label" parent="MeshInstance3D/Head/Camera3D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -552.0
-offset_top = -247.0
-offset_right = 552.0
-offset_bottom = 378.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 44
-text = "Timer:"
-script = ExtResource("2_4a4vs")
-
 [node name="Timer" type="Timer" parent="MeshInstance3D/Head/Camera3D"]
 wait_time = 60.0
 one_shot = true

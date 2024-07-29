@@ -8,6 +8,8 @@ extends Node3D
 @onready var results_label = $MeshInstance3D/Head/Camera3D/Results_label
 @onready var timer = $MeshInstance3D/Head/Camera3D/Timer
 @onready var label = $MeshInstance3D/Head/Camera3D/Label
+@onready var label2 = $MeshInstance3D/Head/Camera3D/Label2
+
 @onready var dateandtime = $Dateandtime
 var basemaxtime = 2
 var maxtime
@@ -23,14 +25,15 @@ func _ready():
 	maxtime = basemaxtime
 	onemin = 3 #change to 60 for 1 minute
 	secs = onemin
-	timestop = true
+	timestop = false #toggle this to true when pressing start base value == false
 	#optional codes below disables cursor ingame
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	label.text = str(maxtime) + ": " + str('%.2f' % secs) + "Day: " + str(dateandtime.currday)
+	label.text = str(dateandtime.date[0]) + "/" + str(dateandtime.date[1]) + "/" + str(dateandtime.date[2])
+	label2.text = str(maxtime)+ " : " + str("%.2f" % secs)
 	timerstuff(delta)
 	
 func updatelabelA(itemA):
