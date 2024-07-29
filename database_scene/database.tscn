@@ -1,0 +1,612 @@
+[gd_scene load_steps=11 format=3 uid="uid://3exyqohi74rx"]
+
+[ext_resource type="Script" path="res://main_scene/Database.gd" id="1_a1q1q"]
+[ext_resource type="Texture2D" uid="uid://cdbf8r4mwead5" path="res://main_scene/Arrow (BW).png" id="2_w1vok"]
+[ext_resource type="Theme" uid="uid://w3esexrcl0t4" path="res://flat_button.tres" id="3_wok2d"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="4_mwa2r"]
+[ext_resource type="PackedScene" uid="uid://casgy2v4in05d" path="res://Assets/computer_keyboard_01.glb" id="5_tsu7b"]
+[ext_resource type="PackedScene" uid="uid://bl7ac0n2ddepm" path="res://Assets/crt_monitor.glb" id="6_ch8w6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ltrn5"]
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wbgs6"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5uv3"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_wbgs6")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b2abq"]
+points = PackedVector3Array(-0.253968, -0.253968, -0.00396825, 0.253968, 0.253968, 0.00396825, 0.253968, 0.253968, -0.00396825, -0.253968, 0.253968, 0.00396825, 0.253968, -0.253968, 0.00396825, 0.253968, -0.253968, -0.00396825, -0.253968, 0.253968, -0.00396825, -0.253968, -0.253968, 0.00396825)
+
+[node name="Database" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35875, 2.26496, 9.34369)
+script = ExtResource("1_a1q1q")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+gui_embed_subwindows = true
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="DBcategories" type="VBoxContainer" parent="SubViewport"]
+unique_name_in_owner = true
+offset_left = -10.0
+offset_right = 118.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Names" type="Button" parent="SubViewport/DBcategories"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_mwa2r")
+theme_override_font_sizes/font_size = 18
+text = "Names"
+
+[node name="Occupations" type="Button" parent="SubViewport/DBcategories"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Occupations"
+
+[node name="States" type="Button" parent="SubViewport/DBcategories"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "States"
+
+[node name="Rules" type="Button" parent="SubViewport/DBcategories"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Rules"
+
+[node name="FNameLName" type="VBoxContainer" parent="SubViewport"]
+unique_name_in_owner = true
+visible = false
+offset_left = -10.0
+offset_right = 118.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="FirstNames" type="Button" parent="SubViewport/FNameLName"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_mwa2r")
+theme_override_font_sizes/font_size = 18
+text = "First Names"
+
+[node name="LastNames" type="Button" parent="SubViewport/FNameLName"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Last Names"
+
+[node name="AllFNamesBox" type="ScrollContainer" parent="SubViewport"]
+unique_name_in_owner = true
+visible = false
+offset_left = 4.0
+offset_right = 132.0
+offset_bottom = 128.0
+
+[node name="AllFNamesV" type="VBoxContainer" parent="SubViewport/AllFNamesBox"]
+layout_mode = 2
+
+[node name="AllFNamesLabel" type="Label" parent="SubViewport/AllFNamesBox/AllFNamesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Blainford
+Bogworth
+Cardlow
+Chakron
+Cresmar
+Galtrie
+Golu
+Gorb
+Gort
+Grimmond
+Hadboia
+Hulter
+John
+Joldurn
+Kamaro
+Kirnach
+Loncord
+Nortane
+Neetham
+Quelaag
+Shibron
+Swaiton
+Thorblin
+Tortus
+Verstall"
+
+[node name="AllLNamesBox" type="ScrollContainer" parent="SubViewport"]
+unique_name_in_owner = true
+visible = false
+offset_left = 4.0
+offset_right = 132.0
+offset_bottom = 128.0
+
+[node name="AllLNamesV" type="VBoxContainer" parent="SubViewport/AllLNamesBox"]
+layout_mode = 2
+
+[node name="AllLNamesLabel" type="Label" parent="SubViewport/AllLNamesBox/AllLNamesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Amrane
+Bainly
+Bexnora
+Bogson
+Bredenrath
+Brudermark
+Chibourath
+Cucoo
+Dalebran
+Dangeo
+Deding
+Delisster
+Dunfair
+Endlas
+Farnram
+Griffrid
+John
+Keelfait
+Morindes
+Piltane
+Sedgeholm
+Smith
+Stokeming
+Vimroot
+Wortry"
+
+[node name="AllOccupationsBox" type="ScrollContainer" parent="SubViewport"]
+unique_name_in_owner = true
+visible = false
+offset_left = 4.0
+offset_right = 132.0
+offset_bottom = 128.0
+
+[node name="AllOccupationsv" type="VBoxContainer" parent="SubViewport/AllOccupationsBox"]
+layout_mode = 2
+
+[node name="AllOccupationsLabel" type="Label" parent="SubViewport/AllOccupationsBox/AllOccupationsv"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Acarologist
+Adenologist
+Artist
+Banker
+Biologist
+Builder
+Bus driver
+Chef
+Cleaner
+Data analyst
+Doctor
+Electrician
+Game developer
+Hospitality
+Machinist
+Marketer
+Meteorologist
+Nurse
+Plumber
+Radiologist
+Receptionist
+Site manager
+Solicitor
+Teacher
+Voice actor"
+
+[node name="AllStatesBox" type="ScrollContainer" parent="SubViewport"]
+unique_name_in_owner = true
+visible = false
+offset_left = 4.0
+offset_right = 132.0
+offset_bottom = 128.0
+
+[node name="AllStatesV" type="VBoxContainer" parent="SubViewport/AllStatesBox"]
+layout_mode = 2
+
+[node name="Blighttown" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Blighttown"
+
+[node name="Caelid" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Caelid"
+
+[node name="Crimmire" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Crimmire"
+
+[node name="Fungine" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Fungine"
+
+[node name="Goponga" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Goponga"
+
+[node name="Kremquay" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Kremquay"
+
+[node name="Nibel" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Nibel"
+
+[node name="Satorl" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Satorl"
+
+[node name="Swale" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Swale"
+
+[node name="Toolibin" type="Button" parent="SubViewport/AllStatesBox/AllStatesV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Toolibin"
+
+[node name="AllSuburbs" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="BlSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/BlSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Catarina
+Darkroot
+Izalith"
+
+[node name="CaSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="CaSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/CaSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Aeonia
+Sellia
+Caelem"
+
+[node name="CrSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="CrSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/CrSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Bolderoll
+Brava
+Holm"
+
+[node name="FuSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="FuSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/FuSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Poplin
+Tumble
+Wubba"
+
+[node name="GoSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="GoSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/GoSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Bowelet
+Castor
+Taltal"
+
+[node name="KrSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="KrSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/KrSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Bramble
+Klifftop
+Kore"
+
+[node name="NiSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="NiSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/NiSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Ginso
+Sein
+Thornfelt"
+
+[node name="SaSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="SaSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/SaSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Kelsher
+Mauk
+Soter"
+
+[node name="SwSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="SwSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/SwSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Gladen
+Polder
+Sloudon"
+
+[node name="ToSuburbsV" type="VBoxContainer" parent="SubViewport/AllSuburbs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 614.0
+
+[node name="ToSuburbsLabel" type="Label" parent="SubViewport/AllSuburbs/ToSuburbsV"]
+layout_mode = 2
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "Suburbs:
+Burraga
+Tuckerbil
+Banksia"
+
+[node name="BackArrowimage" type="TextureButton" parent="SubViewport"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.02
+anchor_right = 0.092
+anchor_bottom = 0.02
+offset_left = 108.224
+offset_top = 17.44
+offset_right = 660.224
+offset_bottom = 287.44
+rotation = 3.14159
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_w1vok")
+
+[node name="RulesLabel" type="Label" parent="SubViewport"]
+unique_name_in_owner = true
+visible = false
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 305.0
+offset_bottom = 128.0
+theme = ExtResource("3_wok2d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "Rules:
+1. ID holder must 
+   be older than 18
+2. Expiry must be
+    later than current
+    year"
+
+[node name="Quad" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_ltrn5")
+surface_material_override/0 = SubResource("StandardMaterial3D_x5uv3")
+
+[node name="Area3D" type="Area3D" parent="Quad"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D"]
+shape = SubResource("ConvexPolygonShape3D_b2abq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.818149, 0, 0.575005, 0, 1, 0, -0.575005, 0, 0.818149, 1.45445, 0, 1.71147)
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+visible = false
+
+[node name="computer_keyboard_012" parent="." instance=ExtResource("5_tsu7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171266, -0.556, 0.112641)
+
+[node name="crt_monitor2" parent="." instance=ExtResource("6_ch8w6")]
+transform = Transform3D(1.5, 0, 0, 0, 1.8, 0, 0, 0, 2, 0.00541401, -0.555745, -0.447375)
+
+[connection signal="pressed" from="SubViewport/DBcategories/Names" to="." method="_on_names_pressed"]
+[connection signal="pressed" from="SubViewport/DBcategories/Occupations" to="." method="_on_occupations_pressed"]
+[connection signal="pressed" from="SubViewport/DBcategories/States" to="." method="_on_states_pressed"]
+[connection signal="pressed" from="SubViewport/DBcategories/Rules" to="." method="_on_rules_pressed"]
+[connection signal="pressed" from="SubViewport/FNameLName/FirstNames" to="." method="_on_first_names_pressed"]
+[connection signal="pressed" from="SubViewport/FNameLName/LastNames" to="." method="_on_last_names_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Blighttown" to="." method="_on_blighttown_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Caelid" to="." method="_on_caelid_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Crimmire" to="." method="_on_crimmire_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Fungine" to="." method="_on_fungine_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Goponga" to="." method="_on_goponga_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Kremquay" to="." method="_on_kremquay_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Nibel" to="." method="_on_nibel_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Satorl" to="." method="_on_satorl_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Swale" to="." method="_on_swale_pressed"]
+[connection signal="pressed" from="SubViewport/AllStatesBox/AllStatesV/Toolibin" to="." method="_on_toolibin_pressed"]
+[connection signal="pressed" from="SubViewport/BackArrowimage" to="." method="_on_back_arrow_pressed"]
