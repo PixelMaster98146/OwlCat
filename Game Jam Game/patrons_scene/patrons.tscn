@@ -171,7 +171,7 @@ curve = SubResource("Curve3D_01lor")
 
 [node name="PathFollow3D1" type="PathFollow3D" parent="PatrolPath1"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999719, 0, 0.0234022, 0, 1, 0, -0.0234022, 0, -0.999719, 9.34793, 0, -17.6884)
+transform = Transform3D(-0.999718, 0, 0.0234022, 0, 1, 0, -0.0234022, 0, -0.999718, 9.34793, 0, -17.6884)
 
 [node name="PatrolPath2" type="Path3D" parent="."]
 curve = SubResource("Curve3D_icrct")
