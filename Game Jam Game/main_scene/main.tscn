@@ -1,10 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=21 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
-[ext_resource type="PackedScene" uid="uid://bo3y85nmdyl54" path="res://main_scene/Bar/Environment.glb" id="2_hwx3h"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
 [ext_resource type="Script" path="res://test_drag_mechanics/potion_spawn.gd" id="3_75ocv"]
-[ext_resource type="PackedScene" uid="uid://3gy7hu28yfwv" path="res://main_scene/Bar/Furniture.glb" id="3_gkwnv"]
 [ext_resource type="PackedScene" uid="uid://dmbd54u5g3ob8" path="res://patrons_scene/patrons.tscn" id="4_pocl0"]
 [ext_resource type="PackedScene" uid="uid://3exyqohi74rx" path="res://database_scene/database.tscn" id="5_jyvkb"]
 [ext_resource type="PackedScene" uid="uid://b3yv1f31b7ory" path="res://test_drag_mechanics/PlayerCam.tscn" id="6_5dmee"]
@@ -35,10 +33,6 @@ glow_enabled = true
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_hsxq6")
-
-[node name="Environment" parent="." instance=ExtResource("2_hwx3h")]
-
-[node name="Furniture" parent="." instance=ExtResource("3_gkwnv")]
 
 [node name="bar" parent="." instance=ExtResource("2_quyvt")]
 visible = false
