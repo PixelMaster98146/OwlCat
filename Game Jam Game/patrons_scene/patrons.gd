@@ -580,6 +580,7 @@ func updatelabel(currpatron, itemA, itemB):
 	var cpat
 	currpatron.get_node("patorder").text = itemA
 	currpatron.get_node("patorder2").text = itemB
+
 	
 func grat():
 	patronorders.get_node("patorder").text = "lol"
@@ -608,3 +609,4 @@ func cuss():
 	moving8 = true
 	moving9 = true
 	moving10 = true
+

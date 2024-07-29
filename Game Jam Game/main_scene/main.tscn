@@ -37,6 +37,9 @@ script = ExtResource("1_hsxq6")
 [node name="bar" parent="." instance=ExtResource("2_quyvt")]
 visible = false
 
+script = ExtResource("3_75ocv")
+
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="bar"]
 environment = SubResource("Environment_31pmd")
 
@@ -513,7 +516,11 @@ theme_override_font_sizes/font_size = 44
 text = "Money: $0"
 
 [node name="Node3D" parent="." instance=ExtResource("7_4ohhq")]
+
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 1.12238, 5.14591)
+
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 1.03376, 5.14591)
+
 visible = false
 
 [node name="potion_spawnnode" type="Node3D" parent="."]
