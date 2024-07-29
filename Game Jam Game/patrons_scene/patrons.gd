@@ -197,9 +197,9 @@ func _on_patron_leave_body_entered(body):
 
 func _on_counter_body_entered(body):
 	mixarea.resetorders()
+	print(body)
 	patronorders = body.get_parent()
 	body.get_parent_node_3d().look_at(player.position)
-	ordering()
 	id_card = body.get_parent().get_node("IDCard")
 	if id_card != null:
 		default_id_pos = id_card.position
@@ -570,7 +570,6 @@ func _on_order_complete():
 		raid.emit()
 
 func ordering():
-	mixarea.resetorders()
 	itemA = PotIDs.orders.pick_random()
 	itemB = PotIDs.orders.pick_random()
 	#add some sort of UI label here, make the text contain itemA and itemB
@@ -581,3 +580,31 @@ func updatelabel(currpatron, itemA, itemB):
 	var cpat
 	currpatron.get_node("patorder").text = itemA
 	currpatron.get_node("patorder2").text = itemB
+	
+func grat():
+	patronorders.get_node("patorder").text = "lol"
+	patronorders.get_node("patorder2").text = "lmao"
+	moving1 = true
+	moving2 = true
+	moving3 = true
+	moving4 = true
+	moving5 = true
+	moving6 = true
+	moving7 = true
+	moving8 = true
+	moving9 = true
+	moving10 = true
+	
+func cuss():
+	patronorders.get_node("patorder").text = "!@#$"
+	patronorders.get_node("patorder2").text = "!@#$"
+	moving1 = true
+	moving2 = true
+	moving3 = true
+	moving4 = true
+	moving5 = true
+	moving6 = true
+	moving7 = true
+	moving8 = true
+	moving9 = true
+	moving10 = true

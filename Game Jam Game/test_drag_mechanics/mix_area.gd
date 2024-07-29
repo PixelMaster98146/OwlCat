@@ -31,7 +31,9 @@ func _process(delta):
 			player_cam.updatelabelR("Succ")
 			patrons.grat()
 		else:
-			player_cam.updatelabelR("Fail")
+			if patrons.selected == true:
+				player_cam.updatelabelR("Fail")
+				patrons.cuss()
 		x = 9
 		resetorders()
 		player_cam.resetlabel()
@@ -45,6 +47,7 @@ func updateorder(order1,order2):
 
 
 func resetorders():
+	print("resetti")
 	itemA = null
 	itemB = null
 	x = 0
@@ -54,8 +57,8 @@ func _on_area_3d_area_entered(area):
 		print(get_parent_node_3d())
 		var parental = area.get_parent_node_3d()
 		#parental.makeittrue()
-		if get_parent_node_3d().get_node("bar") != null:
-			get_parent_node_3d().get_node("bar").spawnpot(parental.spawnID)
+		if get_parent_node_3d().get_node("potion_spawnnode") != null:
+			get_parent_node_3d().get_node("potion_spawnnode").spawnpot(parental.spawnID)
 		else:
 			get_parent_node_3d().spawnpot(parental.spawnID)
 		parental.queue_free()
