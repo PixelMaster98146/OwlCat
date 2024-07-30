@@ -9,13 +9,13 @@ extends Node3D
 @onready var timer = $MeshInstance3D/Head/Camera3D/Timer
 @onready var label = $MeshInstance3D/Head/Camera3D/Label
 @onready var label2 = $MeshInstance3D/Head/Camera3D/Label2
-
+@onready var mainmenu = $"../HUD/MainMenuBase"
 @onready var dateandtime = $Dateandtime
 var basemaxtime = 2
 var maxtime
 var onemin = 60
 var secs = 20
-
+var lockcam
 var sens = 0.03
 
 var key = KEY_SPACE
@@ -26,6 +26,7 @@ func _ready():
 	onemin = 60 #change to 60 for 1 minute
 	secs = onemin
 	timestop = false #toggle this to true when pressing start base value == false
+	lockcam = false
 	#optional codes below disables cursor ingame
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -36,6 +37,11 @@ func _process(delta):
 	label2.text = str(maxtime)+ " : " + str("%.2f" % secs)
 	timerstuff(delta)
 	
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	elif event.is_action_pressed("ctrl"):
+		lockcam = !lockcam
 func updatelabelA(itemA):
 	itema_label.text = itemA
 	
@@ -54,11 +60,13 @@ func resetlabel():
 	results_label.text = ""
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * sens)
-		cam.rotate_x(-event.relative.y * sens)
-		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-40), deg_to_rad(40))
-		
+	if lockcam == false && mainmenu.visible == false:
+		if event is InputEventMouseMotion:
+			head.rotate_y(-event.relative.x * sens)
+			cam.rotate_x(-event.relative.y * sens)
+			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-40), deg_to_rad(40))
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 func timerstuff(framesecs):
 	if timestop == false:
 		secs -= framesecs

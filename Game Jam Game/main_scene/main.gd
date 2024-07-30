@@ -20,6 +20,7 @@ func _process(delta):
 
 func _on_start_game_pressed():
 	pass 
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$HUD/MainMenuBase.hide()
 	$PlayerCam/MeshInstance3D/Head/Camera3D.set_current(true)
 	#Transition to game
