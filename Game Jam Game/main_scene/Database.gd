@@ -36,7 +36,6 @@ func _on_main_db_start():
 func _mouse_entered_area() -> void:
 	is_mouse_inside = true
 
-
 func _mouse_exited_area() -> void:
 	is_mouse_inside = false
 
@@ -105,102 +104,122 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 func _on_names_pressed():
 	%DBcategories.hide()
 	%FNameLName.show()
+	%BackArrowimage.show()
 	Menu = "FnameLname"
 
 func _on_occupations_pressed():
 	%DBcategories.hide()
 	%AllOccupationsBox.show()
+	%BackArrowimage.show()
 	Menu = "Occupations"
 
 func _on_states_pressed():
 	%DBcategories.hide()
 	%AllStatesBox.show()
+	%BackArrowimage.show()
 	Menu = "States"
 
 func _on_rules_pressed():
 	%DBcategories.hide()
 	%RulesLabel.show()
+	%BackArrowimage.show()
 	Menu = "Rules"
 
 func _on_first_names_pressed():
 	%FNameLName.hide()
 	%AllFNamesBox.show()
+	%BackArrowimage.show()
 	Menu = "FirstNames"
 
 func _on_last_names_pressed():
 	%FNameLName.hide()
 	%AllLNamesBox.show()
+	%BackArrowimage.show()
 	Menu = "LastNames"
 
 func _on_blighttown_pressed():
 	%AllStatesBox.hide()
 	%BlSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Blighttown"
 
 func _on_caelid_pressed():
 	%AllStatesBox.hide()
 	%CaSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Caelid"
 
 func _on_crimmire_pressed():
 	%AllStatesBox.hide()
 	%CrSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Crimmire"
 
 func _on_fungine_pressed():
 	%AllStatesBox.hide()
 	%FuSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Fungine"
 
 func _on_goponga_pressed():
 	%AllStatesBox.hide()
 	%GoSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Goponga"
 
 func _on_kremquay_pressed():
 	%AllStatesBox.hide()
 	%KrSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Kremquay"
 
 func _on_nibel_pressed():
 	%AllStatesBox.hide()
 	%NiSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Nibel"
 
 func _on_satorl_pressed():
 	%AllStatesBox.hide()
 	%SaSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Satorl"
 
 func _on_swale_pressed():
 	%AllStatesBox.hide()
 	%SwSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Swale"
 
 func _on_toolibin_pressed():
 	%AllStatesBox.hide()
 	%ToSuburbsV.show()
+	%BackArrowimage.show()
 	Menu = "Toolibin"
 
 func _on_back_arrow_pressed():
 	#print("working")
 	if Menu == "DBcategories":
-		db_backout.emit()
+		pass #Potentially send to accept deny menu
 	if Menu == "FnameLname":
 		%FNameLName.hide()
 		%DBcategories.show()
+		%BackArrowimage.hide()
 		Menu = "DBcategories"
 	if Menu == "Occupations":
 		%AllOccupationsBox.hide()
 		%DBcategories.show()
+		%BackArrowimage.hide()
 		Menu = "DBcategories"
 	if Menu == "States":
 		%AllStatesBox.hide()
 		%DBcategories.show()
+		%BackArrowimage.hide()
 		Menu = "DBcategories"
 	if Menu == "Rules":
 		%RulesLabel.hide()
 		%DBcategories.show()
+		%BackArrowimage.hide()
 		Menu = "DBcategories"
 	if Menu == "FirstNames":
 		%AllFNamesBox.hide()
