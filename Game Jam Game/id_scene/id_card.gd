@@ -5,7 +5,7 @@ signal real
 @onready var real_id = true
 
 @onready var DOB = $DOB
-@onready var photo = $Photo
+@onready var photo = $GobPhotos/GobPhotoBase
 @onready var occupation = $Occupation
 @onready var full_name = $Name
 @onready var residence = $Residence
@@ -23,7 +23,18 @@ var young_year = [2007, 2008, 2009, 2010]
 ##need date system
 
 #photo
-
+var GobGood = load("res://id_scene/ID photos/Goblin Good.png")
+var GobBad1 = load("res://id_scene/ID photos/Goblin Bad 1.png")
+var GobBad2 = load("res://id_scene/ID photos/Goblin Bad 2.png")
+var GobBad3 = load("res://id_scene/ID photos/Goblin Bad 3.png")
+var GobBad4 = load("res://id_scene/ID photos/Goblin Bad 4.png")
+var GobBad5 = load("res://id_scene/ID photos/Goblin Bad 5.png")
+var GobBad6 = load("res://id_scene/ID photos/Goblin Bad 6.png")
+var GobBad7 = load("res://id_scene/ID photos/Goblin Bad 7.png")
+var GobBad8 = load("res://id_scene/ID photos/Goblin Bad 8.png")
+var GobBad9 = load("res://id_scene/ID photos/Goblin Bad 9.png")
+var GobBad10 = load("res://id_scene/ID photos/Goblin Bad 10.png")
+var GobBadPhoto = [GobBad1, GobBad2, GobBad3, GobBad4, GobBad5, GobBad6, GobBad7, GobBad8, GobBad9, GobBad10]
 
 #occupations
 var job = ["Builder", "Teacher", "Receptionist", "Cleaner", "Chef", "Radiologist", "Acarologist", "Adenologist", "Biologist", "Meteorologist", "Voice actor", "Game developer", "Artist", "Bus driver", "Site manager", "Hospitality", "Machinist", "Solicitor", "Marketer", "Data analyst", "Banker", "Doctor", "Nurse", "Plumber", "Electrician"]
@@ -56,7 +67,34 @@ var state = ["Blighttown", "Satorl", "Crimmire", "Kremquay", "Nibel", "Fungine",
 func _ready():
 	randomize()
 	#print("start")
-	#get_random_info()
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
+	get_random_info()
+	await get_tree().create_timer(1).timeout
 
 func _process(delta):
 	pass
@@ -129,7 +167,14 @@ func get_random_info():
 		#if month and day higher. Maybe just year based
 		##Extension: exact date
 
-	#photo
+	var real_photo = randf()
+	if real_photo <0.973:
+		#print("real photo")
+		photo.texture = GobGood
+	else:
+		#print("fake photo")
+		photo.texture = GobBadPhoto.pick_random()
+		real_id = false
 	
 	var real_job = randf()
 	if real_job <0.973:
