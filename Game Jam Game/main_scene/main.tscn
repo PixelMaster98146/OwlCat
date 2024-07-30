@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://rxhtjwr3hnfp" path="res://Assets/UI/light button3.png" id="14_672su"]
 [ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="15_f3p7i"]
 [ext_resource type="Texture2D" uid="uid://b7ly0kw61dxjt" path="res://Assets/UI/dark button3.png" id="15_iy8fc"]
+[ext_resource type="PackedScene" uid="uid://chh6ntuu2w48l" path="res://Assets/Bar for Godot/Environment.glb" id="17_3ig5w"]
+[ext_resource type="PackedScene" uid="uid://cm15pboui31mh" path="res://Assets/Bar for Godot/Furniture.glb" id="18_nxuft"]
 [ext_resource type="AudioStream" uid="uid://227d58teb845" path="res://Assets/Music/Title Screen.ogg" id="17_5qilu"]
 [ext_resource type="AudioStream" uid="uid://iqhc63qdoo06" path="res://Assets/Music/Swamp Bar.ogg" id="18_882tm"]
 
@@ -190,7 +192,7 @@ distance_fade_enabled = true
 transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923, -9.073, 1.57, 6.269)
 
 [node name="PlayerCam" parent="." instance=ExtResource("6_5dmee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.037, 0, 6.40434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4541, 0, 5.9327)
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -521,27 +523,27 @@ visible = false
 script = ExtResource("3_75ocv")
 
 [node name="Potion" parent="potion_spawnnode" instance=ExtResource("8_46f6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6172, 2.55949, 7.22348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9257, 2.55949, 7.22348)
 
 [node name="Potion2" parent="potion_spawnnode" instance=ExtResource("9_h0lot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5149, 2.62779, 5.68068)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8512, 2.62779, 5.68068)
 
 [node name="PotionSpawn" parent="potion_spawnnode" instance=ExtResource("10_ygg8h")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4707, 4.94386, 7.25384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1763, 1.18889, 7.25384)
 
 [node name="PotionSpawn2" parent="potion_spawnnode" instance=ExtResource("10_ygg8h")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4707, 3.36266, 5.73783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1716, 0.990912, 5.73945)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, -11.8125, 0.473739, 3.99119)
+transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, -11.8125, 0.473739, 5.02525)
 visible = false
 use_collision = true
 size = Vector3(1.39063, 1, 9.87036)
 
 [node name="IDcheck" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14867, 1.32011, 5.5446)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14867, 1.32011, 4.93832)
 
 [node name="PauseMenu" type="Sprite2D" parent="."]
 process_mode = 3
@@ -609,6 +611,12 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 112
 text = "Quit"
+
+[node name="Environment" parent="." instance=ExtResource("17_3ig5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533452, -0.205534, 0.578962)
+
+[node name="Furniture" parent="." instance=ExtResource("18_nxuft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219969, 0, 0.568279)
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_5qilu")

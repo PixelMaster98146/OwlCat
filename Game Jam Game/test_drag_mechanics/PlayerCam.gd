@@ -17,7 +17,7 @@ var onemin = 60
 var secs = 20
 var lockcam
 var sens = 0.03
-
+var onID
 var key = KEY_SPACE
 var timestop
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +27,7 @@ func _ready():
 	secs = onemin
 	timestop = false #toggle this to true when pressing start base value == false
 	lockcam = false
+	onID = false
 	#optional codes below disables cursor ingame
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -34,12 +35,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	label.text = str(dateandtime.date[0]) + "/" + str(dateandtime.date[1]) + "/" + str(dateandtime.date[2])
-	label2.text = str(maxtime)+ " : " + str("%.2f" % secs)
+	label2.text = str(maxtime)+ " : " + str("%.1f" % secs)
 	timerstuff(delta)
+	if lockcam == false && mainmenu.visible == false && onID == false:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		lockcam = true
 	elif event.is_action_pressed("ctrl"):
 		lockcam = !lockcam
 func updatelabelA(itemA):
