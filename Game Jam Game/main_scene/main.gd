@@ -51,12 +51,14 @@ func _on_accept_pressed():
 	%AcceptDeny.hide()
 	if patrons.noID == false:
 		patrons.id_card.position = patrons.default_id_pos
+	patrons.superunlockcam()
 	
 func _on_deny_pressed():
 	guess_id_fake.emit()
 	%AcceptDeny.hide()
 	if patrons.noID == false:
 		patrons.id_card.position = patrons.default_id_pos
+	patrons.superunlockcam()
 
 func _on_database_pressed():
 	##move camera

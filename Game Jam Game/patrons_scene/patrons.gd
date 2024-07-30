@@ -86,8 +86,10 @@ func _input(event):
 	if event.is_action_pressed("checkID"):
 		if checking == false:
 			IDcheckingprocess()
+			player.onID = true
 		elif checking == true:
 			checking = false
+			player.onID = false
 			mainscene.get_node("HUD").get_node("AcceptDeny").hide()
 			if id_card != null:
 				id_card.position = default_id_pos
@@ -95,7 +97,10 @@ func _input(event):
 func _process(delta):
 	pass
 
-
+func superunlockcam():
+	player.onID = false
+	player.lockcam = false
+	
 func IDcheckingprocess():
 	if selected == true:
 		checking = true
