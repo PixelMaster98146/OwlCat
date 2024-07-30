@@ -103,6 +103,7 @@ func IDcheckingprocess():
 			if id_card.position == default_id_pos:
 				id_check.emit()
 				id_card.look_at_from_position(idcheck.global_position, -player.get_node("MeshInstance3D").get_node("Head").get_node("Camera3D").global_position)
+				player.head.look_at(idcheck.global_position + Vector3(0,0,0.3))
 		elif id_card == null:
 			id_check.emit()
 			#make patron say "i dont have ID" or something, or show a "fake"/forged ID
@@ -196,8 +197,6 @@ func _on_patron_leave_body_entered(body):
 		$PatronTimer.start()
 
 func _on_counter_body_entered(body):
-	mixarea.resetorders()
-	print(body)
 	patronorders = body.get_parent()
 	body.get_parent_node_3d().look_at(player.position)
 	id_card = body.get_parent().get_node("IDCard")
@@ -478,16 +477,16 @@ func _on_line_up_9_body_entered(body):
 		line9_full = true #used to stop customers from spawning
 
 func _on_id_card_fake():
-	print("fake_id")
+	#print("fake_id")
 	real_fake.insert(0, "fake")
 
 func _on_id_card_real():
-	print("real_id")
+	#print("real_id")
 	real_fake.insert(0, "real")
 
 func _on_main_guess_id_fake():
 	if real_fake.back() == "real":
-		print("denied, is real")
+		#print("denied, is real")
 		###Label#.text = mean_text.pick_random()
 		await get_tree().create_timer(1).timeout
 		real_fake.pop_back()
@@ -502,7 +501,7 @@ func _on_main_guess_id_fake():
 		moving9 = true
 		moving10 = true
 	elif real_fake.back() == "fake":
-		print("denied, is fake")
+		#print("denied, is fake")
 		###Label#.text = mean_text.pick_random()
 		await get_tree().create_timer(1).timeout
 		real_fake.pop_back()
@@ -521,12 +520,12 @@ func _on_main_guess_id_real():
 	ordering()
 	updatelabel(patronorders, itemA,itemB)
 	if real_fake.back() == "real":
-		print("accept, is real")
+		#print("accept, is real")
 		real_fake.pop_back()
 		real_patron = true
 		##Make drink signal
 	elif real_fake.back() == "fake":
-		print("accept, is fake")
+		#print("accept, is fake")
 		real_fake.pop_back()
 		real_patron = false
 		##Make drink signal
