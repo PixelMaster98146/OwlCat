@@ -57,9 +57,6 @@ func _on_deny_pressed():
 	if patrons.noID == false:
 		patrons.id_card.position = patrons.default_id_pos
 
-##func _on_order_complete():
-	
-
 func _on_database_pressed():
 	##move camera
 	$Database.show()

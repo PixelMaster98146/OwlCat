@@ -29,7 +29,7 @@ func _process(delta):
 		results = itemA + itemB
 		if results == patrons.fullorder || results == patrons.redroluff:
 			player_cam.updatelabelR("Succ")
-			patrons.grat()
+			patrons._on_order_complete()
 		else:
 			if patrons.selected == true:
 				player_cam.updatelabelR("Fail")

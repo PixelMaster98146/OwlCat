@@ -17,7 +17,7 @@ var real_patron = true
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
 @onready var real_fake = []
 
-@onready var mean_text = ["@#$%", "Why can't you just do your job", "My day is ruined", "I'm going to die"]
+@onready var mean_text = ["@#$%", "Why can't you just do your job", "My day is ruined"]
 @onready var nice_text = ["Thanks", ":)", "Woohoo"]
 @onready var raidP1_text = ["You're a fool. ", "You've been decieved. ", "Idiot. "]
 @onready var raidP2_text = ["I'll be back later with friends!", "You're busted now!", "Adventurers rule!"]
@@ -533,7 +533,6 @@ func _on_main_guess_id_real():
 
 func _on_order_complete():
 	#print("complete")
-	return
 	if real_patron == true:
 		###Label#.text = nice_text.pick_random()
 		#patronorders.get_node("patorder").text
@@ -580,21 +579,7 @@ func updatelabel(currpatron, itemA, itemB):
 	var cpat
 	currpatron.get_node("patorder").text = itemA
 	currpatron.get_node("patorder2").text = itemB
-	
-func grat():
-	patronorders.get_node("patorder").text = "lol"
-	patronorders.get_node("patorder2").text = "lmao"
-	moving1 = true
-	moving2 = true
-	moving3 = true
-	moving4 = true
-	moving5 = true
-	moving6 = true
-	moving7 = true
-	moving8 = true
-	moving9 = true
-	moving10 = true
-	
+
 func cuss():
 	patronorders.get_node("patorder").text = "!@#$"
 	patronorders.get_node("patorder2").text = "!@#$"

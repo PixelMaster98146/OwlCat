@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ctwrvt5fko1n0" path="res://Assets/UI/Main menu base.png" id="12_kef3e"]
 [ext_resource type="Script" path="res://main_scene/PauseMenu.gd" id="13_o4irf"]
 [ext_resource type="Texture2D" uid="uid://rxhtjwr3hnfp" path="res://Assets/UI/light button3.png" id="14_672su"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="15_f3p7i"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="15_f3p7i"]
 [ext_resource type="Texture2D" uid="uid://b7ly0kw61dxjt" path="res://Assets/UI/dark button3.png" id="15_iy8fc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vmfh"]
