@@ -64,8 +64,6 @@ var line8_full = false
 var line9_full = false
 var line10_full = false
 
-
-
 var facethecamera
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -487,8 +485,8 @@ func _on_id_card_real():
 func _on_main_guess_id_fake():
 	if real_fake.back() == "real":
 		#print("denied, is real")
-		patronorders.get_node("patorder").text = mean_text.pick_random()
-		patronorders.get_node("patorder2").text = mean_text.pick_random()
+		###Label#.text = mean_text.pick_random()
+		$Grumble.play()
 		await get_tree().create_timer(1).timeout
 		real_fake.pop_back()
 		moving1 = true
@@ -503,8 +501,8 @@ func _on_main_guess_id_fake():
 		moving10 = true
 	elif real_fake.back() == "fake":
 		#print("denied, is fake")
-		patronorders.get_node("patorder").text = mean_text.pick_random()
-		patronorders.get_node("patorder2").text = mean_text.pick_random()
+		###Label#.text = mean_text.pick_random()
+		$Grumble.play()
 		await get_tree().create_timer(1).timeout
 		real_fake.pop_back()
 		moving1 = true
@@ -535,8 +533,10 @@ func _on_main_guess_id_real():
 func _on_order_complete():
 	#print("complete")
 	if real_patron == true:
-		patronorders.get_node("patorder").text = nice_text.pick_random()
-		patronorders.get_node("patorder2").text = nice_text.pick_random()
+		$Happy.play()
+		###Label#.text = nice_text.pick_random()
+		#patronorders.get_node("patorder").text
+		#patronorders.get_node("patorder2").text
 		await get_tree().create_timer(1).timeout
 		payment.emit()
 		await get_tree().create_timer(0.5).timeout
@@ -552,7 +552,8 @@ func _on_order_complete():
 		moving10 = true
 	elif real_patron == false:
 		###Label#.text = str(raidP1_text.pick_random()) + str(raidP2_text.pick_random())
-		##emit raid signal ##2 minutes later shop is forced to close from adventurer raid
+		raid.emit()##emit raid signal ##2 minutes later shop is forced to close from adventurer raid
+		$EvilLaugh.play()
 		move_speed = 10.0
 		moving1 = true
 		await get_tree().create_timer(3).timeout
@@ -566,7 +567,6 @@ func _on_order_complete():
 		moving8 = true
 		moving9 = true
 		moving10 = true
-		raid.emit()
 
 func ordering():
 	itemA = PotIDs.orders.pick_random()
@@ -583,6 +583,7 @@ func updatelabel(currpatron, itemA, itemB):
 func cuss():
 	patronorders.get_node("patorder").text = "!@#$"
 	patronorders.get_node("patorder2").text = "!@#$"
+	$Grumble.play()
 	moving1 = true
 	moving2 = true
 	moving3 = true
@@ -593,3 +594,28 @@ func cuss():
 	moving8 = true
 	moving9 = true
 	moving10 = true
+
+func intro():
+	var corporat = $Models/Corporat.duplicate()
+	path1.add_child(corporat)
+	path1.progress = 0
+	##Stop and rotate
+	##Dialouge ##Explains game
+	moving1 = true
+	await get_tree().create_timer(10).timeout
+	_on_day_start()
+
+func game_over_good():
+	var corporat = $Models/Corporat.duplicate()
+	path1.add_child(corporat)
+	path1.progress = 0
+	##Dialouge
+	##Good ending screen
+
+
+func game_over_bad():
+	var corporat = $Models/Corporat.duplicate()
+	path1.add_child(corporat)
+	path1.progress = 0
+	##Dialouge
+	##Bad ending screen
