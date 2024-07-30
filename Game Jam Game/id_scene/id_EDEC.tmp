@@ -98,72 +98,58 @@ horizontal_alignment = 0
 
 [node name="GobPhotos" type="Node3D" parent="."]
 
-[node name="GobPhotoBase" type="Sprite3D" parent="GobPhotos"]
-transform = Transform3D(0.024, 1.42937e-22, -2.4647e-15, -1.42937e-22, 0.024, 2.4647e-15, 2.4647e-15, -2.4647e-15, 0.024, 0.506974, 0.290769, -0.000246345)
-
 [node name="GobPhotoGood" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_qpg6u")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad1" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_tshfa")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad2" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_2438h")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad3" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_7fpyw")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad4" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_3f238")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad5" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_jp2ps")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad6" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_fjgxi")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad7" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_h2hyx")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad8" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_ss2ci")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad9" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_x8pxj")
 texture = ExtResource("3_1y348")
 
 [node name="GobPhotoBad10" type="Sprite3D" parent="GobPhotos"]
 transform = Transform3D(0.04, -3.97047e-23, -4.10783e-15, -2.38228e-22, 0.04, 4.10783e-15, 4.10783e-15, -4.10783e-15, 0.04, 0.506974, 0.290769, -0.000246345)
-visible = false
 material_override = SubResource("StandardMaterial3D_omyab")
 texture = ExtResource("3_1y348")
 
