@@ -174,7 +174,6 @@ unique_name_in_owner = true
 transform = Transform3D(-0.999944, 0, 0.0095686, 0, 1, 0, -0.0095686, 0, -0.999944, 5.38646, 0, -16.9925)
 
 [node name="PatrolPath2" type="Path3D" parent="."]
-visible = false
 curve = SubResource("Curve3D_icrct")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="PatrolPath2"]
