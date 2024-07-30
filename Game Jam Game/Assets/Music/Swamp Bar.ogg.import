@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://iqhc63qdoo06"
+path="res://.godot/imported/Swamp Bar.ogg-876b23a32c10220fc568b8f99a5d79ae.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/Swamp Bar.ogg"
+dest_files=["res://.godot/imported/Swamp Bar.ogg-876b23a32c10220fc568b8f99a5d79ae.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
