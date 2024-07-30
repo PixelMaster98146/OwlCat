@@ -30,7 +30,7 @@ func _ready():
 		day.insert(i,i+1)
 	for i in range(4):
 		week.insert(i,i+1)
-	year = 1987
+	year = 2024
 	currday = day[0]
 	currweek = week[0]
 	currmonth = month[0]
