@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3yv1f31b7ory"]
+[gd_scene load_steps=11 format=3 uid="uid://b3yv1f31b7ory"]
 
 [ext_resource type="Script" path="res://test_drag_mechanics/PlayerCam.gd" id="1_on4s0"]
 [ext_resource type="Script" path="res://test_drag_mechanics/Label.gd" id="2_4a4vs"]
 [ext_resource type="Script" path="res://test_drag_mechanics/RayCast3D.gd" id="2_jchfj"]
-[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://Assets/UI/Belanosima-Regular.ttf" id="2_x8rht"]
+[ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="2_x8rht"]
 [ext_resource type="PackedScene" uid="uid://bxp66ln4tbyng" path="res://Time_scene/dateandtime.tscn" id="4_h27uf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lcss7"]
@@ -20,6 +20,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_75aid"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jjp4h"]
 
 [node name="PlayerCam" type="Node3D"]
 script = ExtResource("1_on4s0")
@@ -110,3 +112,8 @@ text = "SAMPLE TEXT"
 font_size = 12
 
 [node name="Dateandtime" parent="." instance=ExtResource("4_h27uf")]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(563, 321)
+scale = Vector2(7, 7)
+mesh = SubResource("BoxMesh_jjp4h")
