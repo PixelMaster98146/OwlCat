@@ -4,13 +4,19 @@ signal guess_id_real
 signal guess_id_fake
 signal db_start
 signal day_start
+signal intro_cutscene
+signal game_over_good
+signal game_over_bad
 @onready var patrons = $Patrons
 
-var money = 0
+var money = 74
+var payment = 400
+var intro_played = true #should be saved
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD/MainMenuBase/Start.grab_focus()
+	$MainMenuMusic.play()
 
 func _process(delta):
 	if Input.is_action_just_pressed("Pause"):
@@ -20,13 +26,16 @@ func _process(delta):
 
 func _on_start_game_pressed():
 	pass 
+	$MainMenuMusic.stop()
+	$GameplayMusic.play()
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$HUD/MainMenuBase.hide()
 	$PlayerCam/MeshInstance3D/Head/Camera3D.set_current(true)
-	#Transition to game
-	#Move camera into first person POV
-	#Rent man walks in, breifly explains 7 week cycle, leaves
-	day_start.emit() #Customers start coming in and day 1 starts
+	if intro_played == true:
+		intro_cutscene.emit()
+		#Rent man walks in, breifly explains 7 week cycle, leaves
+	else:
+		day_start.emit() #Customers start coming in and day 1 starts
 	print("sent")
 	
 func _on_options_pressed():
@@ -83,14 +92,18 @@ func _on_patrons_payment():
 		##money -= payment
 		##text
 		##corporat leaves
-		##next week/game end
+		##game_over_bad.emit()
+		##next week+increase payment (extension)
 	##else
 		##text
-		##game over
+		##game_over_bad.emit()
 		##reset game and save
 
 func _on_patrons_raid():
-	await get_tree().create_timer(120).timeout
-	print("raid")
+	#print("raid")
+	money -= 50
+	$HUD/Money.text = "Money: $" + str(money)
+	##Needs to be saved
+	##await get_tree().create_timer(120).timeout
 	##cutscene
 	##end day

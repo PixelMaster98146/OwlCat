@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://b7ly0kw61dxjt" path="res://Assets/UI/dark button3.png" id="15_iy8fc"]
 [ext_resource type="PackedScene" uid="uid://chh6ntuu2w48l" path="res://Assets/Bar for Godot/Environment.glb" id="17_3ig5w"]
 [ext_resource type="PackedScene" uid="uid://cm15pboui31mh" path="res://Assets/Bar for Godot/Furniture.glb" id="18_nxuft"]
+[ext_resource type="AudioStream" uid="uid://227d58teb845" path="res://Assets/Music/Title Screen.ogg" id="17_5qilu"]
+[ext_resource type="AudioStream" uid="uid://iqhc63qdoo06" path="res://Assets/Music/Swamp Bar.ogg" id="18_882tm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vmfh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -514,7 +516,7 @@ theme_override_font_sizes/font_size = 44
 text = "Money: $0"
 
 [node name="Node3D" parent="." instance=ExtResource("7_4ohhq")]
-transform = Transform3D(2.23562, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 0.511703, 5.14591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 1.12238, 5.14591)
 visible = false
 
 [node name="potion_spawnnode" type="Node3D" parent="."]
@@ -616,10 +618,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533452, -0.205534, 0.578962
 [node name="Furniture" parent="." instance=ExtResource("18_nxuft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219969, 0, 0.568279)
 
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_5qilu")
+
+[node name="GameplayMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_882tm")
+
 [connection signal="day_start" from="." to="Patrons" method="_on_day_start"]
 [connection signal="db_start" from="." to="Database" method="_on_main_db_start"]
+[connection signal="game_over_bad" from="." to="Patrons" method="game_over_bad"]
 [connection signal="guess_id_fake" from="." to="Patrons" method="_on_main_guess_id_fake"]
 [connection signal="guess_id_real" from="." to="Patrons" method="_on_main_guess_id_real"]
+[connection signal="intro_cutscene" from="." to="Patrons" method="intro"]
 [connection signal="id_check" from="Patrons" to="." method="_on_patrons_id_check"]
 [connection signal="payment" from="Patrons" to="." method="_on_patrons_payment"]
 [connection signal="raid" from="Patrons" to="." method="_on_patrons_raid"]
