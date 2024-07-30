@@ -67,34 +67,7 @@ var state = ["Blighttown", "Satorl", "Crimmire", "Kremquay", "Nibel", "Fungine",
 func _ready():
 	randomize()
 	#print("start")
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
-	get_random_info()
-	await get_tree().create_timer(1).timeout
+	#get_random_info()
 
 func _process(delta):
 	pass
