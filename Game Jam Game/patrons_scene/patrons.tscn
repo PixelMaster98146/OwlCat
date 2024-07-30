@@ -22,7 +22,7 @@ point_count = 9
 
 [sub_resource type="Curve3D" id="Curve3D_icrct"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.5375, 0, -16.9157, 0.5556, 0, -0.432633, -0.5556, 0, 0.432633, 6.49829, 0, -10.7535, 0.450753, 0, -0.263153, -0.450753, 0, 0.263153, -6.88547, 0, -10.6061, 0.0355787, 0, -0.845507, -0.0355787, 0, 0.845507, -7.15995, 0, 4.05167, -0.8089, 0, 0.644892, 0.8089, 0, -0.644892, -3.16894, 0, -3.08717, 0, 0, 0, 0, 0, 0, 4.08033, 0, -4.72273, 0, 0, 0, 0, 0, 0, 8.91144, 0, -8.23691, 0, 0, 0, 0, 0, 0, 8.90158, 0, -13.91, 0, 0, 0, 0, 0, 0, 10.8971, -0.00012207, -16.9735),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.30713, 0, -17.0725, 0.5556, 0, -0.432633, -0.5556, 0, 0.432633, 5.14868, 0, -10.8252, 0.450753, 0, -0.263153, -0.450753, 0, 0.263153, -6.88547, 0, -10.6061, 0.0355787, 0, -0.845507, -0.0355787, 0, 0.845507, -7.15995, 0, 4.05167, -0.8089, 0, 0.644892, 0.8089, 0, -0.644892, -3.16894, 0, -3.08717, 0, 0, 0, 0, 0, 0, 4.08033, 0, -4.72273, 0, 0, 0, 0, 0, 0, 8.20441, 0, -8.87863, 0, 0, 0, 0, 0, 0, 8.20441, 0, -14.7185, 0, 0, 0, 0, 0, 0, 10.8971, -0.00012207, -16.9735),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 9
@@ -187,39 +187,39 @@ curve = SubResource("Curve3D_icrct")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D3" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D4" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D5" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D6" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D7" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D8" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D9" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D10" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999976, 0, 0.00636276, 0, 1, 0, -0.00636276, 0, -0.999976, 6.5375, 0, -16.9157)
+transform = Transform3D(-0.999675, 0, 0.0253541, 0, 1, 0, -0.0253541, 0, -0.999675, 5.30713, 0, -17.0725)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17523, 0)

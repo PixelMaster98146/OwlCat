@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=24 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
@@ -17,9 +17,9 @@
 [ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="15_f3p7i"]
 [ext_resource type="Texture2D" uid="uid://b7ly0kw61dxjt" path="res://Assets/UI/dark button3.png" id="15_iy8fc"]
 [ext_resource type="PackedScene" uid="uid://chh6ntuu2w48l" path="res://Assets/Bar for Godot/Environment.glb" id="17_3ig5w"]
-[ext_resource type="PackedScene" uid="uid://cm15pboui31mh" path="res://Assets/Bar for Godot/Furniture.glb" id="18_nxuft"]
 [ext_resource type="AudioStream" uid="uid://227d58teb845" path="res://Assets/Music/Title Screen.ogg" id="17_5qilu"]
 [ext_resource type="AudioStream" uid="uid://iqhc63qdoo06" path="res://Assets/Music/Swamp Bar.ogg" id="18_882tm"]
+[ext_resource type="PackedScene" uid="uid://cm15pboui31mh" path="res://Assets/Bar for Godot/Furniture.glb" id="18_nxuft"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vmfh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -613,10 +613,8 @@ theme_override_font_sizes/font_size = 112
 text = "Quit"
 
 [node name="Environment" parent="." instance=ExtResource("17_3ig5w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533452, -0.205534, 0.578962)
 
 [node name="Furniture" parent="." instance=ExtResource("18_nxuft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219969, 0, 0.568279)
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_5qilu")
