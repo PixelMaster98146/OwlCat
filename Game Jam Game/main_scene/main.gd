@@ -11,7 +11,6 @@ var money = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD/MainMenuBase/Start.grab_focus()
-	$MainMenuMusic.play()
 
 func _process(delta):
 	if Input.is_action_just_pressed("Pause"):
@@ -21,8 +20,6 @@ func _process(delta):
 
 func _on_start_game_pressed():
 	pass 
-	$MainMenuMusic.stop()
-	$GameplayMusic.play()
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$HUD/MainMenuBase.hide()
 	$PlayerCam/MeshInstance3D/Head/Camera3D.set_current(true)

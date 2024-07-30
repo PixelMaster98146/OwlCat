@@ -15,7 +15,7 @@ signal real
 var even_day = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
 var odd_day = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 var feb = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
-var possible_year = [1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005]
+var year = [1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005]
 var young_year = [2007, 2008, 2009, 2010]
 #2006
 
@@ -68,7 +68,7 @@ func get_random_info():
 	var birth_odd_day = odd_day.pick_random()
 	var birth_even_day = even_day.pick_random()
 	var birth_feb = feb.pick_random()
-	var birth_year = possible_year.pick_random()
+	var birth_year = year.pick_random()
 	#print(month_length + birth_year)
 	if legal_age <0.98:
 		if month_length == 1 or 3 or 5 or 7 or 8 or 10 or 12:
@@ -97,18 +97,15 @@ func get_random_info():
 	else: #might need to assign .pick_random to a variable for math-After date sysytem
 		if month_length == 1 or 3 or 5 or 7 or 8 or 10 or 12:
 			DOB.text = "DoB: " + str(birth_odd_day) + "-" + str(month_length) + "-" + str(2006)
-			real_id = false
-			##If date </> #full date as extension
+			##If date </>
 			#print("2006, odd")
 		elif month_length == 4 or 6 or 9 or 11:
 			DOB.text = "DoB: " + str(birth_even_day) + "-" + str(month_length) + "-" + str(2006)
-			real_id = false
-			##If date </> #full date as extension
+			##If date </>
 			#print("2006, even")
 		else: #2/feb
 			DOB.text = "DoB: " + str(birth_feb) + "-" + str(month_length) + "-" + str(2006)
-			real_id = false
-			##If date </> #full date as extension
+			##If date </>
 			#print("2006, feb")
 	
 	#Expiry
@@ -123,12 +120,10 @@ func get_random_info():
 		real_id = false
 		#print("expired")
 	else:
-		expiry.text = "Expiry: " + str(odd_day.pick_random()) + "-" + str(randi_range(1, 12)) + "-" + str(current_year)
-		real_id = false
+		expiry.text = "Expiry: " + str(odd_day.pick_random()) + "-" + str(randi_range(1, 12)) + "-" #+ str(current_year)
 		##If date </>
-		#if month and day higher. Maybe just year based
-		##Extension: exact date
-
+		#if monthday higher. Maybe just year based
+		
 	#photo
 	
 	var real_job = randf()

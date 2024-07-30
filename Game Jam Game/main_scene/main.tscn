@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=20 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
@@ -16,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://rxhtjwr3hnfp" path="res://Assets/UI/light button3.png" id="14_672su"]
 [ext_resource type="FontFile" uid="uid://boerf6c56ruo8" path="res://_Micellanious/Belanosima-Regular.ttf" id="15_f3p7i"]
 [ext_resource type="Texture2D" uid="uid://b7ly0kw61dxjt" path="res://Assets/UI/dark button3.png" id="15_iy8fc"]
-[ext_resource type="AudioStream" uid="uid://227d58teb845" path="res://Assets/Music/Title Screen.ogg" id="17_5qilu"]
-[ext_resource type="AudioStream" uid="uid://iqhc63qdoo06" path="res://Assets/Music/Swamp Bar.ogg" id="18_882tm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vmfh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -609,12 +607,6 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 112
 text = "Quit"
-
-[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_5qilu")
-
-[node name="GameplayMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_882tm")
 
 [connection signal="day_start" from="." to="Patrons" method="_on_day_start"]
 [connection signal="db_start" from="." to="Database" method="_on_main_db_start"]

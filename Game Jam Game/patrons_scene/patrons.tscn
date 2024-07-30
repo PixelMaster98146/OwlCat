@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmbd54u5g3ob8"]
+[gd_scene load_steps=12 format=3 uid="uid://dmbd54u5g3ob8"]
 
 [ext_resource type="Script" path="res://patrons_scene/patrons.gd" id="1_3erb7"]
 [ext_resource type="PackedScene" uid="uid://bddl4kpjleksp" path="res://patrons_scene/Patron1.glb" id="1_7tvn0"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dok4ac1k8gna2" path="res://patrons_scene/Patron3.glb" id="3_28xse"]
 [ext_resource type="PackedScene" uid="uid://b450obi3qhl5b" path="res://patrons_scene/Patron4.glb" id="4_wcc27"]
 [ext_resource type="PackedScene" uid="uid://cy0f30o4rdedu" path="res://id_scene/id_card.tscn" id="6_aipr1"]
-[ext_resource type="AudioStream" uid="uid://dt62u2j2gsu5x" path="res://Assets/Music/happy.wav" id="7_scd2t"]
-[ext_resource type="AudioStream" uid="uid://n61m0v1qarrg" path="res://Assets/Music/Evil_laugh.wav" id="8_3nbft"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0iu38"]
 
@@ -33,7 +31,7 @@ point_count = 9
 script = ExtResource("1_3erb7")
 
 [node name="PatronTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 3.0
 
 [node name="Models" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5705, 0, 4.60452)
@@ -240,14 +238,6 @@ mesh = SubResource("BoxMesh_7meuo")
 
 [node name="IDCard" parent="." instance=ExtResource("6_aipr1")]
 transform = Transform3D(-0.770168, 0, 0.637841, 0, 1, 0, -0.637841, 0, -0.770168, -0.400117, 0, -1.73329)
-
-[node name="Grumble" type="AudioStreamPlayer" parent="."]
-
-[node name="Happy" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_scd2t")
-
-[node name="EvilLaugh" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_3nbft")
 
 [connection signal="timeout" from="PatronTimer" to="." method="_on_patron_timer_timeout"]
 [connection signal="body_entered" from="PatronLeave" to="." method="_on_patron_leave_body_entered"]

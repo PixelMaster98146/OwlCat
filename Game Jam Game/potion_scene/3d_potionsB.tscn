@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnsoe38mgehna"]
+[gd_scene load_steps=5 format=3 uid="uid://dnsoe38mgehna"]
 
 [ext_resource type="Script" path="res://potion_scene/3d_potionsB.gd" id="1_y3ixy"]
+[ext_resource type="PackedScene" uid="uid://qo0klqeeg78v" path="res://potion_scene/3D assets/ingredients/mandrake-higher poly.glb" id="2_e4hns"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_52i4p"]
 
@@ -10,6 +11,7 @@
 script = ExtResource("1_y3ixy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_52i4p")
 skeleton = NodePath("")
 
@@ -20,5 +22,8 @@ shape = SubResource("BoxShape3D_eisu5")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_eisu5")
+
+[node name="mandrake-higher poly" parent="." instance=ExtResource("2_e4hns")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.138421, -0.172329, -0.0395288)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
