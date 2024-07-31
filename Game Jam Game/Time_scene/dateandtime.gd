@@ -40,7 +40,7 @@ func _ready():
 	if currday == null:
 		date = [9, currmonth,year]
 	else:
-		date = [22 + currday, currmonth,year]
+		date = [21 + currday, currmonth,year]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -57,7 +57,7 @@ func _process(delta):
 		fadetoblack.modulate = Color("black", maxdeathtime - deathtimer)
 
 func moveday():
-	currday = day[progress + 1]
+	currday += 1
 	progress += 1
 	dying = true
 	main.notfirsttime = true

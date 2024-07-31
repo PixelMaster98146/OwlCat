@@ -20,7 +20,7 @@ func _ready():
 	timer = maxtime
 	countdown = false
 	set_process_input(true)
-
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

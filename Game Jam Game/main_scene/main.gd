@@ -17,7 +17,7 @@ var notfirsttime = false;
 var ratspawn
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if player.dateandtime.date[0] >= 30:
+	if player.dateandtime.date[0] >= 30 || player.dateandtime.date[0] <= 22:
 		ratspawn = true
 	else:
 		ratspawn = false
