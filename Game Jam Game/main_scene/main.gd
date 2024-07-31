@@ -11,7 +11,7 @@ signal game_over_bad
 
 var money = 74
 var payment = 400
-var intro_played = true #should be saved
+var intro_played = false ##true #should be saved
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,12 +25,12 @@ func _process(delta):
 			##options.hide()
 
 func _on_start_game_pressed():
-	pass 
 	$MainMenuMusic.stop()
 	$GameplayMusic.play()
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$HUD/MainMenuBase.hide()
 	$PlayerCam/MeshInstance3D/Head/Camera3D.set_current(true)
+	$PauseMenu.enable()
 	if intro_played == true:
 		intro_cutscene.emit()
 		#Rent man walks in, breifly explains 7 week cycle, leaves

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cup2stodill18"]
+[gd_scene load_steps=25 format=3 uid="uid://cup2stodill18"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_hsxq6"]
 [ext_resource type="PackedScene" uid="uid://dlwii5f5k2pj" path="res://main_scene/bar.glb" id="2_quyvt"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bit2k8cxo3rjl" path="res://test_drag_mechanics/mix_area.tscn" id="7_4ohhq"]
 [ext_resource type="PackedScene" uid="uid://dn65bu4be5mhc" path="res://potion_scene/3d_potions.tscn" id="8_46f6h"]
 [ext_resource type="PackedScene" uid="uid://dnsoe38mgehna" path="res://potion_scene/3d_potionsB.tscn" id="9_h0lot"]
+[ext_resource type="Script" path="res://main_scene/PauseMenu.gd" id="10_tw3is"]
 [ext_resource type="PackedScene" uid="uid://c3nbbojwkgjwq" path="res://test_drag_mechanics/potion_spawn.tscn" id="10_ygg8h"]
 [ext_resource type="Texture2D" uid="uid://bloxgjdxdq6ss" path="res://Assets/UI/dialogue_box_dark.png" id="11_sh3qn"]
 [ext_resource type="Texture2D" uid="uid://cdbf8r4mwead5" path="res://main_scene/Arrow (BW).png" id="12_b6rju"]
@@ -329,6 +330,76 @@ theme_override_fonts/font = ExtResource("15_f3p7i")
 theme_override_font_sizes/font_size = 112
 text = "Quit"
 
+[node name="WeekDay" type="Label" parent="HUD"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 48
+text = "Week x: Day x"
+
+[node name="AcceptDeny" type="Control" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/AcceptDeny"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -142.0
+offset_right = 187.0
+offset_bottom = -50.0
+grow_vertical = 0
+
+[node name="Accept" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Database")
+focus_neighbor_bottom = NodePath("../Deny")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 32
+text = "Accept ID"
+
+[node name="Deny" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Accept")
+focus_neighbor_bottom = NodePath("../Database")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 32
+text = "Deny ID"
+
+[node name="Database" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Deny")
+focus_neighbor_bottom = NodePath("../Accept")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 32
+text = "Official registry"
+
+[node name="Money" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 140.0
+offset_right = 147.0
+offset_bottom = 189.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_f3p7i")
+theme_override_font_sizes/font_size = 44
+text = "Money: $0"
+
 [node name="Credits" type="Sprite2D" parent="HUD"]
 visible = false
 position = Vector2(576, 313)
@@ -438,83 +509,6 @@ scale = Vector2(0.24, 0.4)
 pivot_offset = Vector2(287.18, 126)
 texture_normal = ExtResource("12_b6rju")
 
-[node name="WeekDay" type="Label" parent="HUD"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("15_f3p7i")
-theme_override_font_sizes/font_size = 48
-text = "Week x: Day x"
-
-[node name="Pause Menu" type="Control" parent="HUD"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="AcceptDeny" type="Control" parent="HUD"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/AcceptDeny"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -142.0
-offset_right = 187.0
-offset_bottom = -50.0
-grow_vertical = 0
-
-[node name="Accept" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Database")
-focus_neighbor_bottom = NodePath("../Deny")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_f3p7i")
-theme_override_font_sizes/font_size = 32
-text = "Accept ID"
-
-[node name="Deny" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Accept")
-focus_neighbor_bottom = NodePath("../Database")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_f3p7i")
-theme_override_font_sizes/font_size = 32
-text = "Deny ID"
-
-[node name="Database" type="Button" parent="HUD/AcceptDeny/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Deny")
-focus_neighbor_bottom = NodePath("../Accept")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_f3p7i")
-theme_override_font_sizes/font_size = 32
-text = "Official registry"
-
-[node name="Money" type="Label" parent="HUD"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 140.0
-offset_right = 147.0
-offset_bottom = 189.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_f3p7i")
-theme_override_font_sizes/font_size = 44
-text = "Money: $0"
-
 [node name="Node3D" parent="." instance=ExtResource("7_4ohhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.01481, -7.99522, 1.12238, 5.14591)
 visible = false
@@ -551,6 +545,7 @@ visible = false
 position = Vector2(576, 320)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_kef3e")
+script = ExtResource("10_tw3is")
 
 [node name="Continue" type="TextureButton" parent="PauseMenu"]
 offset_left = -385.0
@@ -636,9 +631,9 @@ stream = ExtResource("18_882tm")
 [connection signal="pressed" from="HUD/MainMenuBase/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="HUD/MainMenuBase/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="HUD/MainMenuBase/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="HUD/Credits/CreditBackout" to="." method="_on_credits_backout_pressed"]
 [connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Accept" to="." method="_on_accept_pressed"]
 [connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Deny" to="." method="_on_deny_pressed"]
 [connection signal="pressed" from="HUD/AcceptDeny/VBoxContainer/Database" to="." method="_on_database_pressed"]
+[connection signal="pressed" from="HUD/Credits/CreditBackout" to="." method="_on_credits_backout_pressed"]
 [connection signal="pressed" from="PauseMenu/Continue" to="PauseMenu" method="_on_continue_pressed"]
 [connection signal="pressed" from="PauseMenu/Quit" to="PauseMenu" method="_on_quit_pressed"]

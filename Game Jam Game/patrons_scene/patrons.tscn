@@ -246,7 +246,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7442, 0, -16.801)
 mesh = SubResource("BoxMesh_7meuo")
 
 [node name="IDCard" parent="." instance=ExtResource("6_aipr1")]
-transform = Transform3D(-0.770168, 0, 0.637841, 0, 1, 0, -0.637841, 0, -0.770168, -0.400117, 0, -1.73329)
+transform = Transform3D(-0.770168, 0, 0.637841, 0, 1, 0, -0.637841, 0, -0.770168, -0.400117, -1.02905, -1.73329)
 
 [node name="Grumble" type="AudioStreamPlayer" parent="."]
 
