@@ -89,7 +89,6 @@ func _input(event):
 			checking = false
 			player.onID = false
 			mainscene.get_node("HUD").get_node("AcceptDeny").hide()
-			superunlockcam()
 			if id_card != null:
 				id_card.position = default_id_pos
 
@@ -540,9 +539,7 @@ func _on_order_complete():
 	#print("complete")
 	if real_patron == true:
 		$Happy.play()
-		
-		patronorders.get_node("patorder").text = nice_text.pick_random()
-		patronorders.get_node("patorder2").text = ""
+		###Label#.text = nice_text.pick_random()
 		#patronorders.get_node("patorder").text
 		#patronorders.get_node("patorder2").text
 		await get_tree().create_timer(1).timeout
@@ -585,9 +582,8 @@ func ordering():
 
 func updatelabel(currpatron, itemA, itemB):
 	var cpat
-	if currpatron.name != "Corporat":
-		currpatron.get_node("patorder").text = itemA
-		currpatron.get_node("patorder2").text = itemB
+	currpatron.get_node("patorder").text = itemA
+	currpatron.get_node("patorder2").text = itemB
 
 func cuss():
 	patronorders.get_node("patorder").text = "!@#$"
