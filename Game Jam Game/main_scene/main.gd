@@ -43,6 +43,7 @@ func _on_start_game_pressed():
 	$HUD/MainMenuBase.hide()
 	$PlayerCam/MeshInstance3D/Head/Camera3D.set_current(true)
 	$PauseMenu.enable()
+	$PlayerCam.show()
 	if intro_played == true:
 		intro_cutscene.emit()
 		#Rent man walks in, breifly explains 7 week cycle, leaves
@@ -120,3 +121,9 @@ func _on_patrons_raid():
 	##await get_tree().create_timer(120).timeout
 	##cutscene
 	##end day
+
+func _on_main_menu_music_finished():
+	$MainMenuMusic.play()
+
+func _on_gameplay_music_finished():
+	$GameplayMusic.play()
