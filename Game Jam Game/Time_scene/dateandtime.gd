@@ -1,6 +1,6 @@
 extends Node3D
 
-var save_path = "user://save_folder//currentdate.save"
+var save_path = "user://currentdate.save"
 
 var day = []
 var currday
@@ -63,7 +63,13 @@ func moveday():
 	main.notfirsttime = true
 	save()
 	await get_tree().create_timer(maxdeathtime - 0.3).timeout
-	get_tree().change_scene_to_file("res://main_scene/transition.tscn")
+	if date[0] >= 30:
+		if main.money >= main.payment:
+			get_tree().change_scene_to_file("res://endings/Success.tscn")
+		else:
+			get_tree().change_scene_to_file("res://endings/Fail.tscn")
+	else:
+		get_tree().change_scene_to_file("res://main_scene/transition.tscn")
 	
 func save():
 	var file = FileAccess.open(save_path,FileAccess.WRITE)

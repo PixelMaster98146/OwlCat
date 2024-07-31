@@ -10,10 +10,9 @@ signal game_over_bad
 @onready var patrons = $Patrons
 @onready var player = $PlayerCam
 
-
-var money = 74
+var money = 0
 var payment = 400
-var intro_played = false ##true #should be saved
+var intro_played = true ##true #should be saved
 var notfirsttime = false;
 var ratspawn
 # Called when the node enters the scene tree for the first time.
@@ -44,9 +43,10 @@ func _on_start_game_pressed():
 	$PlayerCam/MeshInstance3D/Head/Camera3D.set_current(true)
 	$PauseMenu.enable()
 	$PlayerCam.show()
-	if intro_played == true:
+	if intro_played == false:
 		intro_cutscene.emit()
 		#Rent man walks in, breifly explains 7 week cycle, leaves
+		intro_played = true
 	else:
 		day_start.emit() #Customers start coming in and day 1 starts
 	print("sent")

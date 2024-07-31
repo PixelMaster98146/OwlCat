@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bddl4kpjleksp" path="res://patrons_scene/Patron1.glb" id="1_7tvn0"]
 [ext_resource type="PackedScene" uid="uid://y463rn3dquoq" path="res://patrons_scene/Patron2.glb" id="2_ehgrm"]
 [ext_resource type="PackedScene" uid="uid://dok4ac1k8gna2" path="res://patrons_scene/Patron3.glb" id="3_28xse"]
-[ext_resource type="PackedScene" uid="uid://b7hghbd0xvruf" path="res://patrons_scene/GoblinModel/goblin animated.glb" id="3_gphgv"]
+[ext_resource type="PackedScene" uid="uid://duuddhpwapgf6" path="res://patrons_scene/GoblinModel2/goblin animated3.glb" id="3_rcev2"]
 [ext_resource type="PackedScene" uid="uid://b450obi3qhl5b" path="res://patrons_scene/Patron4.glb" id="4_wcc27"]
 [ext_resource type="PackedScene" uid="uid://cy0f30o4rdedu" path="res://id_scene/id_card.tscn" id="6_aipr1"]
 [ext_resource type="AudioStream" uid="uid://dt62u2j2gsu5x" path="res://Assets/Music/happy.wav" id="7_scd2t"]
@@ -34,7 +34,7 @@ point_count = 9
 script = ExtResource("1_3erb7")
 
 [node name="PatronTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 2.0
 
 [node name="Models" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5705, 0, 4.60452)
@@ -59,88 +59,22 @@ text = "Sample text"
 transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 3.09576, 0)
 text = "I am Rat"
 
-[node name="goblin animated" parent="Models" instance=ExtResource("3_gphgv")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0386181, 1.19209e-07, 0.079536)
-
-[node name="Skeleton3D" parent="Models/goblin animated/Armature" index="0"]
-bones/0/position = Vector3(-0.0621986, -0.0120343, 0.119506)
-bones/0/rotation = Quaternion(0.014785, 0.80133, 0.598018, -0.00511147)
-bones/1/position = Vector3(-0.00982688, 0.180937, 0.307123)
-bones/2/rotation = Quaternion(-0.431705, 3.9549e-08, 0.00355906, 0.902008)
-bones/3/rotation = Quaternion(0.000689716, 0.687079, 0.726582, -0.000689727)
-bones/4/position = Vector3(-0.00114457, 6.18629e-08, 0.53759)
-bones/4/rotation = Quaternion(0.00145088, 0.691166, 0.722693, -0.00151719)
-bones/5/position = Vector3(0.162013, 0.0346572, 0.0502997)
-bones/5/rotation = Quaternion(0.8729, 0.146696, 0.38091, 0.26727)
-bones/6/position = Vector3(0.113275, 0.213453, -0.0977344)
-bones/7/position = Vector3(-0.148271, -0.0056552, -0.0589652)
-bones/7/rotation = Quaternion(0.908127, 0.00819719, -0.408858, -0.0898511)
-bones/8/position = Vector3(-0.113768, 0.214406, -0.0977345)
-bones/9/position = Vector3(0.000914009, -0.00763556, -0.000619108)
-bones/9/rotation = Quaternion(-1.13893e-06, 6.86758e-06, 0.000606396, 1)
-bones/10/rotation = Quaternion(0.035308, -0.000127009, -0.000622428, 0.999376)
-bones/11/rotation = Quaternion(9.98557e-08, 5.87461e-08, -0.00165111, 0.999999)
-bones/12/rotation = Quaternion(-0.00377751, -0.00345359, -0.00318997, 0.999982)
-bones/14/rotation = Quaternion(-0.0302802, -0.0323026, -0.492304, 0.869296)
-bones/15/rotation = Quaternion(0.241719, 0.000335927, -0.120132, 0.962881)
-bones/16/rotation = Quaternion(-0.0199674, 0.915279, 0.101003, -0.389441)
-bones/17/rotation = Quaternion(-0.0414178, -0.0829142, 0.288033, 0.953125)
-bones/18/rotation = Quaternion(-0.188616, 0.0501406, 0.053398, 0.979315)
-bones/19/rotation = Quaternion(-0.130376, 0.206352, 0.0748891, 0.966857)
-bones/20/rotation = Quaternion(-0.130418, -0.218056, 0.370677, 0.893332)
-bones/21/rotation = Quaternion(-0.124545, 0.201317, 0.0225924, 0.971313)
-bones/22/rotation = Quaternion(-0.0866571, 0.107597, 0.0876577, 0.986524)
-bones/23/rotation = Quaternion(-0.136451, -0.288573, 0.350309, 0.880562)
-bones/24/rotation = Quaternion(-0.0324848, -0.0305355, 0.155275, 0.986865)
-bones/25/rotation = Quaternion(-0.0275534, 0.0234295, 0.124778, 0.991525)
-bones/26/rotation = Quaternion(-0.162516, -0.46887, 0.332914, 0.801822)
-bones/27/rotation = Quaternion(0.16562, -0.0163467, 0.0972124, 0.98125)
-bones/28/rotation = Quaternion(-0.0277574, -0.191195, 0.154634, 0.968898)
-bones/29/rotation = Quaternion(-0.278339, -0.308903, 0.12889, 0.900275)
-bones/30/rotation = Quaternion(0.110847, 0.0261457, 0.0579705, 0.991801)
-bones/31/rotation = Quaternion(-1.15268e-07, -2.47506e-08, 0.774713, 0.632313)
-bones/32/rotation = Quaternion(-0.072174, -0.0426042, 0.568543, 0.818373)
-bones/33/rotation = Quaternion(0.00288975, -0.000348898, 0.00143614, 0.999995)
-bones/34/rotation = Quaternion(-0.0292224, 0.9052, 0.0464671, 0.421426)
-bones/35/rotation = Quaternion(0.029056, 0.1243, -0.206052, 0.970179)
-bones/36/rotation = Quaternion(-0.137573, -0.0104638, 0.043598, 0.989476)
-bones/37/rotation = Quaternion(-0.0576985, -0.190936, 0.0145766, 0.979797)
-bones/38/rotation = Quaternion(-0.0764609, 0.257691, -0.279061, 0.921886)
-bones/39/rotation = Quaternion(-0.0857556, -0.177005, 0.0849509, 0.97678)
-bones/40/rotation = Quaternion(-0.0177375, -0.098264, 0.00605755, 0.994984)
-bones/41/rotation = Quaternion(-0.0884514, 0.325236, -0.253563, 0.906699)
-bones/42/rotation = Quaternion(-0.0351177, 0.0554194, -0.0414219, 0.996985)
-bones/43/rotation = Quaternion(-0.03672, -0.0076575, -0.00945788, 0.999252)
-bones/44/rotation = Quaternion(-0.1344, 0.499161, -0.226067, 0.825632)
-bones/45/rotation = Quaternion(0.129028, 0.0364764, 0.0116625, 0.990901)
-bones/46/rotation = Quaternion(-0.0926481, 0.213636, -0.0599044, 0.970663)
-bones/47/rotation = Quaternion(-0.278339, 0.308903, -0.12889, 0.900274)
-bones/48/rotation = Quaternion(0.110847, -0.0261457, -0.0579704, 0.991801)
-bones/49/rotation = Quaternion(0.0466794, 0.119393, 0.991611, 0.0165676)
-bones/50/rotation = Quaternion(-0.00310541, -0.00294602, 0.00173374, 0.999989)
-bones/51/rotation = Quaternion(0.363304, 0.0321672, -0.0102212, 0.931059)
-bones/52/rotation = Quaternion(0.431705, -3.84256e-08, -0.00355905, 0.902008)
-bones/53/rotation = Quaternion(-0.0653743, -0.0838835, 0.993725, -0.0346476)
-bones/54/rotation = Quaternion(-0.155512, 0.00289891, -0.0868244, 0.984007)
-bones/55/rotation = Quaternion(0.439057, -0.0397652, 0.0518301, 0.896081)
-bones/56/rotation = Quaternion(0.518357, 3.87081e-08, 0.00427343, 0.855154)
-bones/57/position = Vector3(0.0624039, 0.031402, -0.172363)
-bones/57/rotation = Quaternion(-0.00327985, 0.605697, 0.795685, -0.00249671)
-bones/58/rotation = Quaternion(-0.431705, -3.91463e-08, -0.00355906, 0.902008)
-bones/59/position = Vector3(0.0161794, 0.181578, 0.303893)
+[node name="goblin animated" parent="Models" instance=ExtResource("3_rcev2")]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Models/goblin animated"]
-transform = Transform3D(0.999999, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 0.999999, -0.0386181, -1.19209e-07, -0.079536)
+transform = Transform3D(-0.999999, 0, -1.43545e-07, 0, 1, 0, 1.43545e-07, 0, -0.999999, 0.0772362, 0, 0.159072)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/goblin animated/CharacterBody3D"]
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/goblin animated"]
-transform = Transform3D(-0.992576, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992576, -0.0386181, 2.65577, -0.079536)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.0772362, 2.65577, 0.159072)
+visible = false
 text = "Sample text"
 
 [node name="patorder2" type="Label3D" parent="Models/goblin animated"]
-transform = Transform3D(-0.992576, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992576, -0.0386181, 2.05577, -0.079536)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.0772362, 2.05577, 0.159072)
+visible = false
 text = "Sample text"
 
 [node name="Patron2" parent="Models" groups=["patron"] instance=ExtResource("2_ehgrm")]
@@ -268,39 +202,39 @@ curve = SubResource("Curve3D_icrct")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D3" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D4" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D5" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D6" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D7" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D8" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D9" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="PathFollow3D10" type="PathFollow3D" parent="PatrolPath2"]
 unique_name_in_owner = true
-transform = Transform3D(-0.999673, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999673, 5.30713, 0, -17.0725)
+transform = Transform3D(-0.999672, 0, 0.0253545, 0, 1, 0, -0.0253545, 0, -0.999672, 5.30713, 0, -17.0725)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17523, 0)
@@ -340,15 +274,25 @@ stream = ExtResource("8_3nbft")
 [connection signal="timeout" from="PatronTimer" to="." method="_on_patron_timer_timeout"]
 [connection signal="body_entered" from="PatronLeave" to="." method="_on_patron_leave_body_entered"]
 [connection signal="body_entered" from="Line/Counter" to="." method="_on_counter_body_entered"]
+[connection signal="body_exited" from="Line/Counter" to="." method="_on_counter_body_exited"]
 [connection signal="body_entered" from="Line/LineUp1" to="." method="_on_line_up_1_body_entered"]
+[connection signal="body_exited" from="Line/LineUp1" to="." method="_on_line_up_1_body_exited"]
 [connection signal="body_entered" from="Line/LineUp2" to="." method="_on_line_up_2_body_entered"]
+[connection signal="body_exited" from="Line/LineUp2" to="." method="_on_line_up_2_body_exited"]
 [connection signal="body_entered" from="Line/LineUp3" to="." method="_on_line_up_3_body_entered"]
+[connection signal="body_exited" from="Line/LineUp3" to="." method="_on_line_up_3_body_exited"]
 [connection signal="body_entered" from="Line/LineUp4" to="." method="_on_line_up_4_body_entered"]
+[connection signal="body_exited" from="Line/LineUp4" to="." method="_on_line_up_4_body_exited"]
 [connection signal="body_entered" from="Line/LineUp5" to="." method="_on_line_up_5_body_entered"]
+[connection signal="body_exited" from="Line/LineUp5" to="." method="_on_line_up_5_body_exited"]
 [connection signal="body_entered" from="Line/LineUp6" to="." method="_on_line_up_6_body_entered"]
+[connection signal="body_exited" from="Line/LineUp6" to="." method="_on_line_up_6_body_exited"]
 [connection signal="body_entered" from="Line/LineUp7" to="." method="_on_line_up_7_body_entered"]
+[connection signal="body_exited" from="Line/LineUp7" to="." method="_on_line_up_7_body_exited"]
 [connection signal="body_entered" from="Line/LineUp8" to="." method="_on_line_up_8_body_entered"]
+[connection signal="body_exited" from="Line/LineUp8" to="." method="_on_line_up_8_body_exited"]
 [connection signal="body_entered" from="Line/LineUp9" to="." method="_on_line_up_9_body_entered"]
+[connection signal="body_exited" from="Line/LineUp9" to="." method="_on_line_up_9_body_exited"]
 [connection signal="fake" from="IDCard" to="." method="_on_id_card_fake"]
 [connection signal="real" from="IDCard" to="." method="_on_id_card_real"]
 
