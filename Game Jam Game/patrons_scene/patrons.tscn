@@ -1,11 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmbd54u5g3ob8"]
+[gd_scene load_steps=12 format=3 uid="uid://dmbd54u5g3ob8"]
 
 [ext_resource type="Script" path="res://patrons_scene/patrons.gd" id="1_3erb7"]
-[ext_resource type="PackedScene" uid="uid://bddl4kpjleksp" path="res://patrons_scene/Patron1.glb" id="1_7tvn0"]
-[ext_resource type="PackedScene" uid="uid://y463rn3dquoq" path="res://patrons_scene/Patron2.glb" id="2_ehgrm"]
-[ext_resource type="PackedScene" uid="uid://dok4ac1k8gna2" path="res://patrons_scene/Patron3.glb" id="3_28xse"]
+[ext_resource type="PackedScene" uid="uid://oc246nvnw72a" path="res://patrons_scene/Corporat/corporat.glb" id="2_5aff8"]
 [ext_resource type="PackedScene" uid="uid://duuddhpwapgf6" path="res://patrons_scene/GoblinModel2/goblin animated3.glb" id="3_rcev2"]
-[ext_resource type="PackedScene" uid="uid://b450obi3qhl5b" path="res://patrons_scene/Patron4.glb" id="4_wcc27"]
 [ext_resource type="PackedScene" uid="uid://cy0f30o4rdedu" path="res://id_scene/id_card.tscn" id="6_aipr1"]
 [ext_resource type="AudioStream" uid="uid://dt62u2j2gsu5x" path="res://Assets/Music/happy.wav" id="7_scd2t"]
 [ext_resource type="AudioStream" uid="uid://n61m0v1qarrg" path="res://Assets/Music/Evil_laugh.wav" id="8_3nbft"]
@@ -40,23 +37,25 @@ wait_time = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5705, 0, 4.60452)
 metadata/_edit_group_ = true
 
-[node name="Corporat" parent="Models" instance=ExtResource("1_7tvn0")]
+[node name="Corporat" parent="Models" instance=ExtResource("2_5aff8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.153055, 0, 0.278224)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Corporat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153055, 0, -0.278224)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Corporat/CharacterBody3D"]
 shape = SubResource("BoxShape3D_0iu38")
 
 [node name="patorder" type="Label3D" parent="Models/Corporat"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.65577, 0)
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, -0.153055, 2.65577, -0.278224)
 text = "Sample text"
 
 [node name="patorder2" type="Label3D" parent="Models/Corporat"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, -0.153055, 2.05577, -0.278224)
 text = "Sample text"
 
 [node name="patorder3" type="Label3D" parent="Models/Corporat"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 3.09576, 0)
+transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, -0.153055, 3.09576, -0.278224)
 text = "I am Rat"
 
 [node name="goblin animated" parent="Models" instance=ExtResource("3_rcev2")]
@@ -75,51 +74,6 @@ text = "Sample text"
 [node name="patorder2" type="Label3D" parent="Models/goblin animated"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.0772362, 2.05577, 0.159072)
 visible = false
-text = "Sample text"
-
-[node name="Patron2" parent="Models" groups=["patron"] instance=ExtResource("2_ehgrm")]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron2/CharacterBody3D"]
-shape = SubResource("BoxShape3D_0iu38")
-
-[node name="patorder" type="Label3D" parent="Models/Patron2"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.60692, 0)
-text = "Sample text"
-
-[node name="patorder2" type="Label3D" parent="Models/Patron2"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
-text = "Sample text"
-
-[node name="Patron3" parent="Models" groups=["patron"] instance=ExtResource("3_28xse")]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron3/CharacterBody3D"]
-shape = SubResource("BoxShape3D_0iu38")
-
-[node name="patorder" type="Label3D" parent="Models/Patron3"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.63292, 0)
-text = "Sample text"
-
-[node name="patorder2" type="Label3D" parent="Models/Patron3"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
-text = "Sample text"
-
-[node name="Patron4" parent="Models" groups=["patron"] instance=ExtResource("4_wcc27")]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Models/Patron4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Patron4/CharacterBody3D"]
-shape = SubResource("BoxShape3D_0iu38")
-
-[node name="patorder" type="Label3D" parent="Models/Patron4"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.69513, 0)
-text = "Sample text"
-
-[node name="patorder2" type="Label3D" parent="Models/Patron4"]
-transform = Transform3D(-0.992577, 0, -0.121627, 0, 1, 0, 0.121627, 0, -0.992577, 0, 2.05577, 0)
 text = "Sample text"
 
 [node name="PatronLeave" type="Area3D" parent="."]
