@@ -76,8 +76,11 @@ func _ready():
 func _on_day_start(): #does not exist yet
 	#print("recieved")
 	path()
-	$PatronTimer.start()
-	player.timestop = false
+	if player.dateandtime.date[0] >= 30 || player.dateandtime.date[0] > 22:
+		$PatronTimer.start()
+		player.timestop = false
+	else:
+		player.timestop = true
 
 func _on_patron_timer_timeout():
 	path()
@@ -164,61 +167,118 @@ func path():
 	var GobAnim10 = _customer10.get_child(1)
 	$IDCard.get_random_info()
 	var _idcard = $IDCard.duplicate()
-	if path1.get_child_count() == 0: #and line_wait == false:
-		#print("1")
-		path1.add_child(_customer1)
-		_customer1.add_child(_idcard)
-		path1.progress = 0
-		GobAnim1.play("walk cycle")
-	elif path1.get_child_count() == 1 and path2.get_child_count() == 0:
-		#print("2")
-		path2.add_child(_customer2)
-		_customer2.add_child(_idcard)
-		path2.progress = 0
-		GobAnim2.play("walk cycle")
-	elif path2.get_child_count() == 1 and path3.get_child_count() == 0:
-		#print("3")
-		path3.add_child(_customer3)
-		path3.progress = 0
-		GobAnim3.play("walk cycle")
-	elif path3.get_child_count() == 1 and path4.get_child_count() == 0:
-		print("4")
-		path4.add_child(_customer4)
-		path4.progress = 0
-		GobAnim4.play("walk cycle")
-	elif path4.get_child_count() == 1 and path5.get_child_count() == 0:
-		print("5")
-		path5.add_child(_customer5)
-		path5.progress = 0
-		GobAnim5.play("walk cycle")
-	elif path5.get_child_count() == 1 and path6.get_child_count() == 0:
-		print("6")
-		path6.add_child(_customer6)
-		path6.progress = 0
-		GobAnim6.play("walk cycle")
-	elif path6.get_child_count() == 1 and path7.get_child_count() == 0:
-		print("7")
-		path7.add_child(_customer7)
-		path7.progress = 0
-		GobAnim7.play("walk cycle")
-	elif path7.get_child_count() == 1 and path8.get_child_count() == 0:
-		print("8")
-		path8.add_child(_customer8)
-		path8.progress = 0
-		GobAnim8.play("walk cycle")
-	elif path8.get_child_count() == 1 and path9.get_child_count() == 0:
-		print("9")
-		path9.add_child(_customer9)
-		path9.progress = 0
-		GobAnim9.play("walk cycle")
-	elif path9.get_child_count() == 1 and path10.get_child_count() == 0:
-		print("10")
-		path10.add_child(_customer10)
-		path10.progress = 0
-		GobAnim10.play("walk cycle")
+	if customer == corporat:
+		if path1.get_child_count() == 0: #and line_wait == false:
+			#print("1")
+			path1.add_child(_customer1)
+			_customer1.add_child(_idcard)
+			path1.progress = 0
+			#GobAnim1.play("walk cycle")
+		elif path1.get_child_count() == 1 and path2.get_child_count() == 0:
+			#print("2")
+			path2.add_child(_customer2)
+			_customer2.add_child(_idcard)
+			path2.progress = 0
+			#GobAnim2.play("walk cycle")
+		elif path2.get_child_count() == 1 and path3.get_child_count() == 0:
+			#print("3")
+			path3.add_child(_customer3)
+			path3.progress = 0
+			#GobAnim3.play("walk cycle")
+		elif path3.get_child_count() == 1 and path4.get_child_count() == 0:
+			print("4")
+			path4.add_child(_customer4)
+			path4.progress = 0
+			#GobAnim4.play("walk cycle")
+		elif path4.get_child_count() == 1 and path5.get_child_count() == 0:
+			print("5")
+			path5.add_child(_customer5)
+			path5.progress = 0
+			#GobAnim5.play("walk cycle")
+		elif path5.get_child_count() == 1 and path6.get_child_count() == 0:
+			print("6")
+			path6.add_child(_customer6)
+			path6.progress = 0
+			#GobAnim6.play("walk cycle")
+		elif path6.get_child_count() == 1 and path7.get_child_count() == 0:
+			print("7")
+			path7.add_child(_customer7)
+			path7.progress = 0
+			#GobAnim7.play("walk cycle")
+		elif path7.get_child_count() == 1 and path8.get_child_count() == 0:
+			print("8")
+			path8.add_child(_customer8)
+			path8.progress = 0
+			#GobAnim8.play("walk cycle")
+		elif path8.get_child_count() == 1 and path9.get_child_count() == 0:
+			print("9")
+			path9.add_child(_customer9)
+			path9.progress = 0
+			#GobAnim9.play("walk cycle")
+		elif path9.get_child_count() == 1 and path10.get_child_count() == 0:
+			print("10")
+			path10.add_child(_customer10)
+			path10.progress = 0
+			#GobAnim10.play("walk cycle")
+		else:
+			print("pass")
+			#$PatronTimer.stop()
 	else:
-		print("pass")
-		$PatronTimer.stop()
+		if path1.get_child_count() == 0: #and line_wait == false:
+			#print("1")
+			path1.add_child(_customer1)
+			_customer1.add_child(_idcard)
+			path1.progress = 0
+			GobAnim1.play("walk cycle")
+		elif path1.get_child_count() == 1 and path2.get_child_count() == 0:
+			#print("2")
+			path2.add_child(_customer2)
+			_customer2.add_child(_idcard)
+			path2.progress = 0
+			GobAnim2.play("walk cycle")
+		elif path2.get_child_count() == 1 and path3.get_child_count() == 0:
+			#print("3")
+			path3.add_child(_customer3)
+			path3.progress = 0
+			GobAnim3.play("walk cycle")
+		elif path3.get_child_count() == 1 and path4.get_child_count() == 0:
+			print("4")
+			path4.add_child(_customer4)
+			path4.progress = 0
+			GobAnim4.play("walk cycle")
+		elif path4.get_child_count() == 1 and path5.get_child_count() == 0:
+			print("5")
+			path5.add_child(_customer5)
+			path5.progress = 0
+			GobAnim5.play("walk cycle")
+		elif path5.get_child_count() == 1 and path6.get_child_count() == 0:
+			print("6")
+			path6.add_child(_customer6)
+			path6.progress = 0
+			GobAnim6.play("walk cycle")
+		elif path6.get_child_count() == 1 and path7.get_child_count() == 0:
+			print("7")
+			path7.add_child(_customer7)
+			path7.progress = 0
+			GobAnim7.play("walk cycle")
+		elif path7.get_child_count() == 1 and path8.get_child_count() == 0:
+			print("8")
+			path8.add_child(_customer8)
+			path8.progress = 0
+			GobAnim8.play("walk cycle")
+		elif path8.get_child_count() == 1 and path9.get_child_count() == 0:
+			print("9")
+			path9.add_child(_customer9)
+			path9.progress = 0
+			GobAnim9.play("walk cycle")
+		elif path9.get_child_count() == 1 and path10.get_child_count() == 0:
+			print("10")
+			path10.add_child(_customer10)
+			path10.progress = 0
+			GobAnim10.play("walk cycle")
+		else:
+			print("pass")
+			$PatronTimer.stop()
 
 func _on_patron_leave_body_entered(body):
 	body.get_parent().queue_free()
@@ -229,6 +289,10 @@ func _on_counter_body_entered(body):
 	patronorders = body.get_parent()
 	body.get_parent_node_3d().look_at(-player.position)
 	id_card = body.get_parent().get_node("IDCard")
+	if player.dateandtime.date[0] >= 30:
+		ratspeakend()
+	else:
+		ratspeakbegin()
 	if id_card != null:
 		default_id_pos = id_card.position
 		noID = false
@@ -239,7 +303,7 @@ func _on_counter_body_entered(body):
 	var counter_stop = body.get_parent().get_parent()
 	var model = body.get_parent()
 	var IDHandover = model.get_child(1)
-	IDHandover.play("give")
+	#IDHandover.play("give")
 	if counter_stop == path1:
 		moving1 = false
 	if counter_stop == path2:
@@ -269,7 +333,8 @@ func _on_line_up_1_body_entered(body):
 	var model = body.get_parent()
 	if counter_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line1_stop == path1:
 			moving1 = false
 		if line1_stop == path2:
@@ -298,7 +363,8 @@ func _on_line_up_2_body_entered(body):
 	var model = body.get_parent()
 	if line1_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line2_stop == path1:
 			moving1 = false
 		if line2_stop == path2:
@@ -327,7 +393,8 @@ func _on_line_up_3_body_entered(body):
 	var model = body.get_parent()
 	if line2_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line3_stop == path1:
 			moving1 = false
 		if line3_stop == path2:
@@ -356,7 +423,8 @@ func _on_line_up_4_body_entered(body):
 	var model = body.get_parent()
 	if line3_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line4_stop == path1:
 			moving1 = false
 		if line4_stop == path2:
@@ -385,7 +453,8 @@ func _on_line_up_5_body_entered(body):
 	var model = body.get_parent()
 	if line4_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line5_stop == path1:
 			moving1 = false
 		if line5_stop == path2:
@@ -414,7 +483,8 @@ func _on_line_up_6_body_entered(body):
 	var model = body.get_parent()
 	if line5_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line6_stop == path1:
 			moving1 = false
 		if line6_stop == path2:
@@ -443,7 +513,8 @@ func _on_line_up_7_body_entered(body):
 	var model = body.get_parent()
 	if line6_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line7_stop == path1:
 			moving1 = false
 		if line7_stop == path2:
@@ -472,7 +543,8 @@ func _on_line_up_8_body_entered(body):
 	var model = body.get_parent()
 	if line7_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line8_stop == path1:
 			moving1 = false
 		if line8_stop == path2:
@@ -501,7 +573,8 @@ func _on_line_up_9_body_entered(body):
 	var model = body.get_parent()
 	if line8_full == true:
 		var line_wait = model.get_child(1)
-		line_wait.stop()
+		if patronorders != corporat:
+			line_wait.stop()
 		if line9_stop == path1:
 			moving1 = false
 		if line9_stop == path2:
@@ -666,23 +739,23 @@ func intro():
 	_on_day_start()
 
 func game_over_good():
-	var corporat = $Models/Corporat.duplicate()
-	path1.add_child(corporat)
-	path1.progress = 0
-	##Dialouge
+	patronorders.get_node("patorder").text = "nice bro"
+	patronorders.get_node("patorder2").text = ""
+	await get_tree().create_timer(3).timeout
+	player.dateandtime.moveday()
+	
 	##Good ending screen
 
 func game_over_bad():
-	var corporat = $Models/Corporat.duplicate()
-	path1.add_child(corporat)
-	path1.progress = 0
-	##Dialouge
-	##Bad ending screen
+	patronorders.get_node("patorder").text = "Pay not enough"
+	patronorders.get_node("patorder2").text = "now shop close"
+	await get_tree().create_timer(2).timeout
+	player.dateandtime.moveday()
 
 func _on_counter_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 	model.rotation_degrees += Vector3(0, 50, 0)
 	patronorders.get_node("patorder").rotation_degrees += Vector3(0, 180, 0)
 	patronorders.get_node("patorder2").rotation_degrees += Vector3(0, 180, 0)
@@ -690,44 +763,68 @@ func _on_counter_body_exited(body):
 func _on_line_up_1_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 
 func _on_line_up_2_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 
 func _on_line_up_3_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 
 func _on_line_up_4_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 
 func _on_line_up_5_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 
 func _on_line_up_6_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 
 func _on_line_up_7_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 
 func _on_line_up_8_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
 
 func _on_line_up_9_body_exited(body):
 	var model = body.get_parent()
 	var resume_walk = model.get_child(1)
-	resume_walk.play("walk cycle")
+	#resume_walk.play("walk cycle")
+
+func ratspeakbegin():
+	patronorders.get_node("patorder").text = "you pay $400"
+	patronorders.get_node("patorder2").text = "or shop close"
+	await get_tree().create_timer(3).timeout
+	real_fake.pop_back()
+	moving1 = true
+	moving2 = true
+	moving3 = true
+	moving4 = true
+	moving5 = true
+	moving6 = true
+	moving7 = true
+	moving8 = true
+	moving9 = true
+	moving10 = true
+	await get_tree().create_timer(5).timeout
+	player.dateandtime.moveday()
+	
+func ratspeakend():
+	if mainscene.money >= mainscene.payment:
+		game_over_good()
+	else:
+		game_over_bad()
