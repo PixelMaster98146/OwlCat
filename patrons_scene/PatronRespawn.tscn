@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bffoj7ndnlf4v"]
-
-[ext_resource type="Script" path="res://patrons_scene/PatronRespawn.gd" id="1_1vpcs"]
-
-[node name="PatronRespawn" type="Node3D"]
-script = ExtResource("1_1vpcs")
