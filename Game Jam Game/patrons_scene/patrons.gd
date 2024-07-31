@@ -14,7 +14,7 @@ var real_id = true
 var selected = false
 var noID = false
 var real_patron = true
-@onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
+@onready var patron = [$"Models/goblin animated"]
 @onready var corporat = $Models/Corporat
 @onready var real_fake = []
 
@@ -37,6 +37,7 @@ var real_patron = true
 var id_card
 @onready var idcheck = $"../IDcheck"
 var mainscene
+@onready var GobAnim = $"Models/goblin animated/AnimationPlayer"
 
 @onready var mixarea = $"../Node3D"
 
@@ -238,7 +239,7 @@ func _on_counter_body_entered(body):
 		moving9 = false
 	if counter_stop == path10:
 		moving10 = false
-	##model.rotate
+	model.rotation_degrees += Vector3(0, 180, 0)
 	counter_full = true
 	##hand over id animation
 

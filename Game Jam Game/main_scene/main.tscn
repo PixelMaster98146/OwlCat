@@ -194,6 +194,7 @@ transform = Transform3D(-0.409923, 0, -0.912121, 0, 1, 0, 0.912121, 0, -0.409923
 
 [node name="PlayerCam" parent="." instance=ExtResource("6_5dmee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4541, 0, 5.9327)
+visible = false
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -639,3 +640,5 @@ stream = ExtResource("18_882tm")
 [connection signal="pressed" from="HUD/Credits/CreditBackout" to="." method="_on_credits_backout_pressed"]
 [connection signal="pressed" from="PauseMenu/Continue" to="PauseMenu" method="_on_continue_pressed"]
 [connection signal="pressed" from="PauseMenu/Quit" to="PauseMenu" method="_on_quit_pressed"]
+[connection signal="finished" from="MainMenuMusic" to="." method="_on_main_menu_music_finished"]
+[connection signal="finished" from="GameplayMusic" to="." method="_on_gameplay_music_finished"]
