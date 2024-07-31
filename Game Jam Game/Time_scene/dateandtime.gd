@@ -1,6 +1,6 @@
 extends Node3D
 
-var save_path = "res://save_folder//currentdate.save"
+var save_path = "user://save_folder//currentdate.save"
 
 var day = []
 var currday
@@ -38,7 +38,7 @@ func _ready():
 	currmonth = month[0]
 	loading()
 	if currday == null:
-		date = [23, currmonth,year]
+		date = [9, currmonth,year]
 	else:
 		date = [22 + currday, currmonth,year]
 
@@ -94,7 +94,7 @@ func loading():
 
 func resetsave():
 	var file = FileAccess.open(save_path,FileAccess.WRITE_READ)
-	currday = day[0]
+	currday = 1
 	progress = 1
 	main.money = 4
 	main.notfirsttime = false
