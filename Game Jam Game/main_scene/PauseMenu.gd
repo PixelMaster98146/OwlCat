@@ -30,12 +30,14 @@ func _process(delta):
 			#print("unpausing")
 			get_tree().paused = false
 			self.hide()
+			get_parent().get_node("Patrons").superunlockcam()
 
 func _on_continue_pressed():
 	game_paused = false
 	#print("unpausing")
 	get_tree().paused = false
 	self.hide()
+	get_parent().get_node("Patrons").superunlockcam()
 
 func _on_quit_pressed():
 	##Save ##get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)	(???)

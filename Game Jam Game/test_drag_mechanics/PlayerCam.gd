@@ -23,9 +23,9 @@ var timestop
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	maxtime = basemaxtime
-	onemin = 60 #change to 60 for 1 minute
+	onemin = 8 #change to 60 for 1 minute
 	secs = onemin
-	timestop = false #toggle this to true when pressing start base value == false
+	timestop = true #toggle this to true when pressing start base value == false
 	lockcam = false
 	onID = false
 	#optional codes below disables cursor ingame
@@ -48,6 +48,7 @@ func _input(event):
 		lockcam = true
 	elif event.is_action_pressed("ctrl"):
 		lockcam = !lockcam
+		
 func updatelabelA(itemA):
 	itema_label.text = itemA
 	

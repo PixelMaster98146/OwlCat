@@ -8,17 +8,29 @@ signal intro_cutscene
 signal game_over_good
 signal game_over_bad
 @onready var patrons = $Patrons
+@onready var player = $PlayerCam
+
 
 var money = 74
 var payment = 400
 var intro_played = false ##true #should be saved
-
+var notfirsttime = false;
+var ratspawn
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$HUD/MainMenuBase/Start.grab_focus()
-	$MainMenuMusic.play()
+	if player.dateandtime.date[0] >= 30:
+		ratspawn = true
+	else:
+		ratspawn = false
+	if notfirsttime == false:
+		$HUD/MainMenuBase/Start.grab_focus()
+		$MainMenuMusic.play()
+	else:
+		_on_start_game_pressed()
+	
 
 func _process(delta):
+	$HUD/Money.text = "Money: $" + str(money)
 	if Input.is_action_just_pressed("Pause"):
 		if $HUD/Credits.is_visible_in_tree() == true: ## or options == true:
 			$HUD/Credits.hide()
@@ -37,6 +49,7 @@ func _on_start_game_pressed():
 	else:
 		day_start.emit() #Customers start coming in and day 1 starts
 	print("sent")
+	
 	
 func _on_options_pressed():
 	pass #Do as extension
@@ -83,7 +96,7 @@ func _on_database_db_backout():
 func _on_patrons_payment():
 	#print("payed")
 	money += 50
-	$HUD/Money.text = "Money: $" + str(money)
+	
 	##Needs to be saved
 	
 ##func end of week ##triggered after 7 days pass (how)

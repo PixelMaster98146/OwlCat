@@ -15,6 +15,7 @@ var selected = false
 var noID = false
 var real_patron = true
 @onready var patron = [$Models/Patron1, $Models/Patron2, $Models/Patron3, $Models/Patron4]
+@onready var corporat = $Models/Corporat
 @onready var real_fake = []
 
 @onready var mean_text = ["@#$%", "Why can't you just do your job", "My day is ruined"]
@@ -73,9 +74,10 @@ func _ready():
 	
 
 func _on_day_start(): #does not exist yet
-	print("recieved")
+	#print("recieved")
 	path()
 	$PatronTimer.start()
+	player.timestop = false
 
 func _on_patron_timer_timeout():
 	path()
@@ -135,7 +137,11 @@ func _physics_process(delta):
 		path10.progress += move_speed * delta
 	
 func path():
-	var customer = patron.pick_random()
+	var customer
+	if mainscene.ratspawn == false:
+		customer = patron.pick_random()
+	else:
+		customer = corporat
 	var _customer1 = customer.duplicate()
 	var _customer2 = customer.duplicate()
 	var _customer3 = customer.duplicate()
@@ -149,17 +155,17 @@ func path():
 	$IDCard.get_random_info()
 	var _idcard = $IDCard.duplicate()
 	if path1.get_child_count() == 0: #and line_wait == false:
-		print("1")
+		#print("1")
 		path1.add_child(_customer1)
 		_customer1.add_child(_idcard)
 		path1.progress = 0
 	elif path1.get_child_count() == 1 and path2.get_child_count() == 0:
-		print("2")
+		#print("2")
 		path2.add_child(_customer2)
 		_customer2.add_child(_idcard)
 		path2.progress = 0
 	elif path2.get_child_count() == 1 and path3.get_child_count() == 0:
-		print("3")
+		#print("3")
 		path3.add_child(_customer3)
 		path3.progress = 0
 	elif path3.get_child_count() == 1 and path4.get_child_count() == 0:
@@ -539,9 +545,8 @@ func _on_order_complete():
 	#print("complete")
 	if real_patron == true:
 		$Happy.play()
-		###Label#.text = nice_text.pick_random()
-		#patronorders.get_node("patorder").text
-		#patronorders.get_node("patorder2").text
+		patronorders.get_node("patorder").text = nice_text.pick_random()
+		patronorders.get_node("patorder2").text = ""
 		await get_tree().create_timer(1).timeout
 		payment.emit()
 		await get_tree().create_timer(0.5).timeout
@@ -557,6 +562,8 @@ func _on_order_complete():
 		moving10 = true
 	elif real_patron == false:
 		###Label#.text = str(raidP1_text.pick_random()) + str(raidP2_text.pick_random())
+		patronorders.get_node("patorder").text = str(raidP1_text.pick_random())
+		patronorders.get_node("patorder2").text = str(raidP2_text.pick_random())
 		raid.emit()##emit raid signal ##2 minutes later shop is forced to close from adventurer raid
 		$EvilLaugh.play()
 		move_speed = 10.0

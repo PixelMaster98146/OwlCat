@@ -525,10 +525,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8512, 2.62779, 5.68068)
 [node name="PotionSpawn" parent="potion_spawnnode" instance=ExtResource("10_ygg8h")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1763, 1.18889, 7.25384)
+visible = false
 
 [node name="PotionSpawn2" parent="potion_spawnnode" instance=ExtResource("10_ygg8h")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1716, 0.990912, 5.73945)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, -11.8125, 0.473739, 5.02525)

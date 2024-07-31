@@ -8,7 +8,7 @@ var mouse = MOUSE_BUTTON_LEFT
 
 
 func _process(delta):
-	if Input.is_key_pressed(key):
+	if Input.is_key_pressed(key) || Input.is_mouse_button_pressed(mouse):
 		if obj == null:
 			
 			var collider = get_collider()
